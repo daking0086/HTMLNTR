@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary: #3b82f6;
+    --border-subtle: #2a2f38;
+  }
+
+  body {
+    @apply bg-zinc-950 text-zinc-200 min-h-screen;
+    background-color: #0f1116;
+  }
+}
+
+@layer components {
+  .vn-container {
+    @apply max-w-[1000px] mx-auto shadow-2xl;
+    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);
+  }
+
+  .character-name {
+    @apply font-display tracking-wide;
+  }
+
+  .vn-text {
+    @apply leading-relaxed text-[1.05rem];
+  }
+
+  .choice-btn {
+    @apply transition-all duration-200 ease-out;
+  }
+
+  .choice-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.2);
+  }
+
+  .stat-fill {
+    @apply transition-all duration-500;
+    transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .narration {
+    @apply italic text-zinc-400 border-l-[3px] border-blue-500 pl-4;
+  }
+}

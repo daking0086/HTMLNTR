@@ -1,0 +1,14 @@
+---
+pid: 16976
+cwd: "D:\RenPyProjects\HTMLNTR"
+command: "cd \"D:\\RenPyProjects\\HTMLNTR\" && python -m http.server 8765"
+started_at: 2026-06-17T21:04:18.983Z
+running_for_ms: 4185000  
+---
+At line:1 char:31
++ cd "D:\RenPyProjects\HTMLNTR" && python -m http.server 8765
++                               ~~
+The token '&&' is not a valid statement separator in this version.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : InvalidEndOfLine
+ 

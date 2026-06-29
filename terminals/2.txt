@@ -1,0 +1,8 @@
+---
+pid: 16412
+cwd: "D:\RenPyProjects\HTMLNTR"
+command: "Set-Location \"D:\\RenPyProjects\\HTMLNTR\"; python -m http.server 8765"
+started_at: 2026-06-17T21:04:42.640Z
+running_for_ms: 4159984  
+---
+Python was not found; run without arguments to install from the Microsoft Store, or disable this shortcut from Settings > Apps > Advanced app settings > App execution aliases.
