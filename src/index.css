@@ -143,4 +143,16 @@
   .narration {
     @apply italic text-zinc-400 border-l-[3px] border-blue-500 pl-4;
   }
+
+  .typewriter-active::after {
+    content: '▋';
+    @apply text-blue-400 ml-0.5;
+    animation: typewriter-blink 0.9s step-end infinite;
+  }
+
+  @keyframes typewriter-blink {
+    50% {
+      opacity: 0;
+    }
+  }
 }

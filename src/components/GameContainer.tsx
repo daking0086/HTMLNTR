@@ -5,6 +5,8 @@ import EndScreen from './EndScreen';
 import SceneStage from './game/SceneStage';
 import { getScenePicture } from '../logic/sceneVisual';
 import type { Choice, DialogueScene, Release, Scene } from '../types/game';
+import type { TextSpeed } from '../types/app';
+import { TEXT_SPEED_MS } from '../types/app';
 
 interface GameContainerProps {
   release: Release;
@@ -13,6 +15,7 @@ interface GameContainerProps {
   dayIndicator: string;
   isEnded: boolean;
   textSizeClass?: string;
+  textSpeed?: TextSpeed;
   onChoice: (choice: Choice) => void;
   onContinue: () => void;
   onRestart: () => void;
@@ -31,6 +34,7 @@ export default function GameContainer({
   dayIndicator,
   isEnded,
   textSizeClass,
+  textSpeed = 'normal',
   onChoice,
   onContinue,
   onRestart,
@@ -78,6 +82,8 @@ export default function GameContainer({
               scene={currentScene}
               isEnded={isEnded}
               textSizeClass={textSizeClass}
+              charDelayMs={TEXT_SPEED_MS[textSpeed].typewriter}
+              instantReveal={skipMode}
               compact
             />
 

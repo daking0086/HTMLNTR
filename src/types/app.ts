@@ -83,11 +83,11 @@ export const MAX_SAVE_SLOTS = 6;
 
 export const TEXT_SPEED_MS: Record<
   TextSpeed,
-  { choice: number; autoPlay: number; skip: number }
+  { choice: number; autoPlay: number; skip: number; typewriter: number }
 > = {
-  slow: { choice: 400, autoPlay: 4500, skip: 650 },
-  normal: { choice: 180, autoPlay: 3200, skip: 380 },
-  fast: { choice: 80, autoPlay: 1600, skip: 180 },
+  slow: { choice: 400, autoPlay: 4500, skip: 650, typewriter: 42 },
+  normal: { choice: 180, autoPlay: 3200, skip: 380, typewriter: 26 },
+  fast: { choice: 80, autoPlay: 1600, skip: 180, typewriter: 12 },
 };
 
 export const MAX_STORY_HISTORY = 500;

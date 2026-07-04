@@ -269,6 +269,7 @@ export default function App() {
             dayIndicator={game.dayIndicator}
             isEnded={game.gameState.isEnded}
             textSizeClass={textSizeClass}
+            textSpeed={settings.textSpeed}
             onChoice={game.makeChoice}
             onContinue={game.advanceNarration}
             onRestart={game.restartGame}

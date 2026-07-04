@@ -1,3 +1,4 @@
+import { useTypewriter } from '../hooks/useTypewriter';
 import type { Scene } from '../types/game';
 
 interface DialogueAreaProps {
@@ -5,6 +6,8 @@ interface DialogueAreaProps {
   isEnded: boolean;
   textSizeClass?: string;
   compact?: boolean;
+  charDelayMs?: number;
+  instantReveal?: boolean;
 }
 
 export default function DialogueArea({
@@ -12,10 +15,21 @@ export default function DialogueArea({
   isEnded,
   textSizeClass = 'text-[17px]',
   compact = false,
+  charDelayMs = 26,
+  instantReveal = false,
 }: DialogueAreaProps) {
-  if (isEnded || !scene) return null;
+  const isNarration = scene?.type === 'narration';
+  const fullText =
+    scene && isNarration ? scene.text.join('\n\n') : scene?.type === 'dialogue' ? scene.text : '';
 
-  const isNarration = scene.type === 'narration';
+  const { displayedText, isComplete } = useTypewriter({
+    text: fullText,
+    charDelayMs,
+    instant: instantReveal,
+    enabled: !isEnded && Boolean(scene),
+  });
+
+  if (isEnded || !scene) return null;
 
   return (
     <div className={`flex-1 min-h-0 flex flex-col ${compact ? 'px-4 py-3' : 'vn-padding vn-content-area'}`}>
@@ -29,9 +43,9 @@ export default function DialogueArea({
         <div
           className={`vn-text ${textSizeClass} leading-relaxed text-zinc-100 whitespace-pre-wrap ${
             compact ? 'max-w-none' : 'vn-dialogue-text'
-          } ${isNarration ? 'narration' : ''}`}
+          } ${isNarration ? 'narration' : ''} ${!isComplete ? 'typewriter-active' : ''}`}
         >
-          {isNarration ? scene.text.join('\n\n') : scene.text}
+          {displayedText}
         </div>
       </div>
     </div>
