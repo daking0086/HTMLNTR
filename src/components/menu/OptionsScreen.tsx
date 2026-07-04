@@ -2,6 +2,8 @@ import type { ReactNode } from 'react';
 import ScreenShell from './ScreenShell';
 import type { GameSettings, TextSize, TextSpeed } from '../../types/app';
 import { DEFAULT_SETTINGS } from '../../types/app';
+import { cloneDefaultKeyBindings } from '../../logic/keyBindings';
+import KeyBindingsEditor from './KeyBindingsEditor';
 
 interface OptionsScreenProps {
   settings: GameSettings;
@@ -86,6 +88,27 @@ export default function OptionsScreen({ settings, onChange, onBack }: OptionsScr
           </p>
         </OptionGroup>
 
+        <OptionGroup label="Story Log">
+          <ToggleButton
+            active={settings.showStoryLog}
+            label={settings.showStoryLog ? 'On' : 'Off'}
+            onClick={() => onChange({ showStoryLog: !settings.showStoryLog })}
+          />
+          <p className="text-xs text-zinc-600">
+            Enable the story log popup. Open it in-game with the Log button or your bound key (default P).
+          </p>
+        </OptionGroup>
+
+        <OptionGroup label="Keyboard Shortcuts">
+          <KeyBindingsEditor
+            keyBindings={settings.keyBindings}
+            onChange={(keyBindings) => onChange({ keyBindings })}
+          />
+          <p className="text-xs text-zinc-600">
+            Click a key badge to rebind. Changes save automatically.
+          </p>
+        </OptionGroup>
+
         <OptionGroup label="Music Volume">
           <input
             type="range"
@@ -112,7 +135,12 @@ export default function OptionsScreen({ settings, onChange, onBack }: OptionsScr
 
         <button
           type="button"
-          onClick={() => onChange(DEFAULT_SETTINGS)}
+          onClick={() =>
+            onChange({
+              ...DEFAULT_SETTINGS,
+              keyBindings: cloneDefaultKeyBindings(),
+            })
+          }
           className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors"
         >
           Reset to defaults

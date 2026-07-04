@@ -19,6 +19,7 @@ interface BaseScene {
 export interface NarrationScene extends BaseScene {
   type: 'narration';
   text: string[];
+  image?: string;
   next?: string;
   end?: boolean;
 }

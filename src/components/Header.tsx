@@ -5,7 +5,14 @@ interface HeaderProps {
   affection: number;
   corruption: number;
   autoPlay?: boolean;
+  skipMode?: boolean;
+  storyLogEnabled?: boolean;
+  storyLogOpen?: boolean;
+  canGoBack?: boolean;
   onToggleAuto?: () => void;
+  onToggleSkip?: () => void;
+  onToggleStoryLog?: () => void;
+  onBack?: () => void;
   showToolbar?: boolean;
   onMenu?: () => void;
   onSave?: () => void;
@@ -19,7 +26,14 @@ export default function Header({
   affection,
   corruption,
   autoPlay = false,
+  skipMode = false,
+  storyLogEnabled = true,
+  storyLogOpen = false,
+  canGoBack = false,
   onToggleAuto,
+  onToggleSkip,
+  onToggleStoryLog,
+  onBack,
   showToolbar = false,
   onMenu,
   onSave,
@@ -36,15 +50,31 @@ export default function Header({
         </div>
         <div>
           <h1 className="text-3xl font-semibold tracking-tighter">ThePhoneGame</h1>
-          <p className="text-xs text-zinc-500 -mt-1">React + TypeScript</p>
         </div>
       </div>
 
       <div className="flex flex-col sm:items-end gap-3">
-        {showToolbar && onToggleAuto && onMenu && onSave && onLoad && onOptions && onGallery && onExit && (
+        {showToolbar &&
+          onToggleAuto &&
+          onToggleSkip &&
+          onToggleStoryLog &&
+          onBack &&
+          onMenu &&
+          onSave &&
+          onLoad &&
+          onOptions &&
+          onGallery &&
+          onExit && (
           <GameToolbar
             autoPlay={autoPlay}
+            skipMode={skipMode}
+            storyLogEnabled={storyLogEnabled}
+            storyLogOpen={storyLogOpen}
+            canGoBack={canGoBack}
             onToggleAuto={onToggleAuto}
+            onToggleSkip={onToggleSkip}
+            onToggleStoryLog={onToggleStoryLog}
+            onBack={onBack}
             onMenu={onMenu}
             onSave={onSave}
             onLoad={onLoad}
@@ -53,7 +83,7 @@ export default function Header({
             onExit={onExit}
           />
         )}
-        <StatsBar affection={affection} corruption={corruption} />
+        {/* <StatsBar affection={affection} corruption={corruption} /> */}
       </div>
     </header>
   );

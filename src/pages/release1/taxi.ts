@@ -8,8 +8,23 @@ export const taxiScenes = {
     type: 'narration',
     text: [
       'Waiting Outside — The Long, Uncomfortable Night',
-      'The young airport worker escorts Ayesha out of the main terminal to a quieter side exit. It is already half an hour past midnight. The airport feels strangely empty — much fewer people than usual. A light rain is falling, and the streetlights cast long, eerie shadows.',
-      'Ayesha stands near the curb with her luggage, arms wrapped around herself. She glances around nervously.',
+      'The young airport worker escorts Ayesha to a quieter side exit. Half past midnight. The terminal behind her is nearly empty.',
+    ],
+    next: 'taxi_intro_rain',
+  },
+
+  taxi_intro_rain: {
+    page: 'taxi',
+    type: 'narration',
+    text: ['Light rain. Streetlights stretch long shadows across the curb.'],
+    next: 'taxi_intro_alone',
+  },
+
+  taxi_intro_alone: {
+    page: 'taxi',
+    type: 'narration',
+    text: [
+      'He leaves her with the bags once they are outside. Ayesha wraps her arms around herself and scans the dark street.',
     ],
     next: 'taxi_muttering',
   },
@@ -29,7 +44,17 @@ export const taxiScenes = {
     type: 'dialogue',
     speaker: 'Ayesha',
     portrait: AYESHA,
-    text: "Richard, where's the ride? I'm outside now. It's really late and I don't like the way some of these people are looking at me.",
+    text: "Richard, where's the ride? I'm outside now.",
+    location: 'Airport Side Exit - Texting',
+    next: 'taxi_first_message_two',
+  },
+
+  taxi_first_message_two: {
+    page: 'taxi',
+    type: 'dialogue',
+    speaker: 'Ayesha',
+    portrait: AYESHA,
+    text: "It's really late. I don't like the way some of these people are looking at me.",
     location: 'Airport Side Exit - Texting',
     next: 'taxi_richard_reply_one',
   },
@@ -38,7 +63,7 @@ export const taxiScenes = {
     page: 'taxi',
     type: 'dialogue',
     speaker: 'Richard',
-    text: "I'm on it. I already contacted the driver. He says he's on the way, should be 20 minutes max. Just stay safe, baby.",
+    text: "I'm on it. Driver says twenty minutes max. Stay on the line with me.",
     location: 'Empty Office - Detention',
     next: 'taxi_stares',
   },
@@ -47,8 +72,15 @@ export const taxiScenes = {
     page: 'taxi',
     type: 'narration',
     text: [
-      'Ayesha sighs and looks around again. A small group of rickshaw drivers and a few beggars linger nearby, waiting for late-night passengers. A couple of casual workers smoke and chat. Almost all of them keep stealing glances at her — hungry, lustful stares that make her skin crawl.',
+      'Rickshaw drivers and beggars linger by the curb. A few workers smoke and watch her openly.',
     ],
+    next: 'taxi_stares_two',
+  },
+
+  taxi_stares_two: {
+    page: 'taxi',
+    type: 'narration',
+    text: ['Hungry glances slide over her — slow, shameless, impossible to ignore.'],
     next: 'taxi_second_message',
   },
 
@@ -57,16 +89,52 @@ export const taxiScenes = {
     type: 'dialogue',
     speaker: 'Ayesha',
     portrait: AYESHA,
-    text: "There are these creepy rickshaw drivers and beggars staring at me like I'm some kind of meal. One old beggar hasn't taken his eyes off my chest. This is disgusting. I feel so uncomfortable. Where is this damn driver? I shouldn't have to wait around these low-class people.",
+    text: "Creepy rickshaw drivers and beggars are staring at me like I'm a meal.",
     location: 'Airport Side Exit - Texting',
+    next: 'taxi_second_message_two',
+  },
+
+  taxi_second_message_two: {
+    page: 'taxi',
+    type: 'dialogue',
+    speaker: 'Ayesha',
+    portrait: AYESHA,
+    text: "One old beggar won't take his eyes off my chest. Where is this damn driver?",
+    location: 'Airport Side Exit - Texting',
+    next: 'taxi_second_message_three',
+  },
+
+  taxi_second_message_three: {
+    page: 'taxi',
+    type: 'dialogue',
+    speaker: 'Ayesha',
+    portrait: AYESHA,
+    text: "I shouldn't have to wait around people like this.",
+    location: 'Airport Side Exit - Texting',
+    next: 'taxi_richard_reply_two',
+  },
+
+  taxi_richard_reply_two: {
+    page: 'taxi',
+    type: 'dialogue',
+    speaker: 'Richard',
+    text: "I know. Keep your back to them. Talk to me.",
+    location: 'Empty Office - Detention',
     next: 'taxi_wait',
   },
 
   taxi_wait: {
     page: 'taxi',
     type: 'narration',
+    text: ['Twenty minutes crawl by. The stares grow bolder.'],
+    next: 'taxi_beggar_mutters',
+  },
+
+  taxi_beggar_mutters: {
+    page: 'taxi',
+    type: 'narration',
     text: [
-      'Twenty minutes drag by slowly. The stares get bolder. One of the beggars mutters something in the local language while grinning. A rickshaw driver licks his lips openly while looking at her hips.',
+      'A beggar mutters something in the local language and grins. A rickshaw driver licks his lips while staring at her hips.',
     ],
     next: 'taxi_third_message',
   },
@@ -76,7 +144,17 @@ export const taxiScenes = {
     type: 'dialogue',
     speaker: 'Ayesha',
     portrait: AYESHA,
-    text: "Richard, they're still staring. This one guy just looked at my body like he wants to rip my clothes off. I hate this. I'm not safe here. Hurry up and get me out of this nightmare.",
+    text: "Richard, they're still staring. One of them looked at me like he wanted to rip my clothes off.",
+    location: 'Airport Side Exit - Texting',
+    next: 'taxi_third_message_two',
+  },
+
+  taxi_third_message_two: {
+    page: 'taxi',
+    type: 'dialogue',
+    speaker: 'Ayesha',
+    portrait: AYESHA,
+    text: "I'm not safe here. Get me out of this nightmare.",
     location: 'Airport Side Exit - Texting',
     next: 'taxi_flat_tire',
   },
@@ -85,7 +163,7 @@ export const taxiScenes = {
     page: 'taxi',
     type: 'dialogue',
     speaker: 'Richard',
-    text: "The driver just messaged me. He had a flat tire and can't make it. He's really sorry. He's sending his friend instead — he should be there any minute now. Just hold on a little longer.",
+    text: "Driver had a flat tire. He's sending a friend — should be there any minute.",
     location: 'Empty Office - Detention',
     next: 'taxi_frustrated_read',
   },
@@ -95,7 +173,17 @@ export const taxiScenes = {
     type: 'dialogue',
     speaker: 'Ayesha',
     portrait: AYESHA,
-    text: "Flat tire?! Are you kidding me? Now some random friend is coming? This is ridiculous. I'm standing here alone getting eye-fucked by beggars and dirty rickshaw drivers while you're stuck in that cell. I grew up with drivers who actually show up on time, not this kind of bullshit.",
+    text: "Flat tire?! Now some random friend is coming?",
+    location: 'Airport Side Exit - Rain',
+    next: 'taxi_frustrated_read_two',
+  },
+
+  taxi_frustrated_read_two: {
+    page: 'taxi',
+    type: 'dialogue',
+    speaker: 'Ayesha',
+    portrait: AYESHA,
+    text: "I'm alone out here while beggars stare and you're locked in that cell. I grew up with drivers who actually show up.",
     location: 'Airport Side Exit - Rain',
     next: 'taxi_bolder',
   },
@@ -103,9 +191,7 @@ export const taxiScenes = {
   taxi_bolder: {
     page: 'taxi',
     type: 'narration',
-    text: [
-      'She keeps shifting her weight, clearly uncomfortable. The group of men continues staring with open lust. One beggar even takes a few steps closer before his friend pulls him back.',
-    ],
+    text: ['A beggar takes a few steps closer. His friend grabs his arm and pulls him back.'],
     next: 'taxi_voice_crack',
   },
 
@@ -114,8 +200,27 @@ export const taxiScenes = {
     type: 'dialogue',
     speaker: 'Ayesha',
     portrait: AYESHA,
-    text: "They're getting bolder. I feel so exposed. Please tell me this friend is coming soon. I don't know how much longer I can stand here pretending I'm not scared.",
+    text: "They're getting bolder. Tell me this friend is close.",
     location: 'Airport Side Exit - Voice Note',
+    next: 'taxi_voice_crack_two',
+  },
+
+  taxi_voice_crack_two: {
+    page: 'taxi',
+    type: 'dialogue',
+    speaker: 'Ayesha',
+    portrait: AYESHA,
+    text: "I don't know how much longer I can pretend I'm not scared.",
+    location: 'Airport Side Exit - Voice Note',
+    next: 'taxi_richard_reply_three',
+  },
+
+  taxi_richard_reply_three: {
+    page: 'taxi',
+    type: 'dialogue',
+    speaker: 'Richard',
+    text: "Headlights just turned in. That's them. Stay with me.",
+    location: 'Empty Office - Detention',
     next: 'taxi_substitute_arrives',
   },
 
@@ -123,8 +228,15 @@ export const taxiScenes = {
     page: 'taxi',
     type: 'narration',
     text: [
-      'An old battered taxi pulls up. The driver — the same older, thick-set man with the greasy beard — steps out. He looks at Ayesha and smiles widely, his eyes immediately roaming over her body.',
+      'An old battered taxi pulls up. A thick-set man with a greasy beard steps out and smiles at her.',
     ],
+    next: 'taxi_substitute_stare',
+  },
+
+  taxi_substitute_stare: {
+    page: 'taxi',
+    type: 'narration',
+    text: ['His eyes roam over her before he says a word.'],
     next: 'taxi_driver_greeting',
   },
 
@@ -132,7 +244,7 @@ export const taxiScenes = {
     page: 'taxi',
     type: 'dialogue',
     speaker: 'Older Driver',
-    text: "Madam? I am friend of driver. He sent me. Sorry for delay. I take you to hotel. Very safe.",
+    text: "Madam? I am friend of driver. Sorry for delay. I take you to hotel. Very safe.",
     location: 'Airport Side Exit - Taxi',
     next: 'taxi_disgust',
   },
@@ -142,7 +254,17 @@ export const taxiScenes = {
     type: 'dialogue',
     speaker: 'Ayesha',
     portrait: AYESHA,
-    text: "Richard… this is the friend? He looks even worse. Old, dirty… and he's already staring at me the same way the others were. But I guess I have no choice now.",
+    text: "Richard… this is the friend? He looks worse than I imagined.",
+    location: 'Airport Side Exit - Whisper',
+    next: 'taxi_disgust_two',
+  },
+
+  taxi_disgust_two: {
+    page: 'taxi',
+    type: 'dialogue',
+    speaker: 'Ayesha',
+    portrait: AYESHA,
+    text: "He's already staring. I don't have a choice now.",
     location: 'Airport Side Exit - Whisper',
     next: 'taxi_loading',
   },
@@ -151,7 +273,7 @@ export const taxiScenes = {
     page: 'taxi',
     type: 'narration',
     text: [
-      'The driver starts loading her bags, taking his time and stealing glances at her chest and hips the whole time.',
+      'He loads her bags slowly, glancing at her chest and hips between each piece.',
     ],
     next: 'taxi_getting_in',
   },
@@ -161,7 +283,17 @@ export const taxiScenes = {
     type: 'dialogue',
     speaker: 'Ayesha',
     portrait: AYESHA,
-    text: "Okay… I'm getting in. Just stay on the phone with me the entire ride. I don't trust this guy at all. After everything that's happened tonight, I feel so unsafe. Please don't leave me alone, even for a second.",
+    text: "I'm getting in. Stay on the phone the entire ride.",
+    location: 'Airport Side Exit - Taxi',
+    next: 'taxi_getting_in_two',
+  },
+
+  taxi_getting_in_two: {
+    page: 'taxi',
+    type: 'dialogue',
+    speaker: 'Ayesha',
+    portrait: AYESHA,
+    text: "I don't trust him. Please don't leave me alone, even for a second.",
     location: 'Airport Side Exit - Taxi',
     next: 'taxi_enter_car',
   },
@@ -169,8 +301,15 @@ export const taxiScenes = {
   taxi_enter_car: {
     page: 'taxi',
     type: 'narration',
+    text: ['She slides into the back seat. Old leather creaks under her.'],
+    next: 'taxi_enter_car_two',
+  },
+
+  taxi_enter_car_two: {
+    page: 'taxi',
+    type: 'narration',
     text: [
-      'She slides into the back seat. The old leather creaks under her. The driver closes the door and gets behind the wheel, already watching her in the rearview mirror.',
+      'The driver shuts the door and takes the wheel, already finding her in the rearview mirror.',
     ],
     next: 'taxi_moving',
   },
@@ -180,17 +319,42 @@ export const taxiScenes = {
     type: 'dialogue',
     speaker: 'Ayesha',
     portrait: AYESHA,
-    text: "We're moving… God, this car smells awful. Everything about this night is wrong. I just want to get to the hotel and feel safe again. Talk to me, Richard. Please.",
+    text: "We're moving… God, this car smells awful.",
     location: 'Taxi - Back Seat',
+    next: 'taxi_moving_two',
+  },
+
+  taxi_moving_two: {
+    page: 'taxi',
+    type: 'dialogue',
+    speaker: 'Ayesha',
+    portrait: AYESHA,
+    text: 'Talk to me, Richard. Please. I just want to feel safe again.',
+    location: 'Taxi - Back Seat',
+    next: 'taxi_richard_ride',
+  },
+
+  taxi_richard_ride: {
+    page: 'taxi',
+    type: 'dialogue',
+    speaker: 'Richard',
+    text: "I'm here. I'm not hanging up.",
+    location: 'Empty Office - Detention',
     next: 'taxi_ride_start',
   },
 
   taxi_ride_start: {
     page: 'taxi',
     type: 'narration',
+    text: ['The Creepy Taxi Ride'],
+    next: 'taxi_ride_start_two',
+  },
+
+  taxi_ride_start_two: {
+    page: 'taxi',
+    type: 'narration',
     text: [
-      'The Creepy Taxi Ride',
-      'The old battered taxi pulls away from the airport into the dark, rainy night. Ayesha sits stiffly in the back seat, phone clutched tightly to her ear. The young worker\'s kindness already feels like a distant memory.',
+      'Rain streaks the windows. Ayesha sits stiff in the back seat, phone pressed to her ear.',
     ],
     next: 'taxi_driver_care',
   },
@@ -208,7 +372,7 @@ export const taxiScenes = {
     page: 'taxi',
     type: 'narration',
     text: [
-      'His eyes linger too long in the rearview mirror, slowly dragging over her chest and lap before returning to the road. Ayesha feels a chill run down her spine.',
+      'His eyes linger in the rearview mirror, dragging over her chest before returning to the road.',
     ],
     next: 'taxi_mirror_disgust',
   },
@@ -218,7 +382,17 @@ export const taxiScenes = {
     type: 'dialogue',
     speaker: 'Ayesha',
     portrait: AYESHA,
-    text: "Richard… this guy is already checking me out. He keeps looking at me in the mirror like I'm a piece of meat. Gross.",
+    text: "Richard… he's checking me out in the mirror like I'm meat.",
+    location: 'Taxi - Back Seat',
+    next: 'taxi_mirror_disgust_two',
+  },
+
+  taxi_mirror_disgust_two: {
+    page: 'taxi',
+    type: 'dialogue',
+    speaker: 'Ayesha',
+    portrait: AYESHA,
+    text: 'Gross.',
     location: 'Taxi - Back Seat',
     next: 'taxi_city_view',
   },
@@ -227,8 +401,15 @@ export const taxiScenes = {
     page: 'taxi',
     type: 'narration',
     text: [
-      'She turns her head toward the window, trying to ignore him. The streets outside look nothing like the clean, luxurious cities she grew up in back in the USA. Dirty alleys, broken sidewalks, overflowing garbage, and dimly lit shops with faded signs pass by. Everything feels rundown and unsafe.',
+      'She turns to the window. Dirty alleys, broken sidewalks, and garbage pass in the dark.',
     ],
+    next: 'taxi_city_view_two',
+  },
+
+  taxi_city_view_two: {
+    page: 'taxi',
+    type: 'narration',
+    text: ['Nothing like the clean cities she grew up in back home.'],
     next: 'taxi_city_voice',
   },
 
@@ -237,7 +418,7 @@ export const taxiScenes = {
     type: 'dialogue',
     speaker: 'Ayesha',
     portrait: AYESHA,
-    text: "God, this city looks so bad… everything is dirty and broken. Nothing like back home. I can't believe I'm actually here right now.",
+    text: "Everything looks broken. I can't believe I'm actually here.",
     location: 'Taxi - Back Seat',
     next: 'taxi_burp',
   },
@@ -245,9 +426,14 @@ export const taxiScenes = {
   taxi_burp: {
     page: 'taxi',
     type: 'narration',
-    text: [
-      'The driver shifts in his seat and lets out a loud, wet burp. The smell of alcohol and cheap tobacco fills the car. He looks slightly drunk, his eyes bloodshot as he stares at her again through the mirror — no shame, no manners at all.',
-    ],
+    text: ['The driver lets out a loud, wet burp. Alcohol and cheap tobacco fill the car.'],
+    next: 'taxi_burp_two',
+  },
+
+  taxi_burp_two: {
+    page: 'taxi',
+    type: 'narration',
+    text: ['Bloodshot eyes find her again in the mirror — no shame at all.'],
     next: 'taxi_burp_disgust',
   },
 
@@ -256,7 +442,7 @@ export const taxiScenes = {
     type: 'dialogue',
     speaker: 'Ayesha',
     portrait: AYESHA,
-    text: "Ugh, he just burped. He smells like alcohol. This guy has zero standards. He's disgusting, Richard. I feel so uncomfortable.",
+    text: "He smells like alcohol. Zero standards. He's disgusting, Richard.",
     location: 'Taxi - Back Seat',
     next: 'taxi_ugly_outside',
   },
@@ -265,7 +451,7 @@ export const taxiScenes = {
     page: 'taxi',
     type: 'narration',
     text: [
-      'She presses herself closer to the door and stares hard out the window, trying to block him out. But the view outside is not any better — dimly lit streets with stray dogs, a few shady-looking men loitering, and puddles of dirty water. The contrast to her privileged life back home hits her hard.',
+      'She presses against the door. Stray dogs and shady men slide past the glass.',
     ],
     next: 'taxi_raised_better',
   },
@@ -275,7 +461,7 @@ export const taxiScenes = {
     type: 'dialogue',
     speaker: 'Ayesha',
     portrait: AYESHA,
-    text: "Everything outside looks so ugly and dirty. I hate this. I'm not supposed to be in a place like this… I was raised better than this crap.",
+    text: "I'm not supposed to be in a place like this. I was raised better than this.",
     location: 'Taxi - Back Seat',
     next: 'taxi_red_light',
   },
@@ -283,8 +469,15 @@ export const taxiScenes = {
   taxi_red_light: {
     page: 'taxi',
     type: 'narration',
+    text: ['The taxi stops at a red light on an empty street. Silence turns heavy.'],
+    next: 'taxi_red_light_two',
+  },
+
+  taxi_red_light_two: {
+    page: 'taxi',
+    type: 'narration',
     text: [
-      'The taxi slows down and stops at a red light on an almost empty street. The silence feels heavy. In the rearview mirror, the driver is openly glaring at her now. His eyes roam slowly over her body — her chest, her hips, her thighs — with zero attempt to hide it. He licks his lips and adjusts himself in the seat.',
+      'In the mirror he stares openly — chest, hips, thighs — then licks his lips and shifts in his seat.',
     ],
     next: 'taxi_red_light_fear',
   },
@@ -294,27 +487,36 @@ export const taxiScenes = {
     type: 'dialogue',
     speaker: 'Ayesha',
     portrait: AYESHA,
-    text: "Richard… the light is red and he's just staring at me. Like really staring. I can see him in the mirror. He looks drunk and he's not even trying to hide it. I feel so exposed right now.",
+    text: "Richard… he's staring. Really staring. I can see him in the mirror.",
     location: 'Taxi - Red Light',
-    next: 'taxi_burp_again',
+    next: 'taxi_red_light_fear_two',
   },
 
-  taxi_burp_again: {
-    page: 'taxi',
-    type: 'narration',
-    text: [
-      'She quickly looks away again, heart beating faster, but the street outside offers no comfort — just dark, empty sidewalks and a couple of shadowy figures in the distance. The driver burps again, louder this time, and chuckles to himself.',
-    ],
-    next: 'taxi_urgent_whisper',
-  },
-
-  taxi_urgent_whisper: {
+  taxi_red_light_fear_two: {
     page: 'taxi',
     type: 'dialogue',
     speaker: 'Ayesha',
     portrait: AYESHA,
-    text: "He burped again… this guy is revolting. No morals at all. I just want to get to the hotel and lock myself in the room. Please keep talking to me. Don't let me be alone with my thoughts right now.",
+    text: "He looks drunk. I feel so exposed.",
     location: 'Taxi - Red Light',
+    next: 'taxi_richard_red_light',
+  },
+
+  taxi_richard_red_light: {
+    page: 'taxi',
+    type: 'dialogue',
+    speaker: 'Richard',
+    text: "Talk to me. Look at the phone, not him.",
+    location: 'Empty Office - Detention',
+    next: 'taxi_green_light',
+  },
+
+  taxi_green_light: {
+    page: 'taxi',
+    type: 'narration',
+    text: [
+      'The light turns green. He drives, but his eyes flick to the mirror every few seconds.',
+    ],
     next: 'taxi_journey_drags',
   },
 
@@ -322,8 +524,7 @@ export const taxiScenes = {
     page: 'taxi',
     type: 'narration',
     text: [
-      'The light finally turns green. The driver reluctantly looks back at the road and starts moving again, but his eyes keep flicking back to the mirror every few seconds, checking her out shamelessly the entire ride.',
-      'The journey drags on like this — uncomfortable silence mixed with the driver\'s disgusting behavior and the depressing view of the city outside. Ayesha stays glued to the phone, her usual arrogance slowly crumbling under the weight of fear and disgust.',
+      'The ride drags on — his stares, the filthy streets, her voice cracking on the phone.',
     ],
     next: 'taxi_hotel_sight',
   },
@@ -331,9 +532,14 @@ export const taxiScenes = {
   taxi_hotel_sight: {
     page: 'taxi',
     type: 'narration',
-    text: [
-      'Finally, the bright lights of a 5-star hotel appear ahead. The taxi pulls up to the grand entrance. The contrast is jarring — luxury waiting just a few steps away after such a filthy ride.',
-    ],
+    text: ['Bright hotel lights appear ahead. The taxi rolls up to a grand entrance.'],
+    next: 'taxi_hotel_sight_two',
+  },
+
+  taxi_hotel_sight_two: {
+    page: 'taxi',
+    type: 'narration',
+    text: ['Luxury after a filthy ride. The contrast is almost cruel.'],
     next: 'taxi_hotel_relief',
   },
 
@@ -342,7 +548,17 @@ export const taxiScenes = {
     type: 'dialogue',
     speaker: 'Ayesha',
     portrait: AYESHA,
-    text: "We're finally here… the hotel looks okay at least. I'm getting out now. But that whole ride was horrible. That disgusting man wouldn't stop staring at me. I need a long shower after all of this. Stay on the phone with me until I'm inside the room, okay?",
+    text: "We're here… hotel looks okay. I'm getting out now.",
+    location: 'Hotel Entrance - Taxi',
+    next: 'taxi_hotel_relief_two',
+  },
+
+  taxi_hotel_relief_two: {
+    page: 'taxi',
+    type: 'dialogue',
+    speaker: 'Ayesha',
+    portrait: AYESHA,
+    text: "That ride was horrible. Stay on the phone until I'm in the room.",
     location: 'Hotel Entrance - Taxi',
     next: 'taxi_pay_exit',
   },
@@ -350,9 +566,14 @@ export const taxiScenes = {
   taxi_pay_exit: {
     page: 'taxi',
     type: 'narration',
-    text: [
-      'She pays quickly, avoiding eye contact, and steps out with her bags. The old driver still watches her walk away with hungry eyes.',
-    ],
+    text: ['She pays without meeting his eyes and steps out with her bags.'],
+    next: 'taxi_pay_exit_two',
+  },
+
+  taxi_pay_exit_two: {
+    page: 'taxi',
+    type: 'narration',
+    text: ['The driver watches her walk away with hungry eyes.'],
     next: 'hotel_arrival',
   },
 } satisfies Scenes;

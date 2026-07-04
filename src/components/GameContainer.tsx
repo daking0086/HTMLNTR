@@ -1,8 +1,9 @@
-import SceneHeader from './SceneHeader';
 import DialogueArea from './DialogueArea';
 import Choices from './Choices';
 import NarrationContinue from './NarrationContinue';
 import EndScreen from './EndScreen';
+import SceneStage from './game/SceneStage';
+import { getScenePicture } from '../logic/sceneVisual';
 import type { Choice, DialogueScene, Release, Scene } from '../types/game';
 
 interface GameContainerProps {
@@ -16,6 +17,7 @@ interface GameContainerProps {
   onContinue: () => void;
   onRestart: () => void;
   autoPlay?: boolean;
+  skipMode?: boolean;
 }
 
 function isDialogueScene(scene: Scene): scene is DialogueScene {
@@ -33,6 +35,7 @@ export default function GameContainer({
   onContinue,
   onRestart,
   autoPlay = false,
+  skipMode = false,
 }: GameContainerProps) {
   const showNarrationContinue =
     !isEnded &&
@@ -47,29 +50,51 @@ export default function GameContainer({
     isDialogueScene(currentScene) &&
     (currentScene.choices?.length ?? 0) > 0;
 
-  const portrait =
-    currentScene && isDialogueScene(currentScene) ? (currentScene.portrait ?? null) : null;
+  const pictureSrc = getScenePicture(currentScene);
 
   return (
-    <main className="vn-container bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden shadow-2xl">
-      <SceneHeader
-        portrait={portrait}
-        sceneLocation={sceneLocation}
-        dayIndicator={dayIndicator}
-      />
-
+    <main className="vn-container vn-game-layout bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden shadow-2xl">
       {isEnded ? (
-        <EndScreen release={release} onRestart={onRestart} />
+        <>
+          <SceneStage
+            imageSrc={null}
+            sceneLocation={`${release.meta.title} · Complete`}
+            dayIndicator={release.meta.subtitle}
+          />
+          <div className="vn-script-panel">
+            <EndScreen release={release} onRestart={onRestart} compact />
+          </div>
+        </>
       ) : (
-        <DialogueArea scene={currentScene} isEnded={isEnded} textSizeClass={textSizeClass} />
-      )}
+        <>
+          <SceneStage
+            imageSrc={pictureSrc}
+            sceneLocation={sceneLocation}
+            dayIndicator={dayIndicator}
+          />
 
-      {showChoices && isDialogueScene(currentScene!) && currentScene.choices && (
-        <Choices choices={currentScene.choices} onChoice={onChoice} />
-      )}
+          <div className="vn-script-panel">
+            <DialogueArea
+              scene={currentScene}
+              isEnded={isEnded}
+              textSizeClass={textSizeClass}
+              compact
+            />
 
-      {showNarrationContinue && (
-        <NarrationContinue onContinue={onContinue} autoPlay={autoPlay} />
+            {showChoices && isDialogueScene(currentScene!) && currentScene.choices && (
+              <Choices choices={currentScene.choices} onChoice={onChoice} compact />
+            )}
+
+            {showNarrationContinue && (
+              <NarrationContinue
+                onContinue={onContinue}
+                autoPlay={autoPlay}
+                skipMode={skipMode}
+                compact
+              />
+            )}
+          </div>
+        </>
       )}
     </main>
   );

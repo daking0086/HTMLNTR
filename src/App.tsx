@@ -1,4 +1,6 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
+import StoryLogModal from './components/game/StoryLogModal';
+import { useKeyboardShortcuts } from './hooks/useKeyboardShortcuts';
 import Header from './components/Header';
 import GameContainer from './components/GameContainer';
 import MainMenu from './components/menu/MainMenu';
@@ -27,10 +29,14 @@ export default function App() {
   const [returnView, setReturnView] = useState<AppView>('menu');
   const [saveRefreshKey, setSaveRefreshKey] = useState(0);
   const [toast, setToast] = useState<string | null>(null);
+  const [skipMode, setSkipMode] = useState(false);
+  const [skipHeld, setSkipHeld] = useState(false);
+  const [storyLogOpen, setStoryLogOpen] = useState(false);
 
   const { settings, updateSettings } = useSettings();
   const gallery = useGallery();
-  const { confirm, ConfirmDialog } = useConfirm();
+  const { confirm, ConfirmDialog, isConfirmOpen } = useConfirm();
+  const skipActive = skipMode || skipHeld;
 
   const showToast = useCallback((message: string) => {
     setToast(message);
@@ -39,6 +45,7 @@ export default function App() {
 
   const game = useGameEngine({
     settings,
+    skipMode: skipActive,
     onSceneEnter: gallery.unlockForScene,
   });
 
@@ -52,6 +59,8 @@ export default function App() {
   }, [returnView]);
 
   const startNewGame = useCallback(() => {
+    setSkipMode(false);
+    setSkipHeld(false);
     game.loadGameState(INITIAL_STATE);
     setView('game');
   }, [game]);
@@ -70,7 +79,12 @@ export default function App() {
       confirmLabel: 'Return',
       cancelLabel: 'Stay',
     });
-    if (leave) setView('menu');
+    if (leave) {
+      setSkipMode(false);
+      setSkipHeld(false);
+      setStoryLogOpen(false);
+      setView('menu');
+    }
   }, [confirm]);
 
   const handleExit = useCallback(async () => {
@@ -133,8 +147,86 @@ export default function App() {
     updateSettings({ autoPlay: !settings.autoPlay });
   }, [settings.autoPlay, updateSettings]);
 
+  const toggleSkipMode = useCallback(() => {
+    setSkipMode((prev) => !prev);
+  }, []);
+
+  const toggleStoryLogPopup = useCallback(() => {
+    if (!settings.showStoryLog) return;
+    setStoryLogOpen((prev) => !prev);
+  }, [settings.showStoryLog]);
+
+  const closeStoryLog = useCallback(() => {
+    setStoryLogOpen(false);
+  }, []);
+
+  const keyboardHandlers = useMemo(() => {
+    if (view === 'game') {
+      return {
+        onContinue: () => {
+          if (!game.gameState.isEnded) {
+            game.advanceNarration();
+          }
+        },
+        onSkipHoldStart: () => setSkipHeld(true),
+        onSkipHoldEnd: () => setSkipHeld(false),
+        onBack: () => {
+          if (game.canGoBack) {
+            game.goBack();
+          }
+        },
+        onSave: () => openScreen('save', 'game'),
+        onLoad: () => openScreen('load', 'game'),
+        onGallery: () => openScreen('gallery', 'game'),
+        onOptions: () => openScreen('options', 'game'),
+        onMenu: () => {
+          void handleMenu();
+        },
+        onExit: () => {
+          void handleExit();
+        },
+        onToggleLog: toggleStoryLogPopup,
+      };
+    }
+
+    if (view === 'menu') {
+      return {
+        onSave: () => openScreen('save', 'menu'),
+        onLoad: () => openScreen('load', 'menu'),
+        onGallery: () => openScreen('gallery', 'menu'),
+        onOptions: () => openScreen('options', 'menu'),
+        onExit: () => {
+          void handleExit();
+        },
+      };
+    }
+
+    if (view === 'save' || view === 'load' || view === 'options' || view === 'gallery') {
+      return {
+        onBack: goBack,
+        onExit: () => {
+          void handleExit();
+        },
+      };
+    }
+
+    return {};
+  }, [
+    view,
+    game,
+    openScreen,
+    goBack,
+    handleMenu,
+    handleExit,
+    toggleStoryLogPopup,
+  ]);
+
+  useKeyboardShortcuts(view !== 'exit' && view !== 'options', settings.keyBindings, keyboardHandlers, {
+    blockInput: isConfirmOpen || storyLogOpen,
+  });
+
   return (
-    <div className="max-w-[980px] mx-auto px-4 py-8 relative">
+    <div className="max-w-[1200px] mx-auto px-4 py-8 relative">
       {view === 'menu' && (
         <MainMenu
           hasSave={hasAnySave()}
@@ -153,7 +245,14 @@ export default function App() {
             affection={game.gameState.affection}
             corruption={game.gameState.corruption}
             autoPlay={settings.autoPlay}
+            skipMode={skipMode}
+            storyLogEnabled={settings.showStoryLog}
+            storyLogOpen={storyLogOpen}
+            canGoBack={game.canGoBack}
             onToggleAuto={toggleAutoPlay}
+            onToggleSkip={toggleSkipMode}
+            onToggleStoryLog={toggleStoryLogPopup}
+            onBack={game.goBack}
             showToolbar
             onMenu={handleMenu}
             onSave={() => openScreen('save', 'game')}
@@ -174,6 +273,16 @@ export default function App() {
             onContinue={game.advanceNarration}
             onRestart={game.restartGame}
             autoPlay={settings.autoPlay}
+            skipMode={skipActive}
+          />
+
+          <StoryLogModal
+            open={storyLogOpen && settings.showStoryLog}
+            entries={game.storyLog}
+            activeIndex={game.storyLog.length - 1}
+            canGoBack={game.canGoBack}
+            onClose={closeStoryLog}
+            onSelectEntry={game.goBackToLogIndex}
           />
         </>
       )}
@@ -200,7 +309,10 @@ export default function App() {
       {view === 'options' && (
         <OptionsScreen
           settings={settings}
-          onChange={updateSettings}
+          onChange={(patch) => {
+            updateSettings(patch);
+            if (patch.showStoryLog === false) setStoryLogOpen(false);
+          }}
           onBack={goBack}
         />
       )}

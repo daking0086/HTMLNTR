@@ -12,7 +12,7 @@ export default function SceneHeader({
   return (
     <div className="px-6 py-4 bg-zinc-950 border-b border-zinc-800 flex items-center justify-between">
       <div className="flex items-center gap-x-3">
-        <div className="w-12 h-12 rounded-2xl overflow-hidden border-2 border-zinc-700 bg-zinc-800 flex-shrink-0">
+        <div className="vn-portrait rounded-2xl overflow-hidden border-2 border-zinc-700 bg-zinc-800 flex-shrink-0">
           {portrait && (
             <img src={portrait} className="w-full h-full object-cover" alt="" />
           )}

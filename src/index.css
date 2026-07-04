@@ -8,6 +8,18 @@
   :root {
     --primary: #3b82f6;
     --border-subtle: #2a2f38;
+    --vn-max-width: 1200px;
+    --vn-game-height: min(85vh, 960px);
+    --vn-stage-ratio: 7;
+    --vn-script-ratio: 3;
+    --vn-min-height: 504px;
+    --vn-story-log-max-height: 10.8rem;
+    --vn-story-log-compact-max-height: 4.5rem;
+    --vn-padding: 2.4rem;
+    --vn-script-padding: 1rem;
+    --vn-dialogue-max-width: 41.6rem;
+    --vn-portrait-size: 3.6rem;
+    --vn-scene-image-size: 12rem;
   }
 
   body {
@@ -18,8 +30,92 @@
 
 @layer components {
   .vn-container {
-    @apply max-w-[1000px] mx-auto shadow-2xl;
+    max-width: var(--vn-max-width);
+    @apply mx-auto shadow-2xl;
     box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);
+  }
+
+  .vn-game-layout {
+    display: flex;
+    flex-direction: column;
+    height: var(--vn-game-height);
+    min-height: 640px;
+  }
+
+  .vn-stage {
+    flex: var(--vn-stage-ratio) 1 0;
+    min-height: 0;
+  }
+
+  .vn-script-panel {
+    flex: var(--vn-script-ratio) 1 0;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #09090b;
+    border-top: 1px solid #27272a;
+  }
+
+  .vn-content-area {
+    min-height: var(--vn-min-height);
+  }
+
+  .vn-story-log-compact {
+    max-height: var(--vn-story-log-compact-max-height);
+  }
+
+  .vn-story-log-modal-scroll {
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-gutter: stable;
+    scrollbar-width: thin;
+    scrollbar-color: #52525b #18181b;
+  }
+
+  .vn-story-log-modal-scroll::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  .vn-story-log-modal-scroll::-webkit-scrollbar-track {
+    background: #18181b;
+    border-radius: 999px;
+  }
+
+  .vn-story-log-modal-scroll::-webkit-scrollbar-thumb {
+    background: #52525b;
+    border-radius: 999px;
+    border: 2px solid #18181b;
+  }
+
+  .vn-story-log-modal-scroll::-webkit-scrollbar-thumb:hover {
+    background: #71717a;
+  }
+
+  .vn-story-log-scroll {
+    max-height: var(--vn-story-log-max-height);
+  }
+
+  .vn-padding {
+    padding: var(--vn-padding);
+  }
+
+  .vn-padding-x {
+    padding-left: var(--vn-padding);
+    padding-right: var(--vn-padding);
+  }
+
+  .vn-dialogue-text {
+    max-width: var(--vn-dialogue-max-width);
+  }
+
+  .vn-portrait {
+    width: var(--vn-portrait-size);
+    height: var(--vn-portrait-size);
+  }
+
+  .vn-scene-image {
+    width: var(--vn-scene-image-size);
+    height: var(--vn-scene-image-size);
   }
 
   .character-name {

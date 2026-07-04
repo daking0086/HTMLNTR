@@ -1,6 +1,13 @@
 interface GameToolbarProps {
   autoPlay: boolean;
+  skipMode: boolean;
+  storyLogEnabled: boolean;
+  storyLogOpen: boolean;
+  canGoBack: boolean;
   onToggleAuto: () => void;
+  onToggleSkip: () => void;
+  onToggleStoryLog: () => void;
+  onBack: () => void;
   onMenu: () => void;
   onSave: () => void;
   onLoad: () => void;
@@ -14,18 +21,21 @@ function ToolButton({
   label,
   onClick,
   active = false,
+  disabled = false,
 }: {
   icon: string;
   label: string;
   onClick: () => void;
   active?: boolean;
+  disabled?: boolean;
 }) {
   return (
     <button
       type="button"
       onClick={onClick}
+      disabled={disabled}
       title={label}
-      className={`px-3 py-1.5 rounded-lg text-xs transition-colors flex items-center gap-x-1.5 ${
+      className={`px-3 py-1.5 rounded-lg text-xs transition-colors flex items-center gap-x-1.5 disabled:opacity-40 disabled:pointer-events-none ${
         active
           ? 'bg-blue-600 text-white hover:bg-blue-500'
           : 'bg-zinc-800 hover:bg-zinc-700 text-zinc-300'
@@ -39,7 +49,14 @@ function ToolButton({
 
 export default function GameToolbar({
   autoPlay,
+  skipMode,
+  storyLogEnabled,
+  storyLogOpen,
+  canGoBack,
   onToggleAuto,
+  onToggleSkip,
+  onToggleStoryLog,
+  onBack,
   onMenu,
   onSave,
   onLoad,
@@ -49,6 +66,26 @@ export default function GameToolbar({
 }: GameToolbarProps) {
   return (
     <div className="flex items-center gap-2 flex-wrap justify-end">
+      <ToolButton
+        icon="fa-backward-step"
+        label="Back"
+        onClick={onBack}
+        disabled={!canGoBack}
+      />
+      <ToolButton
+        icon="fa-angles-right"
+        label="Skip"
+        onClick={onToggleSkip}
+        active={skipMode}
+      />
+      {storyLogEnabled && (
+        <ToolButton
+          icon="fa-list"
+          label="Log"
+          onClick={onToggleStoryLog}
+          active={storyLogOpen}
+        />
+      )}
       <ToolButton
         icon="fa-forward-step"
         label="Auto"

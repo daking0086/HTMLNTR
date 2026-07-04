@@ -1,5 +1,6 @@
 import type { GameSettings, SaveSlot } from '../types/app';
 import { DEFAULT_SETTINGS } from '../types/app';
+import { mergeKeyBindings } from './keyBindings';
 
 const KEYS = {
   saves: 'htmlntr_saves',
@@ -29,6 +30,8 @@ export function loadSettings(): GameSettings {
     ...DEFAULT_SETTINGS,
     ...rest,
     autoPlay: rest.autoPlay ?? autoAdvance ?? DEFAULT_SETTINGS.autoPlay,
+    showStoryLog: rest.showStoryLog ?? DEFAULT_SETTINGS.showStoryLog,
+    keyBindings: mergeKeyBindings(rest.keyBindings),
   };
 }
 

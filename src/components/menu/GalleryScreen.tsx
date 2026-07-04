@@ -31,17 +31,22 @@ export default function GalleryScreen({
               <button
                 key={entry.id}
                 type="button"
-                onClick={() => unlocked && setSelected(entry)}
+                onClick={() => unlocked && entry.image && setSelected(entry)}
                 disabled={!unlocked}
                 className="group text-left rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-950 disabled:cursor-not-allowed transition-all hover:border-zinc-700"
               >
                 <div className="aspect-[3/4] relative bg-zinc-900">
-                  {unlocked ? (
+                  {unlocked && entry.image ? (
                     <img
                       src={entry.image}
                       alt={entry.title}
                       className="w-full h-full object-cover"
                     />
+                  ) : unlocked ? (
+                    <div className="w-full h-full flex flex-col items-center justify-center text-zinc-600 gap-2">
+                      <i className="fa-solid fa-image text-2xl" />
+                      <span className="text-[10px] uppercase tracking-widest">Coming soon</span>
+                    </div>
                   ) : (
                     <div className="w-full h-full flex items-center justify-center text-zinc-700">
                       <i className="fa-solid fa-lock text-2xl" />
