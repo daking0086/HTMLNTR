@@ -1,6 +1,10 @@
 import type { Scenes } from '../../types/game';
 
-const AYESHA = '/assets/images/ayesha/ayesha_profile.png';
+const AYESHA = '';
+
+/** Scene backgrounds — paths are relative to the public/ folder. */
+const BG_AIRPORT_OUTSIDE = '/assets/images/backgrounds/airport/airport.png';
+const BG_EMPTY_OFFICE = '/assets/images/backgrounds/airport/emptyOffice.png';
 
 export const airportScenes = {
   airport_richard_office: {
@@ -57,6 +61,7 @@ export const airportScenes = {
     portrait: AYESHA,
     text: "It's humid, it's filthy, and people keep staring like I've done something wrong.",
     location: 'Outside the Airport - Night',
+    image: BG_AIRPORT_OUTSIDE,
     next: 'airport_ayesha_pickup_three',
   },
 
@@ -100,20 +105,110 @@ export const airportScenes = {
     next: 'airport_guards_approach',
   },
 
+  // Airport check — officers pull Ayesha for a "routine" body search
+
   airport_guards_approach: {
     page: 'airport',
     type: 'narration',
-    text: ['The same two officers step in close — cunning, unhurried.'],
-    next: 'airport_guards_speak',
+    text: [
+      'The same two officers close in — unhurried, like they have all night.',
+      'Officer 1 is enormous: bald, thick-necked, belly straining his uniform. Officer 2 is half his height, skinny, bald, with small clever eyes behind wire glasses.',
+    ],
+    image: BG_AIRPORT_OUTSIDE,
+    next: 'airport_guards_officer1_one',
   },
 
-  airport_guards_speak: {
+  airport_guards_officer1_one: {
+    page: 'airport',
+    type: 'dialogue',
+    speaker: 'Officer 1',
+    text: 'Madam. Airport security. You come with us now — full passenger check.',
+    location: 'Outside the Airport - Night',
+    image: BG_AIRPORT_OUTSIDE,
+    next: 'airport_guards_officer2_one',
+  },
+
+  airport_guards_officer2_one: {
+    page: 'airport',
+    type: 'dialogue',
+    speaker: 'Officer 2',
+    text: 'Standard procedure for spouses of detained travelers. Nothing personal. Unless you make it personal.',
+    location: 'Outside the Airport - Night',
+    image: BG_AIRPORT_OUTSIDE,
+    next: 'airport_guards_ayesha_one',
+  },
+
+  airport_guards_ayesha_one: {
+    page: 'airport',
+    type: 'dialogue',
+    speaker: 'Ayesha',
+    portrait: AYESHA,
+    text: 'No. I am not going anywhere with you.',
+    location: 'Outside the Airport - Night',
+    image: BG_AIRPORT_OUTSIDE,
+    next: 'airport_guards_ayesha_two',
+  },
+
+  airport_guards_ayesha_two: {
+    page: 'airport',
+    type: 'dialogue',
+    speaker: 'Ayesha',
+    portrait: AYESHA,
+    text: "My husband is Richard Hayes. He has people. You do not lay a finger on me.",
+    location: 'Outside the Airport - Night',
+    image: BG_AIRPORT_OUTSIDE,
+    next: 'airport_guards_ayesha_thought',
+  },
+
+  airport_guards_ayesha_thought: {
     page: 'airport',
     type: 'narration',
     text: [
-      'Guard 1: "Madam. Follow us. Standard checking routine."',
-      'Guard 2: "Nothing to worry about. Unless you make it something."',
+      'She has said those words a hundred times back home. Here, the humid air swallows them.',
+      'Richard is still live on her screen. She cannot let these animals know.',
     ],
+    next: 'airport_guards_officer1_two',
+  },
+
+  airport_guards_officer1_two: {
+    page: 'airport',
+    type: 'dialogue',
+    speaker: 'Officer 1',
+    text: 'Big name. Small woman. Walk, or I carry you through that door myself.',
+    location: 'Outside the Airport - Night',
+    image: BG_AIRPORT_OUTSIDE,
+    next: 'airport_guards_officer2_two',
+  },
+
+  airport_guards_officer2_two: {
+    page: 'airport',
+    type: 'dialogue',
+    speaker: 'Officer 2',
+    text: "Your Mr. Hayes's file is on my desk. One stamp — he stays another week. Two stamps — he disappears into paperwork.",
+    location: 'Outside the Airport - Night',
+    image: BG_AIRPORT_OUTSIDE,
+    next: 'airport_guards_ayesha_three',
+  },
+
+  airport_guards_ayesha_three: {
+    page: 'airport',
+    type: 'dialogue',
+    speaker: 'Ayesha',
+    portrait: AYESHA,
+    text: 'You would not dare. He is an American citizen.',
+    location: 'Outside the Airport - Night',
+    image: BG_AIRPORT_OUTSIDE,
+    next: 'airport_guards_ayesha_four',
+  },
+
+  airport_guards_ayesha_four: {
+    page: 'airport',
+    type: 'dialogue',
+    speaker: 'Ayesha',
+    portrait: AYESHA,
+    text: 'This is beneath me. I have never been spoken to like this in my life.',
+    location: 'Outside the Airport - Night',
+    image: BG_AIRPORT_OUTSIDE,
     next: 'airport_guards_jaw',
   },
 
@@ -121,7 +216,17 @@ export const airportScenes = {
     page: 'airport',
     type: 'narration',
     text: [
-      "Ayesha's jaw tightens. Richard is still live on her screen. She cannot let them know.",
+      "Ayesha's jaw tightens until it aches. Officer 1 watches her face like he enjoys the crack forming in it.",
+    ],
+    next: 'airport_guards_ayesha_thought_two',
+  },
+
+  airport_guards_ayesha_thought_two: {
+    page: 'airport',
+    type: 'narration',
+    text: [
+      'She has never been grabbed, threatened, or ignored by men who smelled like sweat and cheap tobacco.',
+      'Back home, someone always stepped in. Here, there is only Richard — and he is locked in a room she cannot reach.',
     ],
     next: 'airport_hide_phone',
   },
@@ -137,9 +242,59 @@ export const airportScenes = {
 
   airport_hide_phone_two: {
     page: 'airport',
+    type: 'dialogue',
+    speaker: 'Ayesha',
+    portrait: AYESHA,
+    text: '…Fine. Lead the way. But this is the last time you address me without respect.',
+    location: 'Outside the Airport - Night',
+    image: BG_AIRPORT_OUTSIDE,
+    next: 'airport_pull_start',
+  },
+
+  airport_pull_start: {
+    page: 'airport',
     type: 'narration',
     text: [
-      'She lifts her chin, forces a cold smile, and follows them like a woman who has never been told no.',
+      'Officer 1 does not wait. His meaty hand clamps her upper arm — too hard, too high.',
+      'Officer 2 falls in on her other side, close enough that his shoulder brushes hers with every step.',
+    ],
+    next: 'airport_pull_ayesha',
+  },
+
+  airport_pull_ayesha: {
+    page: 'airport',
+    type: 'dialogue',
+    speaker: 'Ayesha',
+    portrait: AYESHA,
+    text: 'Unhand me. I said I would walk.',
+    location: 'Airport Corridor - Night',
+    next: 'airport_pull_officer1',
+  },
+
+  airport_pull_officer1: {
+    page: 'airport',
+    type: 'dialogue',
+    speaker: 'Officer 1',
+    text: 'Then walk faster, madam. My arm gets tired holding up princesses.',
+    location: 'Airport Corridor - Night',
+    next: 'airport_pull_officer2',
+  },
+
+  airport_pull_officer2: {
+    page: 'airport',
+    type: 'dialogue',
+    speaker: 'Officer 2',
+    text: 'Smile for the cameras you cannot see. Your husband is watching, yes? Good. Let him see you cooperate.',
+    location: 'Airport Corridor - Night',
+    next: 'airport_pull_narration',
+  },
+
+  airport_pull_narration: {
+    page: 'airport',
+    type: 'narration',
+    text: [
+      'They steer her past shuttered kiosks and a row of empty chairs.',
+      "Her heels click too loud. Officer 1's grip never loosens.",
     ],
     next: 'airport_hide_phone_three',
   },
@@ -147,7 +302,55 @@ export const airportScenes = {
   airport_hide_phone_three: {
     page: 'airport',
     type: 'narration',
-    text: ['From the office, Richard watches the feed tilt and sway as she walks.'],
+    text: ['From the office, Richard watches the feed tilt and sway as they drag her through the terminal.'],
+    next: 'airport_pull_ayesha_thought',
+  },
+
+  airport_pull_ayesha_thought: {
+    page: 'airport',
+    type: 'narration',
+    text: [
+      'Ayesha thinks: this is a mistake. A misunderstanding. Men like this do not touch women like her.',
+      'The thought feels thinner with every corridor they turn down.',
+    ],
+    next: 'airport_pull_officer2_threat',
+  },
+
+  airport_pull_officer2_threat: {
+    page: 'airport',
+    type: 'dialogue',
+    speaker: 'Officer 2',
+    text: 'Refuse the check and Richard Hayes sits in that cell until his lawyers find him — if they ever do.',
+    location: 'Airport Corridor - Night',
+    next: 'airport_pull_officer2_threat_two',
+  },
+
+  airport_pull_officer2_threat_two: {
+    page: 'airport',
+    type: 'dialogue',
+    speaker: 'Officer 2',
+    text: 'Comply, and I put a note in his file: cooperative family. He walks sooner. Your choice, Mrs. Hayes.',
+    location: 'Airport Corridor - Night',
+    next: 'airport_pull_ayesha_break',
+  },
+
+  airport_pull_ayesha_break: {
+    page: 'airport',
+    type: 'dialogue',
+    speaker: 'Ayesha',
+    portrait: AYESHA,
+    text: '…You are lying.',
+    location: 'Airport Corridor - Night',
+    next: 'airport_pull_ayesha_break_two',
+  },
+
+  airport_pull_ayesha_break_two: {
+    page: 'airport',
+    type: 'narration',
+    text: [
+      'Her voice wavers on the last word. She has never had to call a bluff she could not buy her way out of.',
+      'Officer 2 smiles — small, pleased, like he heard exactly what he needed.',
+    ],
     next: 'airport_scanner_room',
   },
 
@@ -156,17 +359,29 @@ export const airportScenes = {
     type: 'narration',
     text: [
       'A side room with scanners and metal tables. No passengers. No staff. No cameras.',
+      'Officer 1 shuts the door. The lock clicks like a period at the end of a sentence.',
     ],
-    next: 'airport_scanner_room_two',
+    image: BG_EMPTY_OFFICE,
+    next: 'airport_scanner_officer1',
   },
 
-  airport_scanner_room_two: {
+  airport_scanner_officer1: {
     page: 'airport',
-    type: 'narration',
-    text: [
-      'Guard 1: "Body check. Full routine. Stand still and cooperate."',
-      'Guard 2: "We can make your husband\'s release very difficult."',
-    ],
+    type: 'dialogue',
+    speaker: 'Officer 1',
+    text: 'Body check. Full routine. Stand still and keep your hands where I can see them.',
+    location: 'Security Scanner Area - Empty',
+    image: BG_EMPTY_OFFICE,
+    next: 'airport_scanner_officer2',
+  },
+
+  airport_scanner_officer2: {
+    page: 'airport',
+    type: 'dialogue',
+    speaker: 'Officer 2',
+    text: 'We already explained the consequences. Do not make your husband wait because his wife has pride.',
+    location: 'Security Scanner Area - Empty',
+    image: BG_EMPTY_OFFICE,
     next: 'airport_refusal',
   },
 
@@ -175,8 +390,9 @@ export const airportScenes = {
     type: 'dialogue',
     speaker: 'Ayesha',
     portrait: AYESHA,
-    text: "Absolutely not. You do not put your hands on me.",
+    text: 'Absolutely not. You do not put your hands on me.',
     location: 'Security Scanner Area - Empty',
+    image: BG_EMPTY_OFFICE,
     next: 'airport_refusal_two',
   },
 
@@ -187,22 +403,38 @@ export const airportScenes = {
     portrait: AYESHA,
     text: "My husband has lawyers who will bury this airport. I am not one of your local women.",
     location: 'Security Scanner Area - Empty',
+    image: BG_EMPTY_OFFICE,
     next: 'airport_threat',
   },
 
   airport_threat: {
     page: 'airport',
     type: 'narration',
-    text: ['The taller guard leans in, voice soft and cruel.'],
-    next: 'airport_threat_speak',
+    text: [
+      'Officer 1 steps into her space — belly first, breath hot against her hijab.',
+      "Officer 2 opens a folder with Richard's name on the tab and taps it twice.",
+    ],
+    image: BG_EMPTY_OFFICE,
+    next: 'airport_threat_officer1',
   },
 
-  airport_threat_speak: {
+  airport_threat_officer1: {
     page: 'airport',
-    type: 'narration',
-    text: [
-      'Guard 1: "Your Mr. Hayes stays in that room until we say otherwise. Be a good wife. Comply."',
-    ],
+    type: 'dialogue',
+    speaker: 'Officer 1',
+    text: 'Your Mr. Hayes stays in that room until we say otherwise. Be a good wife. Comply.',
+    location: 'Security Scanner Area - Empty',
+    image: BG_EMPTY_OFFICE,
+    next: 'airport_threat_officer2',
+  },
+
+  airport_threat_officer2: {
+    page: 'airport',
+    type: 'dialogue',
+    speaker: 'Officer 2',
+    text: 'I can add thirty days with one signature. Or I can add "family assisted security." Which do you want for him?',
+    location: 'Security Scanner Area - Empty',
+    image: BG_EMPTY_OFFICE,
     next: 'airport_threat_belief',
   },
 
@@ -211,7 +443,20 @@ export const airportScenes = {
     type: 'narration',
     text: [
       'She has never met men who ignore money or names. Sheltered her whole life, she believes them.',
+      'For the first time, arrogance has no door to slam. Only Richard — somewhere she cannot reach.',
     ],
+    image: BG_EMPTY_OFFICE,
+    next: 'airport_ayesha_thought_comply',
+  },
+
+  airport_ayesha_thought_comply: {
+    page: 'airport',
+    type: 'narration',
+    text: [
+      'Ayesha thinks: if I refuse, they hurt him. If I obey, they hurt me — but he might walk free.',
+      'She does not know which horror is worse. She has never had to choose before.',
+    ],
+    image: BG_EMPTY_OFFICE,
     next: 'airport_compliance',
   },
 
@@ -220,8 +465,20 @@ export const airportScenes = {
     type: 'dialogue',
     speaker: 'Ayesha',
     portrait: AYESHA,
-    text: "…Fine. Do it. But if you hurt my husband because of this, I swear—",
+    text: '…Fine. Do it. But if you hurt my husband because of this, I swear—',
     location: 'Security Scanner Area - Empty',
+    image: BG_EMPTY_OFFICE,
+    next: 'airport_compliance_two',
+  },
+
+  airport_compliance_two: {
+    page: 'airport',
+    type: 'dialogue',
+    speaker: 'Ayesha',
+    portrait: AYESHA,
+    text: '…I will remember your faces. Every single one.',
+    location: 'Security Scanner Area - Empty',
+    image: BG_EMPTY_OFFICE,
     next: 'airport_richard_witness',
   },
 
@@ -231,6 +488,7 @@ export const airportScenes = {
     speaker: 'Richard',
     text: "Ayesha—? I can see you but I can barely hear you.",
     location: 'Empty Office - Detention',
+    image: BG_EMPTY_OFFICE,
     next: 'airport_richard_witness_two',
   },
 
@@ -240,6 +498,7 @@ export const airportScenes = {
     speaker: 'Richard',
     text: 'What are they doing? Answer me!',
     location: 'Empty Office - Detention',
+    image: BG_EMPTY_OFFICE,
     next: 'airport_richard_witness_narration',
   },
 
@@ -249,6 +508,7 @@ export const airportScenes = {
     text: [
       'Her volume is down. She cannot answer without alerting the guards.',
     ],
+    image: BG_EMPTY_OFFICE,
     next: 'airport_richard_witness_narration_two',
   },
 
@@ -258,6 +518,7 @@ export const airportScenes = {
     text: [
       'Richard is left with a silent, shaking feed. On screen, the officers close in.',
     ],
+    image: BG_EMPTY_OFFICE,
     next: 'airport_richard_witness_narration_three',
   },
 
@@ -265,6 +526,7 @@ export const airportScenes = {
     page: 'airport',
     type: 'narration',
     text: ['One grips her wrist. The other reaches for the hem of her blouse.'],
+    image: BG_EMPTY_OFFICE,
     next: 'airport_violation_one',
   },
 
@@ -275,7 +537,7 @@ export const airportScenes = {
     portrait: AYESHA,
     text: "Don't— hands inside my— stop.",
     location: 'Security Scanner Area - Empty',
-    // image: '/assets/images/ayesha/ayesha_cg_shower.jpg',
+    image: BG_EMPTY_OFFICE,
     next: 'airport_violation_one_two',
   },
 
@@ -286,7 +548,7 @@ export const airportScenes = {
     portrait: AYESHA,
     text: "This isn't a check, you filthy—",
     location: 'Security Scanner Area - Empty',
-    // image: '/assets/images/ayesha/ayesha_cg_shower.jpg',
+    image: BG_EMPTY_OFFICE,
     next: 'airport_violation_narration',
   },
 
@@ -296,6 +558,7 @@ export const airportScenes = {
     text: [
       'They ignore her. Rough fingers slide beneath fabric — waist, hips, searching where no inspection should go.',
     ],
+    image: BG_EMPTY_OFFICE,
     next: 'airport_violation_narration_two',
   },
 
@@ -305,6 +568,7 @@ export const airportScenes = {
     text: [
       'One guard cups and squeezes while the other holds her still. Ayesha bites her lip to stay silent.',
     ],
+    image: BG_EMPTY_OFFICE,
     next: 'airport_violation_narration_three',
   },
 
@@ -312,6 +576,7 @@ export const airportScenes = {
     page: 'airport',
     type: 'narration',
     text: ['Richard watches every second, fists clenched, unable to reach her.'],
+    image: BG_EMPTY_OFFICE,
     next: 'airport_violation_two',
   },
 
@@ -321,6 +586,7 @@ export const airportScenes = {
     text: [
       'She clamps a hand over her mouth. A muffled sound escapes anyway. They smirk and search slower.',
     ],
+    image: BG_EMPTY_OFFICE,
     next: 'airport_violation_whisper',
   },
 
@@ -331,6 +597,7 @@ export const airportScenes = {
     portrait: AYESHA,
     text: "Richard… if you can still see… they're inside my clothes…",
     location: 'Security Scanner Area - Empty',
+    image: BG_EMPTY_OFFICE,
     next: 'airport_violation_whisper_two',
   },
 
@@ -341,6 +608,7 @@ export const airportScenes = {
     portrait: AYESHA,
     text: "I can't speak loud… I believed them about you… God, I was so stupid…",
     location: 'Security Scanner Area - Empty',
+    image: BG_EMPTY_OFFICE,
     next: 'airport_richard_helpless',
   },
 
@@ -350,6 +618,7 @@ export const airportScenes = {
     speaker: 'Richard',
     text: "I'm here. I'm watching. Don't let them—",
     location: 'Empty Office - Detention',
+    image: BG_EMPTY_OFFICE,
     next: 'airport_richard_helpless_two',
   },
 
@@ -359,6 +628,7 @@ export const airportScenes = {
     speaker: 'Richard',
     text: "Ayesha, fight— I can't— I'm locked in—",
     location: 'Empty Office - Detention',
+    image: BG_EMPTY_OFFICE,
     next: 'airport_worker_enters',
   },
 
@@ -375,6 +645,7 @@ export const airportScenes = {
     text: [
       'Airport Worker: "Hey! Step away from her now! What the hell is this?!"',
     ],
+    image: BG_EMPTY_OFFICE,
     next: 'airport_worker_rescue',
   },
 
@@ -384,6 +655,7 @@ export const airportScenes = {
     text: [
       'The guards curse, release her, and slip out a side door. The worker catches Ayesha before her knees give out.',
     ],
+    image: BG_EMPTY_OFFICE,
     next: 'airport_worker_escort',
   },
 

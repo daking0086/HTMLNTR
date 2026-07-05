@@ -1,7 +1,7 @@
 import type { Scene } from '../types/game';
 
-/** Temporarily off — set to true when scene CGs are added. */
-export const SCENE_PICTURES_ENABLED = false;
+/** Enable scene CGs and other image-based scenes. */
+export const SCENE_PICTURES_ENABLED = true;
 
 export function getScenePicture(scene: Scene | undefined): string | null {
   if (!SCENE_PICTURES_ENABLED) return null;
