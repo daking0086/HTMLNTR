@@ -382,6 +382,29 @@ export const airportScenes = {
     text: 'We already explained the consequences. Do not make your husband wait because his wife has pride.',
     location: 'Security Scanner Area - Empty',
     image: BG_EMPTY_OFFICE,
+    characters: ['officer-1'],
+    next: 'airport_scanner_officer1_officer2',
+  },
+
+  airport_scanner_officer1_officer2: {
+    page: 'airport',
+    type: 'dialogue',
+    speaker: 'Officer 2',
+    text: 'Besides, if you really enjoy our company, we can make this a lot more… personal. You know what I mean.',
+    location: 'Security Scanner Area - Empty',
+    image: BG_EMPTY_OFFICE,
+    characters: ['officer-2', 'officer-1'],
+    next: 'airport_scanner_officer1_response',
+  },
+
+  airport_scanner_officer1_response: {
+    page: 'airport',
+    type: 'dialogue',
+    speaker: 'Officer 1',
+    text: 'Keep still, madam. We are not done with you yet.',
+    location: 'Security Scanner Area - Empty',
+    image: BG_EMPTY_OFFICE,
+    characters: ['officer-2', 'officer-1'],
     next: 'airport_refusal',
   },
 

@@ -3,6 +3,8 @@ import Choices from './Choices';
 import NarrationContinue from './NarrationContinue';
 import EndScreen from './EndScreen';
 import SceneStage from './game/SceneStage';
+import SceneCharacterStage from './game/SceneCharacterStage';
+import { getActiveSpeakerId, getSceneStageCharacters } from '../logic/sceneCharacters';
 import { getScenePicture } from '../logic/sceneVisual';
 import type { Choice, DialogueScene, Release, Scene } from '../types/game';
 import type { TextSpeed } from '../types/app';
@@ -55,6 +57,8 @@ export default function GameContainer({
     (currentScene.choices?.length ?? 0) > 0;
 
   const pictureSrc = getScenePicture(currentScene);
+  const stageCharacters = getSceneStageCharacters(currentScene);
+  const activeSpeakerId = getActiveSpeakerId(currentScene);
 
   return (
     <main className="vn-container vn-game-layout bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden shadow-2xl">
@@ -71,11 +75,21 @@ export default function GameContainer({
         </>
       ) : (
         <>
-          <SceneStage
-            imageSrc={pictureSrc}
-            sceneLocation={sceneLocation}
-            dayIndicator={dayIndicator}
-          />
+          {stageCharacters.length > 0 ? (
+            <SceneCharacterStage
+              backgroundSrc={pictureSrc}
+              characters={stageCharacters}
+              activeSpeakerId={activeSpeakerId}
+              sceneLocation={sceneLocation}
+              dayIndicator={dayIndicator}
+            />
+          ) : (
+            <SceneStage
+              imageSrc={pictureSrc}
+              sceneLocation={sceneLocation}
+              dayIndicator={dayIndicator}
+            />
+          )}
 
           <div className="vn-script-panel">
             <DialogueArea

@@ -7,6 +7,10 @@ export function getScenePicture(scene: Scene | undefined): string | null {
   if (!SCENE_PICTURES_ENABLED) return null;
   if (!scene) return null;
 
+  if (scene.characters?.length) {
+    return scene.image ?? null;
+  }
+
   if (scene.type === 'dialogue') {
     return scene.image ?? scene.portrait ?? null;
   }

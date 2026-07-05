@@ -14,6 +14,8 @@ export interface Choice {
 
 interface BaseScene {
   page: PageId;
+  /** Character sprite ids from characterDisplay.ts (e.g. 'officer-2') */
+  characters?: string[];
 }
 
 export interface NarrationScene extends BaseScene {
