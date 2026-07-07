@@ -405,6 +405,17 @@ export const airportScenes = {
     location: 'Security Scanner Area - Empty',
     image: BG_EMPTY_OFFICE,
     characters: ['officer-2', 'officer-1'],
+    next: 'airport_scanner_officer1_response2',
+  },
+
+  airport_scanner_officer1_response2: {
+    page: 'airport',
+    type: 'dialogue',
+    speaker: 'Officer 2',
+    text: 'Wiggle all you want. You are not going anywhere until we finish.',
+    location: 'Security Scanner Area - Empty',
+    image: BG_EMPTY_OFFICE,
+    characters: ['officer-2', 'officer-1'],
     next: 'airport_refusal',
   },
 
