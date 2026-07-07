@@ -59,6 +59,14 @@ HTMLNTR/
 - All story and choices happen in a standard VN format
 - Much lighter and easier to modify
 
+## Environment
+
+Ready to play? Launch the HTMLNTR Game directly in your browser:
+
+[![Play HTMLNTR Game](https://img.shields.io/badge/Open%20Game-Play%20Now-blue?style=for-the-badge)](index.html)
+
+Simply click the button above or open `index.html` in your browser to start your journey. No downloads or installations needed — everything runs directly in your browser.
+
 ## Credits
 
 - Original concept & story: ThePhoneGame (Ren'Py)
