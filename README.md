@@ -8,7 +8,7 @@ This is a clean, self-contained HTML5 visual novel adaptation of the original Re
 
 ## How to Play
 
-Simply open `index.html` in any modern browser (Chrome, Firefox, Edge, etc.).
+Simply click the **Play Now** button below to launch the game directly in your browser.
 
 No installation required.
 
@@ -58,6 +58,14 @@ HTMLNTR/
 - Traditional visual novel presentation
 - All story and choices happen in a standard VN format
 - Much lighter and easier to modify
+
+## Environment
+
+Ready to play? Launch the HTMLNTR Game directly in your browser:
+
+[![Play HTMLNTR Game](https://img.shields.io/badge/Play%20Now-Launch%20Game-blue?style=for-the-badge)](https://daking0086.github.io/HTMLNTR/)
+
+Click the button above to start your adventure. Everything runs directly in your browser with no downloads or installations needed.
 
 ## Credits
 
