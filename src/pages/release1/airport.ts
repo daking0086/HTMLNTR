@@ -372,6 +372,7 @@ export const airportScenes = {
     text: 'Body check. Full routine. Stand still and keep your hands where I can see them.',
     location: 'Security Scanner Area - Empty',
     image: BG_EMPTY_OFFICE,
+    characters: ['officer-1'],
     next: 'airport_scanner_officer2',
   },
 
@@ -382,40 +383,29 @@ export const airportScenes = {
     text: 'We already explained the consequences. Do not make your husband wait because his wife has pride.',
     location: 'Security Scanner Area - Empty',
     image: BG_EMPTY_OFFICE,
-    characters: ['officer-1'],
+    characters: ['officer-2'],
     next: 'airport_scanner_officer1_officer2',
   },
 
   airport_scanner_officer1_officer2: {
     page: 'airport',
     type: 'dialogue',
-    speaker: 'Officer 2',
+    speaker: 'Officer 1',
     text: 'Besides, if you really enjoy our company, we can make this a lot more… personal. You know what I mean.',
     location: 'Security Scanner Area - Empty',
     image: BG_EMPTY_OFFICE,
-    characters: ['officer-2', 'officer-1'],
-    next: 'airport_scanner_officer1_response',
+    characters: ['officer-1', 'officer-2'],
+    next: 'airport_scanner_officer2_oh',
   },
 
-  airport_scanner_officer1_response: {
-    page: 'airport',
-    type: 'dialogue',
-    speaker: 'Officer 1',
-    text: 'Keep still, madam. We are not done with you yet.',
-    location: 'Security Scanner Area - Empty',
-    image: BG_EMPTY_OFFICE,
-    characters: ['officer-2', 'officer-1'],
-    next: 'airport_scanner_officer1_response2',
-  },
-
-  airport_scanner_officer1_response2: {
+  airport_scanner_officer2_oh: {
     page: 'airport',
     type: 'dialogue',
     speaker: 'Officer 2',
-    text: 'Wiggle all you want. You are not going anywhere until we finish.',
+    text: 'Oh she does...',
     location: 'Security Scanner Area - Empty',
     image: BG_EMPTY_OFFICE,
-    characters: ['officer-2', 'officer-1'],
+    characters: ['officer-1', 'officer-2'],
     next: 'airport_refusal',
   },
 
@@ -687,12 +677,26 @@ export const airportScenes = {
     page: 'airport',
     type: 'narration',
     text: [
-      'The guards curse, release her, and slip out a side door. The worker catches Ayesha before her knees give out.',
+      'The guards curse, release her, and slip toward a side door.',
+      'The airport worker catches Ayesha before her knees give out.',
     ],
     image: BG_EMPTY_OFFICE,
-    next: 'airport_worker_escort',
+    next: 'airport_guard_whisper',
   },
 
+  airport_guard_whisper: {
+    page: 'airport',
+    type: 'narration',
+    text: [
+      'At the threshold, Officer 2 glances back over his shoulder — voice barely a breath:',
+      '"Oh… this isn\'t over yet…"',
+    ],
+    image: BG_EMPTY_OFFICE,
+    characters: ['officer-1', 'officer-2'],
+    next: 'ending',
+  },
+
+  /* Release 2 — curb aftermath & taxi pickup (disabled for Release 1)
   airport_worker_escort: {
     page: 'airport',
     type: 'narration',
@@ -759,4 +763,5 @@ export const airportScenes = {
     location: 'Airport Curb - Night',
     next: 'taxi_intro',
   },
+  */
 } satisfies Scenes;

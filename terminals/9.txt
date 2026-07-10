@@ -1,0 +1,13 @@
+---
+pid: 12276
+cwd: "D:\RenPyProjects\HTMLNTR"
+command: "Set-Location D:\\RenPyProjects\\HTMLNTR; npm.cmd run build 2>&1 | Select-String -Pattern \"error TS\""
+started_at: 2026-07-10T08:24:28.455Z
+running_for_ms: 2055000  
+---
+
+src/components/Header.tsx(1,1): error TS6133: 'StatsBar' is declared but its value is never read.
+src/components/Header.tsx(26,3): error TS6133: 'affection' is declared but its value is never read.
+src/components/Header.tsx(27,3): error TS6133: 'corruption' is declared but its value is never read.
+
+

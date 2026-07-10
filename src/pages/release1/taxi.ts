@@ -1,3 +1,7 @@
+/**
+ * Release 2 — Taxi Scene
+ * Not loaded in Release 1. Re-enable in release1/index.ts when shipping Release 2.
+ */
 import type { Scenes } from '../../types/game';
 
 const AYESHA = '/assets/images/ayesha/ayesha_profile.png';
