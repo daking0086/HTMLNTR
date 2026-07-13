@@ -5,7 +5,7 @@ import EndScreen from './EndScreen';
 import SceneStage from './game/SceneStage';
 import SceneCharacterStage from './game/SceneCharacterStage';
 import { getActiveSpeakerId, getSceneStageCharacters } from '../logic/sceneCharacters';
-import { getScenePicture } from '../logic/sceneVisual';
+import { getScenePicture, isImagesEnabled } from '../logic/sceneVisual';
 import type { Choice, DialogueScene, Release, Scene } from '../types/game';
 import type { TextSpeed } from '../types/app';
 import { TEXT_SPEED_MS } from '../types/app';
@@ -60,8 +60,15 @@ export default function GameContainer({
   const stageCharacters = getSceneStageCharacters(currentScene);
   const activeSpeakerId = getActiveSpeakerId(currentScene);
 
+  const devImagesHidden = import.meta.env.DEV && !isImagesEnabled();
+
   return (
-    <main className="vn-container vn-game-layout bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden shadow-2xl">
+    <main className="vn-container vn-game-layout bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden shadow-2xl relative">
+      {devImagesHidden && (
+        <div className="absolute top-3 right-3 z-20 rounded-lg bg-amber-500/90 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wider text-black shadow-lg">
+          Dev: images hidden
+        </div>
+      )}
       {isEnded ? (
         <>
           <SceneStage

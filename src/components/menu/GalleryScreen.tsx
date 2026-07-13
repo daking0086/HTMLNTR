@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import ScreenShell from './ScreenShell';
+import { isImagesEnabled } from '../../logic/sceneVisual';
+import { assetUrl } from '../../utils/assetUrl';
 import type { GalleryEntry } from '../../types/app';
 
 interface GalleryScreenProps {
@@ -16,6 +18,7 @@ export default function GalleryScreen({
   onBack,
 }: GalleryScreenProps) {
   const [selected, setSelected] = useState<GalleryEntry | null>(null);
+  const showImages = isImagesEnabled();
 
   return (
     <>
@@ -31,14 +34,14 @@ export default function GalleryScreen({
               <button
                 key={entry.id}
                 type="button"
-                onClick={() => unlocked && entry.image && setSelected(entry)}
+                onClick={() => unlocked && showImages && entry.image && setSelected(entry)}
                 disabled={!unlocked}
                 className="group text-left rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-950 disabled:cursor-not-allowed transition-all hover:border-zinc-700"
               >
                 <div className="aspect-[3/4] relative bg-zinc-900">
-                  {unlocked && entry.image ? (
+                  {unlocked && showImages && entry.image ? (
                     <img
-                      src={entry.image}
+                      src={assetUrl(entry.image)}
                       alt={entry.title}
                       className="w-full h-full object-cover"
                     />
@@ -64,7 +67,7 @@ export default function GalleryScreen({
         </div>
       </ScreenShell>
 
-      {selected && (
+      {selected && showImages && (
         <div
           className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-6"
           onClick={() => setSelected(null)}
@@ -74,7 +77,7 @@ export default function GalleryScreen({
             onClick={(e) => e.stopPropagation()}
           >
             <img
-              src={selected.image}
+              src={assetUrl(selected.image)}
               alt={selected.title}
               className="w-full max-h-[70vh] object-contain bg-black"
             />
