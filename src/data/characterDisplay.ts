@@ -1,4 +1,6 @@
 import type { StageCharacter } from '../types/characterLayer';
+import { assetUrl } from '../utils/assetUrl';
+import { isImagesEnabled } from '../logic/sceneVisual';
 
 /**
  * Edit these values to change character size and position on stage.
@@ -42,6 +44,12 @@ export const CHARACTER_SPRITES: Record<string, StageCharacter> = {
 };
 
 export function resolveStageCharacters(ids: string[] | undefined): StageCharacter[] {
-  if (!ids?.length) return [];
-  return ids.map((id) => CHARACTER_SPRITES[id]).filter((c): c is StageCharacter => Boolean(c));
+  if (!ids?.length || !isImagesEnabled()) return [];
+  return ids
+    .map((id) => CHARACTER_SPRITES[id])
+    .filter((c): c is StageCharacter => Boolean(c))
+    .map((character) => ({
+      ...character,
+      imageSrc: assetUrl(character.imageSrc),
+    }));
 }

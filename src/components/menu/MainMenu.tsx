@@ -25,8 +25,8 @@ export default function MainMenu({
         <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
           <i className="fa-solid fa-mobile-screen text-white text-3xl" />
         </div>
-        <h1 className="text-4xl font-semibold tracking-tighter">ThePhoneGame</h1>
-        <p className="text-sm text-zinc-500 mt-1">Release 1 — The Night She Was Alone</p>
+        <h1 className="text-4xl font-semibold tracking-tighter">Nights in Aidni</h1>
+        <p className="text-sm text-zinc-500 mt-1">Release 1</p>
       </div>
 
       <div className="p-8 grid grid-cols-1 gap-3 max-w-md mx-auto">

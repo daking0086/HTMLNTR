@@ -10,6 +10,7 @@ export const release1Meta: ReleaseMeta = {
   endScene: 'ending_trust',
   pages: [
     { id: 'intro', title: 'Prologue' },
+    { id: 'flashback', title: 'Hotel Suite — Flashback' },
     { id: 'airport', title: 'Airport Scene' },
     { id: 'ending', title: 'End of Release 1' },
   ],

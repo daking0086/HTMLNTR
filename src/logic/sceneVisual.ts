@@ -1,19 +1,29 @@
+import { DEV_HIDE_IMAGES } from '../config/dev';
+import { assetUrl } from '../utils/assetUrl';
 import type { Scene } from '../types/game';
 
-/** Enable scene CGs and other image-based scenes. */
-export const SCENE_PICTURES_ENABLED = true;
+/** Whether scene backgrounds, CGs, and portraits should render. Always on in production. */
+export function isImagesEnabled(): boolean {
+  if (import.meta.env.PROD) return true;
+  return !DEV_HIDE_IMAGES;
+}
+
+function resolveSceneImage(path: string | undefined): string | null {
+  if (!path) return null;
+  return assetUrl(path);
+}
 
 export function getScenePicture(scene: Scene | undefined): string | null {
-  if (!SCENE_PICTURES_ENABLED) return null;
+  if (!isImagesEnabled()) return null;
   if (!scene) return null;
 
   if (scene.characters?.length) {
-    return scene.image ?? null;
+    return resolveSceneImage(scene.image);
   }
 
   if (scene.type === 'dialogue') {
-    return scene.image ?? scene.portrait ?? null;
+    return resolveSceneImage(scene.image ?? scene.portrait);
   }
 
-  return scene.image ?? null;
+  return resolveSceneImage(scene.image);
 }

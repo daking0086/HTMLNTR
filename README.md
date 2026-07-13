@@ -83,7 +83,7 @@ Based on the current `src/pages/release1/intro.ts` script, you need **5 unique l
 |---|----------|----------|-----------------|----------------|
 | 1 | **Private jet interior** | Landing, Richard backstory (beats 1–7) | No image yet | `public/assets/images/backgrounds/prologue/jetInterior.png` |
 | 2 | **Crowded airport terminal** | Stares, backshot, reveal, terminal dialogue | Yes — `airportPeople.png` | `backgrounds/airport/airportPeople.png` |
-| 3 | **Hotel suite (flashback)** | Previous night scene + Ayesha dialogue | No image yet | `public/assets/images/backgrounds/prologue/hotelSuite.png` |
+| 3 | **Hotel suite (flashback)** | Separate page — see [Flashback script](#hotel-suite--flashback--full-script) | Yes — `public/assets/images/flashback/` | `public/assets/images/flashback/` |
 | 4 | **Airport outside / exit** | Snap back, checking, waiting, text chain, end | Yes — `airport.png` | `backgrounds/airport/airport.png` |
 | 5 | **Airport ladies' toilet** | Toilet peeker mini-scene (7 beats) | No image yet | `public/assets/images/backgrounds/airport/toilet.png` |
 
@@ -170,17 +170,9 @@ Only the tight grip on his arm betrayed how much she needed him between her and 
 
 ---
 
-### Act 3 — Flashback (hotel suite)
+### Act 3 — Into the flashback
 
-**[Narration]**  
-Flashback — Previous Night (Hotel Suite)
-
-**[Narration]**  
-Ayesha was on top of Richard, riding him slowly, her hijab loosely draped.  
-Her voice was full of lust and superiority.
-
-**Ayesha:**  
-"Those people beneath us could never have what I have. I'm the only one who deserves to be here with you."
+*The line above triggers the **Hotel Suite — Flashback** page (`flashback_title`). Full script in the section below.*
 
 ---
 
@@ -253,6 +245,147 @@ Night had settled over the airport. Somewhere inside, they still had her husband
 Airport Scene.
 
 → *Continues into **Airport Scene** (`airport_richard_office`)*
+
+---
+
+## Hotel Suite — Flashback — full script
+
+*Source: `src/pages/release1/flashback.ts` · 24 beats · returns to Prologue (`intro_snap_back`)*
+
+### Act 1 — Title & establishing
+
+**[Narration]** · *Hotel Suite - Flashback*  
+Flashback — Previous Night (Hotel Suite)
+
+**[Narration]**  
+Silk on the marble floor. Everything else in the suite belonged to the heat behind it.
+
+---
+
+### Act 2 — Dominance (wide shots)
+
+**[Narration]**  
+She moved above him without hurry — hijab loose, chin lifted, every motion deliberate.  
+Richard lay beneath her like a man who had stopped pretending he was in charge.
+
+**Ayesha:**  
+"Look at me. Not the room. Me."
+
+---
+
+### Act 3 — POV & control
+
+**[Narration]**  
+From the ceiling fan the bed was a blur of limbs and white sheets.  
+She had him pinned in place with nothing but her weight and her will.
+
+**Ayesha:**  
+"You're mine tonight. Don't forget that."
+
+**[Narration]**  
+In the desk mirror: gold light, her grip on his jaw, the arrogant curve of her smile.
+
+**Richard:**  
+"Ayesha—"
+
+**Ayesha:**  
+"Quiet."
+
+---
+
+### Act 4 — His hunger (building tension)
+
+**[Narration]**  
+She let the silence break only on her terms — lifting the edge of her top, offering skin instead of words.  
+Richard kissed her hip like a man starved. She watched him worship it.
+
+**[Narration]**  
+His mouth climbed higher. Her head fell back, gold hoops catching the city light.  
+His fingers threaded into her hair — hungry, clumsy, desperate to keep her close.
+
+**[Narration]**  
+Politeness left him. Both hands found her — gripping hard enough to bruise, pulling her down into his lap.  
+She did not stop him. She liked feeling how badly he wanted her.
+
+**[Narration]**  
+He opened her top and took her breast into his mouth without asking.  
+Ayesha exhaled through her teeth — pleased, not surrendered.
+
+---
+
+### Act 5 — Lip tease & jealousy (no kiss yet)
+
+**[Narration]**  
+She brought her mouth close enough that he felt her breath — fingers digging in, hips rolling slow.  
+He leaned in. She never let their lips meet.
+
+**[Narration]**  
+Her lips hovered a breath from his — close enough to ache — then she drew back just enough to watch him want it.  
+A teasing smile. Cruel. Satisfied.
+
+**Ayesha:**  
+"Two weeks without this… or her in your cabin. You tell me which one you chose."
+
+**Richard:**  
+"She's not—"
+
+**Ayesha:**  
+"Shhhh...I don't want her name in your mouth tonight."
+
+**Ayesha:**  
+"Those people downstairs could never have what I have. I'm the only one who deserves to be here with you."
+
+---
+
+### Act 6 — Darkness & final kiss
+
+**[Narration]**  
+Darkness.  
+Only breathing.  
+Then stillness.
+
+**[Narration]**  
+Then, softer — a kiss that was not a weapon anymore.  
+Slower. Like a promise she intended to hold him to.
+
+---
+
+### Act 7 — Afterglow
+
+**[Narration]**  
+The suite went quiet. She pulled the covers over them both, still possessive even in rest.
+
+**Ayesha:**  
+"Don't you dare let her take my place tomorrow...  
+You belong to me..."
+
+**[Narration]**  
+She believed him. She always did — when it suited her.
+
+→ *Returns to **Prologue** (`intro_snap_back` — present-day airport terminal)*
+
+---
+
+### Flashback CG reference
+
+| Beat | Image file |
+|------|------------|
+| Title | `grok-image-d6116a17-…jpg` (condo exterior) |
+| Establishing | `grok-image-c9b2c7b0-…jpg` (garment on floor) |
+| Wide 01 / 02 | `grok-image-4734fc19-…jpg` / `grok-image-31d4d9d4-…jpg` |
+| Ceiling POV | `grok-image-58109519-…jpg` |
+| Desk / mirror | `grok-image-e72ee7c4-…jpg` |
+| Hip kiss | `hip_kiss.jpg` |
+| Neck kiss | `neck_kiss.jpg` |
+| Ass grab | `ass_grab.jpg` |
+| Boob suck | `boob_suck.jpg` |
+| Close lips (no kiss) | `close_lips.jpg` |
+| Teasing smile | `close_lips_teasing_smile.jpg` |
+| Deep kiss (shut him up) | `deep_kiss.jpg` |
+| Possessive line | `grok-image-dee3d055-…jpg` |
+| Black transition | `grok-image-0fe105b2-…jpg` |
+| Final kiss | `final_kiss.jpg` |
+| Snuggle / end | `final_kiss_resting.jpg` |
 
 ---
 

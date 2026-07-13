@@ -1,4 +1,4 @@
-export type PageId = 'intro' | 'airport' | 'taxi' | 'hotel' | 'ending';
+export type PageId = 'intro' | 'flashback' | 'airport' | 'taxi' | 'hotel' | 'ending';
 
 export interface StoryPage {
   id: PageId;

@@ -1,6 +1,6 @@
 import type { Scenes } from '../../types/game';
 
-const AYESHA = '';
+const AYESHA = '/assets/images/ayesha/ayesha_profile.png';
 
 /** Scene backgrounds — paths are relative to the public/ folder. */
 const BG_AIRPORT_OUTSIDE = '/assets/images/backgrounds/airport/airport.png';
