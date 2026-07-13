@@ -6,4 +6,4 @@
  *
  * Only applies during `npm run dev`. Production builds always show images.
  */
-export const DEV_HIDE_IMAGES = false;
+export const DEV_HIDE_IMAGES = true;
