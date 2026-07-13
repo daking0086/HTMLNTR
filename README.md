@@ -257,8 +257,12 @@ Airport Scene.
 **[Narration]** · *Hotel Suite - Flashback*  
 Flashback — Previous Night (Hotel Suite)
 
+*CG (`grok-image-d6116a17-…jpg`): Luxury high-rise exterior at night — lit windows, sprawling city below.*
+
 **[Narration]**  
 Silk on the marble floor. Everything else in the suite belonged to the heat behind it.
+
+*CG (`grok-image-c9b2c7b0-…jpg`): Blue embroidered garment crumpled on the floor; couple intimate on the bed, soft-focused in the background.*
 
 ---
 
@@ -268,8 +272,12 @@ Silk on the marble floor. Everything else in the suite belonged to the heat behi
 She moved above him without hurry — hijab loose, chin lifted, every motion deliberate.  
 Richard lay beneath her like a man who had stopped pretending he was in charge.
 
+*CG (`grok-image-4734fc19-…jpg`): Rear view — she straddles him in a tight black outfit, city skyline through the window.*
+
 **Ayesha:**  
 "Look at me. Not the room. Me."
+
+*CG (`grok-image-31d4d9d4-…jpg`): She straddles him, hand on his head, looking down — full dominance, NYC night behind them.*
 
 ---
 
@@ -279,17 +287,27 @@ Richard lay beneath her like a man who had stopped pretending he was in charge.
 From the ceiling fan the bed was a blur of limbs and white sheets.  
 She had him pinned in place with nothing but her weight and her will.
 
+*CG (`grok-image-58109519-…jpg`): Ceiling fan in frame; high-angle POV down onto the bed — she's on top, he's beneath her.*
+
 **Ayesha:**  
 "You're mine tonight. Don't forget that."
+
+*CG (same as above)*
 
 **[Narration]**  
 In the desk mirror: gold light, her grip on his jaw, the arrogant curve of her smile.
 
+*CG (`grok-image-e72ee7c4-…jpg`): She leans over him on the bed, hands on his chest — arrogant control, Empire State Building lit behind them.*
+
 **Richard:**  
 "Ayesha—"
 
+*CG (same as above)*
+
 **Ayesha:**  
 "Quiet."
+
+*CG (same as above)*
 
 ---
 
@@ -299,17 +317,25 @@ In the desk mirror: gold light, her grip on his jaw, the arrogant curve of her s
 She let the silence break only on her terms — lifting the edge of her top, offering skin instead of words.  
 Richard kissed her hip like a man starved. She watched him worship it.
 
+*CG (`hip_kiss.jpg`): She lifts her satin top; Richard kisses her bare stomach/hip, hands on her waistband — city night through the window.*
+
 **[Narration]**  
 His mouth climbed higher. Her head fell back, gold hoops catching the city light.  
 His fingers threaded into her hair — hungry, clumsy, desperate to keep her close.
+
+*CG (`neck_kiss.jpg`): Close-up — Richard kisses her neck, fingers in her hair; her head tilted back, gold hoops visible, city bokeh behind.*
 
 **[Narration]**  
 Politeness left him. Both hands found her — gripping hard enough to bruise, pulling her down into his lap.  
 She did not stop him. She liked feeling how badly he wanted her.
 
+*CG (`ass_grab.jpg`): Rear close-up — his large hands grip her ass hard as she sits on his lap in a black satin dress; blue sheets, blurred city lights.*
+
 **[Narration]**  
 He opened her top and took her breast into his mouth without asking.  
 Ayesha exhaled through her teeth — pleased, not surrendered.
+
+*CG (`boob_suck.jpg`): He sucks her breast, top open; she arches back, hand in her hair — pleased, still in control; NYC skyline behind.*
 
 ---
 
@@ -319,21 +345,33 @@ Ayesha exhaled through her teeth — pleased, not surrendered.
 She brought her mouth close enough that he felt her breath — fingers digging in, hips rolling slow.  
 He leaned in. She never let their lips meet.
 
+*CG (`close_lips.jpg`): Extreme close-up — lips a breath apart, not touching; her hand on his jaw, city lights behind.*
+
 **[Narration]**  
 Her lips hovered a breath from his — close enough to ache — then she drew back just enough to watch him want it.  
 A teasing smile. Cruel. Satisfied.
 
+*CG (`close_lips_teasing_smile.jpg`): She pulls back slightly — teasing smile, cruel and satisfied; he's still wanting.*
+
 **Ayesha:**  
 "Two weeks without this… or her in your cabin. You tell me which one you chose."
+
+*CG (same as above)*
 
 **Richard:**  
 "She's not—"
 
+*CG (`close_lips.jpg`): Same almost-kiss framing — he's cut off mid-sentence, lips still close.*
+
 **Ayesha:**  
 "Shhhh...I don't want her name in your mouth tonight."
 
+*CG (`deep_kiss.jpg`): She finally kisses him — deep, possessive; shuts him up with her mouth.*
+
 **Ayesha:**  
 "Those people downstairs could never have what I have. I'm the only one who deserves to be here with you."
+
+*CG (`grok-image-dee3d055-…jpg`): Passionate kiss — hands cupping his face, purple satin sheets, blue rim light.*
 
 ---
 
@@ -344,9 +382,13 @@ Darkness.
 Only breathing.  
 Then stillness.
 
+*CG (`grok-image-0fe105b2-…jpg`): Rain streaks the glass; distant blurred couple seen through the window — moody fade to black.*
+
 **[Narration]**  
 Then, softer — a kiss that was not a weapon anymore.  
 Slower. Like a promise she intended to hold him to.
+
+*CG (`final_kiss.jpg`): Tender deep kiss on purple satin sheets — softer light, not aggressive; eyes closed.*
 
 ---
 
@@ -355,12 +397,18 @@ Slower. Like a promise she intended to hold him to.
 **[Narration]**  
 The suite went quiet. She pulled the covers over them both, still possessive even in rest.
 
+*CG (`final_kiss_resting.jpg`): Foreheads touching, eyes closed — quiet afterglow on purple sheets, blue rim light.*
+
 **Ayesha:**  
 "Don't you dare let her take my place tomorrow...  
 You belong to me..."
 
+*CG (same as above)*
+
 **[Narration]**  
 She believed him. She always did — when it suited her.
+
+*CG (same as above)*
 
 → *Returns to **Prologue** (`intro_snap_back` — present-day airport terminal)*
 
@@ -368,24 +416,25 @@ She believed him. She always did — when it suited her.
 
 ### Flashback CG reference
 
-| Beat | Image file |
-|------|------------|
-| Title | `grok-image-d6116a17-…jpg` (condo exterior) |
-| Establishing | `grok-image-c9b2c7b0-…jpg` (garment on floor) |
-| Wide 01 / 02 | `grok-image-4734fc19-…jpg` / `grok-image-31d4d9d4-…jpg` |
-| Ceiling POV | `grok-image-58109519-…jpg` |
-| Desk / mirror | `grok-image-e72ee7c4-…jpg` |
-| Hip kiss | `hip_kiss.jpg` |
-| Neck kiss | `neck_kiss.jpg` |
-| Ass grab | `ass_grab.jpg` |
-| Boob suck | `boob_suck.jpg` |
-| Close lips (no kiss) | `close_lips.jpg` |
-| Teasing smile | `close_lips_teasing_smile.jpg` |
-| Deep kiss (shut him up) | `deep_kiss.jpg` |
-| Possessive line | `grok-image-dee3d055-…jpg` |
-| Black transition | `grok-image-0fe105b2-…jpg` |
-| Final kiss | `final_kiss.jpg` |
-| Snuggle / end | `final_kiss_resting.jpg` |
+| Beat | Image file | Description |
+|------|------------|-------------|
+| Title | `grok-image-d6116a17-…jpg` | Luxury condo / high-rise exterior at night |
+| Establishing | `grok-image-c9b2c7b0-…jpg` | Garment on floor, couple blurred on bed |
+| Wide 01 | `grok-image-4734fc19-…jpg` | Rear view, her straddling him |
+| Wide 02 | `grok-image-31d4d9d4-…jpg` | Hand on his head, looking down at him |
+| Ceiling POV | `grok-image-58109519-…jpg` | Ceiling fan POV down onto bed |
+| Desk / mirror | `grok-image-e72ee7c4-…jpg` | Leaning over him, hands on chest |
+| Hip kiss | `hip_kiss.jpg` | Kiss on bare stomach/hip |
+| Neck kiss | `neck_kiss.jpg` | Kiss on neck, hand in hair |
+| Ass grab | `ass_grab.jpg` | Hands gripping her ass on his lap |
+| Boob suck | `boob_suck.jpg` | Breast exposed, him sucking |
+| Close lips | `close_lips.jpg` | Almost-kiss, lips not touching |
+| Teasing smile | `close_lips_teasing_smile.jpg` | Pull-back with teasing smile |
+| Deep kiss | `deep_kiss.jpg` | Deep kiss to shut him up |
+| Possessive line | `grok-image-dee3d055-…jpg` | Passionate kiss, hands on face |
+| Black transition | `grok-image-0fe105b2-…jpg` | Rain on glass, distant couple |
+| Final kiss | `final_kiss.jpg` | Tender deep kiss |
+| Snuggle / end | `final_kiss_resting.jpg` | Foreheads together, resting |
 
 ---
 
