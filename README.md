@@ -75,4 +75,185 @@ Click the button above to start your adventure. Everything runs directly in your
 
 ---
 
-Enjoy the story!
+## Prologue — backgrounds to render
+
+Based on the current `src/pages/release1/intro.ts` script, you need **5 unique location backgrounds** for the prologue.
+
+| # | Location | Used for | In project now? | Suggested path |
+|---|----------|----------|-----------------|----------------|
+| 1 | **Private jet interior** | Landing, Richard backstory (beats 1–7) | No image yet | `public/assets/images/backgrounds/prologue/jetInterior.png` |
+| 2 | **Crowded airport terminal** | Stares, backshot, reveal, terminal dialogue | Yes — `airportPeople.png` | `backgrounds/airport/airportPeople.png` |
+| 3 | **Hotel suite (flashback)** | Previous night scene + Ayesha dialogue | No image yet | `public/assets/images/backgrounds/prologue/hotelSuite.png` |
+| 4 | **Airport outside / exit** | Snap back, checking, waiting, text chain, end | Yes — `airport.png` | `backgrounds/airport/airport.png` |
+| 5 | **Airport ladies' toilet** | Toilet peeker mini-scene (7 beats) | No image yet | `public/assets/images/backgrounds/airport/toilet.png` |
+
+**Minimum new renders: 3** (jet, hotel suite, toilet) — you already have 2.
+
+### Optional extras (not required, but stronger visually)
+
+| Extra | Why |
+|-------|-----|
+| **Ayesha backshot** (terminal) | Dedicated CG for the walk-through-crowd reveal instead of narration-only on crowd BG |
+| **Toilet + peeker variant** | Same room, peeping man visible in mirror gap (one art pass with layered sprite later) |
+
+Character sprites (Ayesha portrait, Richard if added) are separate from backgrounds.
+
+---
+
+## Prologue — full script
+
+*Source: `src/pages/release1/intro.ts` · 36 beats · flows into Airport Scene*
+
+### Act 1 — The landing (Richard)
+
+**[Narration]**  
+Prologue  
+The private jet touched down smoothly on the foreign runway.
+
+**[Narration]**  
+Richard Hayes stared out the window, jaw set.
+
+**[Narration]**  
+A self-made American millionaire, he had risen from nothing through discipline, sharp deals, and an iron will.
+
+**[Narration]**  
+This trip was supposed to be his greatest victory — he was here to steal a massive distribution contract from his biggest competitor.  
+The deal was worth tens of millions.
+
+**[Narration]**  
+Ayesha Khan had refused to stay behind.
+
+**[Narration]**  
+She had found out that Richard's young secretary was originally supposed to accompany him.  
+The thought had irritated her to no end.  
+She wasn't about to let another woman fly across the world with her husband.
+
+---
+
+### Act 2 — The terminal
+
+**[Narration]** · *Foreign Airport - Terminal*  
+In the crowded terminal, heads turned.
+
+**[Narration]**  
+Men glanced past Richard Hayes like he was furniture — the millionaire meant nothing here.  
+Their eyes did not stay on him for even a second.
+
+**[Narration]**  
+Every stare slid lower and settled on the woman at his side — hungry, shameless, openly perverted.  
+They looked at her the way men look at something they believe they have a right to consume.
+
+**[Narration]**  
+A backshot of a curvy woman in a dark blue hijab and fitted modest clothes walked confidently through the crowd.  
+The leering followed her with every step.
+
+**[Narration]**  
+The camera slowly revealed her face — Ayesha Khan.
+
+**[Narration]**  
+Raised in American luxury, she was proud and arrogant.  
+She looked down on most people — especially here.
+
+**[Narration]**  
+Ayesha hooked her arm through Richard's and drew herself closer — chin high, spine straight.  
+Her face stayed pure arrogance, as if the stares were beneath her notice.  
+Only the tight grip on his arm betrayed how much she needed him between her and them.
+
+**Ayesha:**  
+"Everyone is staring at me like I'm some kind of exhibit. These low-class people have no shame."
+
+**Richard:**  
+"I told you to stay back home, Ayesha. This isn't a vacation."
+
+**Ayesha:**  
+"And allowing that hoe secretary to go with you? Not a chance. Besides… I can make your nights here extra special."
+
+---
+
+### Act 3 — Flashback (hotel suite)
+
+**[Narration]**  
+Flashback — Previous Night (Hotel Suite)
+
+**[Narration]**  
+Ayesha was on top of Richard, riding him slowly, her hijab loosely draped.  
+Her voice was full of lust and superiority.
+
+**Ayesha:**  
+"Those people beneath us could never have what I have. I'm the only one who deserves to be here with you."
+
+---
+
+### Act 4 — Present again
+
+**[Narration]**  
+Present again — the terminal hum, the exit signs, Richard at her side.
+
+**[Narration]**  
+Border checks dragged on longer than they should.  
+Ayesha slipped away to the ladies' toilet to freshen up before the wait grew worse.
+
+---
+
+### Act 5 — Toilet (short scene)
+
+**[Narration]** · *Airport Toilet*  
+The toilet was cramped, fluorescent, and stale.  
+She stood at the mirror adjusting her hijab. Her phone lit up.
+
+**Richard (Text):**  
+"They pulled me aside for some extra checks. Wait for me outside. Shouldn't take long."
+
+**[Narration]**  
+She typed back with one hand, eyes fixed on the screen — annoyed, impatient, completely absorbed.
+
+**[Narration]**  
+Behind her, in the gap of the stall door, a shadow shifted.  
+A man was peeking — just a sliver of face and filthy grin in the mirror's edge.
+
+**[Narration]**  
+Ayesha's eyes snapped up from the phone.
+
+**[Narration]**  
+Nothing.  
+The gap was empty — only cracked tile and the buzz of a dead fluorescent light.
+
+**[Narration]**  
+She told herself she imagined it. Chin lifted, she went back to the screen and kept typing.
+
+**[Narration]**  
+She washed her hands, straightened her hijab, and stepped back out to wait near the exit.
+
+---
+
+### Act 6 — The wait (texts)
+
+**[Narration]** · *Outside the Airport - Present*  
+Twenty minutes passed. Then thirty.  
+The airport grew quieter.  
+Another message came in.
+
+**Richard (Text):**  
+"Baby, this is taking longer than expected. They're asking a lot of questions. Just stay near the exit. I'll sort this out soon."
+
+**Ayesha (Text):**  
+"How much longer? I'm already tired and these people keep staring at me."
+
+**Richard (Text):**  
+"I don't know. Just wait for me. Don't go anywhere alone."
+
+**[Narration]**  
+Two hours passed.
+
+**Richard (Text):**  
+"Something's wrong. They're not letting me go. Stay right there, Ayesha. I'm handling it. Don't move."
+
+**[Narration]**  
+Night had settled over the airport. Somewhere inside, they still had her husband.  
+Airport Scene.
+
+→ *Continues into **Airport Scene** (`airport_richard_office`)*
+
+---
+
+Open `index.html` and enjoy the story.

@@ -4,21 +4,30 @@ export const endingScenes = {
   ending: {
     page: 'ending',
     type: 'narration',
-    text: ['The line goes quiet for a long moment.'],
+    text: [
+      'The worker\'s hands are the only thing holding her up.',
+      'Richard\'s feed shakes — he saw everything — and he is still locked in that room.',
+    ],
     next: 'ending_phone',
   },
 
   ending_phone: {
     page: 'ending',
     type: 'narration',
-    text: ['You stare at your phone in the detention cell.'],
+    text: [
+      'Somewhere in the terminal, a door clicks shut.',
+      'Officer 2\'s words hang in the air like a promise.',
+    ],
     next: 'ending_beginning',
   },
 
   ending_beginning: {
     page: 'ending',
     type: 'narration',
-    text: ['Whatever happened to Ayesha tonight… it was only the beginning.'],
+    text: [
+      'Release 1 ends here.',
+      'The night is not over. The taxi. The hotel. Whatever comes next.',
+    ],
     next: 'ending_trust',
   },
 
@@ -26,7 +35,8 @@ export const endingScenes = {
     page: 'ending',
     type: 'narration',
     text: [
-      'Your choices will shape how much she still trusts you… and how much she starts to break.',
+      'This was only the beginning.',
+      'Release 2 continues her story.',
     ],
     end: true,
   },
