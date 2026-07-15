@@ -1,297 +1,316 @@
-import type { Scenes } from "../../types/game";
+import type { Scenes } from '../../types/game';
 
 /** Flashback CGs in public/assets/images/flashback/ */
 const BG_TITLE =
-  "/assets/images/flashback/grok-image-d6116a17-96f5-466c-a161-75762f7cc2ca.jpg";
+  '/assets/images/flashback/grok-image-d6116a17-96f5-466c-a161-75762f7cc2ca.jpg';
 const BG_HIJAB_FLOOR =
-  "/assets/images/flashback/grok-image-c9b2c7b0-8c05-498e-b523-a1b0b6b5cb32.jpg";
-const BG_WIDE_01 =
-  "/assets/images/flashback/grok-image-4734fc19-c171-4d2c-a357-463ed764d8d1.jpg";
-const BG_WIDE_02 =
-  "/assets/images/flashback/grok-image-31d4d9d4-57a4-4a27-bbbc-395bc5bc9f0b.jpg";
-const BG_POV_CEILING =
-  "/assets/images/flashback/grok-image-58109519-44e1-41b9-a169-8128016d5ed5.jpg";
-const BG_POV_DESK_1 = "/assets/images/flashback/BG_POV_DESK_1.jpg";
-const BG_POV_DESK_2 = "/assets/images/flashback/BG_POV_DESK_2.jpg";
-const BG_HIP_REVEAL = "/assets/images/flashback/hip_reveal.jpg";
-const BG_HIP_TOUCH = "/assets/images/flashback/hip_touch.jpg";
-const BG_HIP_KISS = "/assets/images/flashback/hip_kiss.jpg";
-const BG_NECK_KISS = "/assets/images/flashback/neck_kiss.jpg";
-const BG_ASS_GRAB = "/assets/images/flashback/ass_grab.jpg";
-const BG_BOOB_SUCK = "/assets/images/flashback/boob_suck.jpg";
-const BG_CLOSE_LIPS = "/assets/images/flashback/close_lips.jpg";
+  '/assets/images/flashback/grok-image-c9b2c7b0-8c05-498e-b523-a1b0b6b5cb32.jpg';
+const BG_PLAYFUL = '/assets/images/flashback/playful.jpg';
+const BG_POV_DESK_1 = '/assets/images/flashback/BG_POV_DESK_1.jpg';
+const BG_POV_DESK_2 = '/assets/images/flashback/BG_POV_DESK_2.jpg';
+const BG_HIP_REVEAL = '/assets/images/flashback/hip_reveal.jpg';
+const BG_HIP_KISS = '/assets/images/flashback/hip_kiss.jpg';
+const BG_HIP_TOUCH = '/assets/images/flashback/hip_touch.jpg';
+const BG_NECK_KISS = '/assets/images/flashback/neck_kiss.jpg';
+const BG_ASS_GRAB = '/assets/images/flashback/ass_grab.jpg';
+const BG_CLOSE_LIPS = '/assets/images/flashback/close_lips.jpg';
+const BG_PIN_DOWN =
+  '/assets/images/flashback/Gemini_Generated_Image_pingxxpingxxping-clean (1).png';
 const BG_CLOSE_LIPS_TEASE =
-  "/assets/images/flashback/close_lips_teasing_smile.jpg";
-const BG_DEEP_KISS = "/assets/images/flashback/deep_kiss.jpg";
+  '/assets/images/flashback/close_lips_teasing_smile.jpg';
+const BG_DEEP_KISS = '/assets/images/flashback/deep_kiss.jpg';
 const BG_CLOSE_KISS =
-  "/assets/images/flashback/grok-image-dee3d055-8f7c-4ed3-b8b1-a42d00d108bc.jpg";
-const BG_BLACK =
-  "/assets/images/flashback/grok-image-0fe105b2-3c8c-4265-9959-9ffd774dac1d.jpg";
-const BG_FINAL_KISS = "/assets/images/flashback/final_kiss.jpg";
-const BG_FINAL_REST = "/assets/images/flashback/final_kiss_resting.jpg";
+  '/assets/images/flashback/grok-image-dee3d055-8f7c-4ed3-b8b1-a42d00d108bc.jpg';
+const BG_UNDRESS = '/assets/images/flashback/output_pm4lx4.png';
+const BG_SHADOWS =
+  '/assets/images/flashback/Gemini_Generated_Image_udjg9eudjg9eudjg-clean (1).png';
+const BG_BUILDING_FAR = '/assets/images/flashback/151pu (1).jpg';
+const BG_FINAL_KISS = '/assets/images/flashback/final_kiss_sceneEnd.png';
+const BG_FINAL_REST = '/assets/images/flashback/final_kiss_resting.jpg';
 
 export const flashbackScenes = {
   flashback_title: {
-    page: "flashback",
-    type: "narration",
-    text: ["Flashback — Previous Night (Hotel Suite)"],
+    page: 'flashback',
+    type: 'narration',
+    text: ['Flashback — Previous Night (Hotel Suite)'],
     image: BG_TITLE,
-    next: "flashback_establishing",
+    next: 'flashback_establishing',
   },
 
   flashback_establishing: {
-    page: "flashback",
-    type: "narration",
+    page: 'flashback',
+    type: 'narration',
     text: [
-      "Silk on the marble floor. Everything else in the suite belonged to the heat behind it.",
+      'Silk on the marble floor. Everything else in the suite belonged to the heat behind it.',
     ],
     image: BG_HIJAB_FLOOR,
-    next: "flashback_wide_01",
+    next: 'flashback_suite_mood',
   },
 
-  flashback_wide_01: {
-    page: "flashback",
-    type: "narration",
+  // —— Act 1: light teasing, Ayesha sets the tone ——
+  flashback_suite_mood: {
+    page: 'flashback',
+    type: 'narration',
     text: [
-      "She moved above him without hurry — hijab loose, chin lifted, every motion deliberate.",
-      "Richard lay beneath her like a man who had stopped pretending he was in charge.",
+      'The suite was quiet except for the city humming below.',
+      'Ayesha had poured the night her way — slow, amused, certain he would wait for her.',
     ],
-    image: BG_WIDE_01,
-    next: "flashback_wide_02",
+    image: BG_PLAYFUL,
+    next: 'flashback_ayesha_tease',
   },
 
-  flashback_wide_02: {
-    page: "flashback",
-    type: "dialogue",
-    speaker: "Ayesha",
-    text: "Look at me. Not the room. Me.",
-    location: "Hotel Suite - Flashback",
-    image: BG_WIDE_02,
-    next: "flashback_pov_ceiling",
+  flashback_ayesha_tease: {
+    page: 'flashback',
+    type: 'dialogue',
+    speaker: 'Ayesha',
+    text: "Relax, Richard. I'm not going anywhere. Neither are you.",
+    location: 'Hotel Suite - Flashback',
+    image: BG_PLAYFUL,
+    next: 'flashback_richard_reach',
   },
 
-  flashback_pov_ceiling: {
-    page: "flashback",
-    type: "narration",
-    text: [
-      "From the ceiling fan the bed was a blur of limbs and white sheets.",
-      "She had him pinned in place with nothing but her weight and her will.",
-    ],
-    image: BG_POV_CEILING,
-    next: "flashback_pov_ceiling_whisper",
-  },
-
-  flashback_pov_ceiling_whisper: {
-    page: "flashback",
-    type: "dialogue",
-    speaker: "Ayesha",
-    text: "You're mine tonight. Don't forget that.",
-    location: "Hotel Suite - Flashback",
-    image: BG_POV_CEILING,
-    next: "flashback_pov_desk",
-  },
-
-  flashback_pov_desk: {
-    page: "flashback",
-    type: "narration",
-    text: [
-      "In the desk mirror: gold light, her grip on his jaw, the arrogant curve of her smile.",
-    ],
+  flashback_richard_reach: {
+    page: 'flashback',
+    type: 'dialogue',
+    speaker: 'Richard',
+    text: 'You always make a man work for it.',
+    location: 'Hotel Suite - Flashback',
     image: BG_POV_DESK_1,
-    next: "flashback_pov_desk_richard",
+    next: 'flashback_ayesha_not_yet',
   },
 
-  flashback_pov_desk_richard: {
-    page: "flashback",
-    type: "dialogue",
-    speaker: "Richard",
-    text: "Ayesha—",
-    location: "Hotel Suite - Flashback",
-    image: BG_POV_DESK_1,
-    next: "flashback_pov_desk_ayesha",
-  },
-
-  flashback_pov_desk_ayesha: {
-    page: "flashback",
-    type: "dialogue",
-    speaker: "Ayesha",
-    text: "Shhh..not yet big boy",
-    location: "Hotel Suite - Flashback",
+  flashback_ayesha_not_yet: {
+    page: 'flashback',
+    type: 'dialogue',
+    speaker: 'Ayesha',
+    text: 'Shhh… not yet, big boy.',
+    location: 'Hotel Suite - Flashback',
     image: BG_POV_DESK_2,
-    next: "flashback_hip_reveal",
+    next: 'flashback_richard_unbuttons',
   },
 
-  flashback_hip_reveal: {
-    page: "flashback",
-    type: "narration",
+  // —— Act 2: Richard takes over — sensitive Ayesha ——
+  flashback_richard_unbuttons: {
+    page: 'flashback',
+    type: 'narration',
     text: [
-      "Unable to contain himself, he unbuttons the lower half of her top and exposes her hip to his lips.",
+      'He moved before she could tease him again — swift fingers unbuttoning the lower half of her top.',
+      'Skin met air. Her breath hitched before she could hide it.',
     ],
     image: BG_HIP_REVEAL,
-    next: "flashback_hip_touch",
+    next: 'flashback_stomach_kiss',
+  },
+
+  flashback_stomach_kiss: {
+    page: 'flashback',
+    type: 'narration',
+    text: [
+      'Richard kissed her stomach like it was the only place he had ever wanted to be.',
+      'Slow. Deliberate. Worshiping every inch she had denied him.',
+    ],
+    image: BG_HIP_KISS,
+    next: 'flashback_hip_touch',
   },
 
   flashback_hip_touch: {
-    page: "flashback",
-    type: "dialogue",
-    speaker: "Ayesha",
-    text: "Hnngh..H..Hey..",
-    location: "Hotel Suite - Flashback",
+    page: 'flashback',
+    type: 'narration',
+    text: [
+      'His hands slid to her hips and pulled her closer — greedy, reverent.',
+      'The arrogant queen melted under his mouth, one soft sound at a time.',
+    ],
     image: BG_HIP_TOUCH,
-    next: "flashback_hip_kiss",
+    next: 'flashback_ayesha_moan',
   },
 
-
-  flashback_hip_kiss: {
-    page: "flashback",
-    type: "narration",
-    text: [
-      "She let the silence break only on her terms — lifting the edge of her top, offering skin instead of words.",
-      "Richard kissed her hip like a man starved. She watched him worship it.",
-    ],
-    image: BG_HIP_KISS,
-    next: "flashback_neck_kiss",
+  flashback_ayesha_moan: {
+    page: 'flashback',
+    type: 'dialogue',
+    speaker: 'Ayesha',
+    text: 'Hnngh… h-hey…',
+    location: 'Hotel Suite - Flashback',
+    image: BG_HIP_TOUCH,
+    next: 'flashback_neck_kiss',
   },
 
   flashback_neck_kiss: {
-    page: "flashback",
-    type: "narration",
+    page: 'flashback',
+    type: 'narration',
     text: [
-      "His mouth climbed higher. Her head fell back, gold hoops catching the city light.",
-      "His fingers threaded into her hair — hungry, clumsy, desperate to keep her close.",
+      'He worked his way up — lips tracing her hip, her ribs, the curve of her neck.',
+      'Her fingers knotted in his hair. She was still in charge on paper. Her body disagreed.',
     ],
     image: BG_NECK_KISS,
-    next: "flashback_boob_suck",
-  },
-
-  flashback_boob_suck: {
-    page: "flashback",
-    type: "narration",
-    text: [
-      "He opened her top and took her breast into his mouth without asking.",
-      "Ayesha exhaled through her teeth — pleased, not surrendered.",
-    ],
-    image: BG_BOOB_SUCK,
-    next: "flashback_ass_grab",
+    next: 'flashback_ass_grab',
   },
 
   flashback_ass_grab: {
-    page: "flashback",
-    type: "narration",
+    page: 'flashback',
+    type: 'narration',
     text: [
-      "Politeness left him. Both hands found her — gripping hard enough to bruise, pulling her down into his lap.",
-      "She did not stop him. She liked feeling how badly he wanted her.",
+      'Both hands found her ass and pulled her down hard into his lap.',
+      'A sharper moan escaped her — surprised, furious, honest.',
     ],
     image: BG_ASS_GRAB,
-    next: "flashback_close_kiss",
+    next: 'flashback_almost_kiss',
   },
 
-  flashback_close_kiss: {
-    page: "flashback",
-    type: "narration",
+  flashback_almost_kiss: {
+    page: 'flashback',
+    type: 'narration',
     text: [
-      "She brought her mouth close enough that he felt her breath — fingers digging in, hips rolling slow.",
-      "He leaned in. She never let their lips meet.",
+      'He rose to meet her mouth — so close she felt his breath.',
+      'For one heartbeat, the dominant woman looked like she might let him have the kiss.',
     ],
     image: BG_CLOSE_LIPS,
-    next: "flashback_close_tease_narr",
+    next: 'flashback_pins_him',
+  },
+
+  // —— Act 3: Ayesha regains control (jealousy + grind) ——
+  flashback_pins_him: {
+    page: 'flashback',
+    type: 'narration',
+    text: [
+      'Then she moved — fast, fluid, merciless.',
+      'Richard was on his back before he understood what happened, wrists pinned where she wanted them.',
+    ],
+    image: BG_PIN_DOWN,
+    next: 'flashback_grinding',
+  },
+
+  flashback_grinding: {
+    page: 'flashback',
+    type: 'narration',
+    text: [
+      'She settled over his lap and rolled her hips slow against the shape of him.',
+      'Close enough to ruin him. Slow enough to make him beg.',
+    ],
+    image: BG_PLAYFUL,
+    next: 'flashback_close_tease_narr',
   },
 
   flashback_close_tease_narr: {
-    page: "flashback",
-    type: "narration",
+    page: 'flashback',
+    type: 'narration',
     text: [
-      "Her lips hovered a breath from his — close enough to ache — then she drew back just enough to watch him want it.",
-      "A teasing smile. Cruel. Satisfied.",
+      'Her lips hovered a breath from his — close enough to ache — then she drew back just enough to watch him want it.',
+      'A teasing smile. Cruel. Satisfied.',
     ],
     image: BG_CLOSE_LIPS_TEASE,
-    next: "flashback_close_tease",
+    next: 'flashback_close_tease',
   },
 
   flashback_close_tease: {
-    page: "flashback",
-    type: "dialogue",
-    speaker: "Ayesha",
-    text: "Two weeks without this… or her in your cabin. You tell me which one you chose.",
-    location: "Hotel Suite - Flashback",
+    page: 'flashback',
+    type: 'dialogue',
+    speaker: 'Ayesha',
+    text: 'Two weeks without this… or her in your cabin. You tell me which one you chose.',
+    location: 'Hotel Suite - Flashback',
     image: BG_CLOSE_LIPS_TEASE,
-    next: "flashback_close_tease_richard",
+    next: 'flashback_close_tease_richard',
   },
 
   flashback_close_tease_richard: {
-    page: "flashback",
-    type: "dialogue",
-    speaker: "Richard",
+    page: 'flashback',
+    type: 'dialogue',
+    speaker: 'Richard',
     text: "She's not—",
-    location: "Hotel Suite - Flashback",
+    location: 'Hotel Suite - Flashback',
     image: BG_CLOSE_LIPS,
-    next: "flashback_close_tease_ayesha",
+    next: 'flashback_close_tease_ayesha',
   },
 
   flashback_close_tease_ayesha: {
-    page: "flashback",
-    type: "dialogue",
-    speaker: "Ayesha",
+    page: 'flashback',
+    type: 'dialogue',
+    speaker: 'Ayesha',
     text: "Shhhh...I don't want her name in your mouth tonight.",
-    location: "Hotel Suite - Flashback",
+    location: 'Hotel Suite - Flashback',
     image: BG_DEEP_KISS,
-    next: "flashback_close_whisper",
+    next: 'flashback_close_whisper',
   },
 
   flashback_close_whisper: {
-    page: "flashback",
-    type: "dialogue",
-    speaker: "Ayesha",
+    page: 'flashback',
+    type: 'dialogue',
+    speaker: 'Ayesha',
     text: "Those people downstairs could never have what I have. I'm the only one who deserves to be here with you.",
-    location: "Hotel Suite - Flashback",
+    location: 'Hotel Suite - Flashback',
     image: BG_CLOSE_KISS,
-    next: "flashback_black",
+    next: 'flashback_undress',
   },
 
-  flashback_black: {
-    page: "flashback",
-    type: "narration",
-    text: ["Darkness.", "Only breathing.", "Then stillness."],
-    image: BG_BLACK,
-    next: "flashback_final_kiss",
+  // —— Act 4: undress, shadows, surrender ——
+  flashback_undress: {
+    page: 'flashback',
+    type: 'narration',
+    text: [
+      'Clothes came off in his hands — her top, her pants, every barrier she had worn for show.',
+      'She let him look. She always did when it pleased her.',
+    ],
+    image: BG_UNDRESS,
+    next: 'flashback_shadows',
+  },
+
+  flashback_shadows: {
+    page: 'flashback',
+    type: 'narration',
+    text: [
+      'The lamp died. Only their shadows moved on the wall — tangled, urgent, unmistakable.',
+      'The city kept watching through the glass and could not look away.',
+    ],
+    image: BG_SHADOWS,
+    next: 'flashback_building_far',
+  },
+
+  // —— Act 5: closure ——
+  flashback_building_far: {
+    page: 'flashback',
+    type: 'narration',
+    text: [
+      'From far below, the tower was just another lit window in the rain.',
+      'Inside that dark room, they were still tangled together — private, finished, spent.',
+    ],
+    image: BG_BUILDING_FAR,
+    next: 'flashback_final_kiss',
   },
 
   flashback_final_kiss: {
-    page: "flashback",
-    type: "narration",
+    page: 'flashback',
+    type: 'narration',
     text: [
-      "Then, softer — a kiss that was not a weapon anymore.",
-      "Slower. Like a promise she intended to hold him to.",
+      'Then, softer — a kiss that was not a weapon anymore.',
+      'Slower. Like a promise she intended to hold him to.',
     ],
     image: BG_FINAL_KISS,
-    next: "flashback_snuggle",
+    next: 'flashback_snuggle',
   },
 
   flashback_snuggle: {
-    page: "flashback",
-    type: "narration",
+    page: 'flashback',
+    type: 'narration',
     text: [
-      "The suite went quiet. She pulled the covers over them both, still possessive even in rest.",
+      'The suite went quiet. She pulled the covers over them both, still possessive even in rest.',
     ],
     image: BG_FINAL_REST,
-    next: "flashback_snuggle_ayesha",
+    next: 'flashback_snuggle_ayesha',
   },
 
   flashback_snuggle_ayesha: {
-    page: "flashback",
-    type: "dialogue",
-    speaker: "Ayesha",
+    page: 'flashback',
+    type: 'dialogue',
+    speaker: 'Ayesha',
     text: "Don't you dare let her take my place tomorrow...\nYou belong to me...",
-    location: "Hotel Suite - Flashback",
+    location: 'Hotel Suite - Flashback',
     image: BG_FINAL_REST,
-    next: "flashback_snuggle_end",
+    next: 'flashback_snuggle_end',
   },
 
   flashback_snuggle_end: {
-    page: "flashback",
-    type: "narration",
-    text: ["She believed him. She always did — when it suited her."],
+    page: 'flashback',
+    type: 'narration',
+    text: ['She believed him. She always did — when it suited her.'],
     image: BG_FINAL_REST,
-    next: "intro_snap_back",
+    next: 'intro_snap_back',
   },
 } satisfies Scenes;
