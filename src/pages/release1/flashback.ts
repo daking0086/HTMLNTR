@@ -5,6 +5,7 @@ const BG_TITLE =
   '/assets/images/flashback/grok-image-d6116a17-96f5-466c-a161-75762f7cc2ca.jpg';
 const BG_HIJAB_FLOOR =
   '/assets/images/flashback/grok-image-c9b2c7b0-8c05-498e-b523-a1b0b6b5cb32.jpg';
+const BG_SITTING_ON_HIM_CLOSE_UP = '/assets/images/flashback/sittingOnHimCloseUp.jpg';
 const BG_PLAYFUL = '/assets/images/flashback/playful.jpg';
 const BG_POV_DESK_1 = '/assets/images/flashback/BG_POV_DESK_1.jpg';
 const BG_POV_DESK_2 = '/assets/images/flashback/BG_POV_DESK_2.jpg';
@@ -12,6 +13,14 @@ const BG_HIP_REVEAL = '/assets/images/flashback/hip_reveal.jpg';
 const BG_HIP_KISS = '/assets/images/flashback/hip_kiss.jpg';
 const BG_HIP_TOUCH = '/assets/images/flashback/hip_touch.jpg';
 const BG_NECK_KISS = '/assets/images/flashback/neck_kiss.jpg';
+const BG_SOFT_SUCK = '/assets/images/flashback/soft_suck.png';
+const BG_SWIFT_UNBUTTONING = '/assets/images/flashback/swift_unbuttoning.jpg';
+const BG_DEEP_CLEAVAGE = '/assets/images/flashback/deep_cleavage1.png';
+const BG_BOOB_SUCK_HD = '/assets/images/flashback/boob_suck_HD.png';
+const BG_BOOB_1 = '/assets/images/flashback/boob1.png';
+const BG_BOOB_2 = '/assets/images/flashback/boob2.png';
+const BG_BOOB_3 = '/assets/images/flashback/boob3.png';
+const BG_BOOB_4 = '/assets/images/flashback/boob4.png';
 const BG_ASS_GRAB = '/assets/images/flashback/ass_grab.jpg';
 const BG_CLOSE_LIPS = '/assets/images/flashback/close_lips.jpg';
 const BG_PIN_DOWN =
@@ -22,11 +31,15 @@ const BG_DEEP_KISS = '/assets/images/flashback/deep_kiss.jpg';
 const BG_CLOSE_KISS =
   '/assets/images/flashback/grok-image-dee3d055-8f7c-4ed3-b8b1-a42d00d108bc.jpg';
 const BG_UNDRESS = '/assets/images/flashback/output_pm4lx4.png';
-const BG_SHADOWS =
-  '/assets/images/flashback/Gemini_Generated_Image_udjg9eudjg9eudjg-clean (1).png';
+const BG_SHADOWS = '/assets/images/flashback/sex.png';
 const BG_BUILDING_FAR = '/assets/images/flashback/151pu (1).jpg';
 const BG_FINAL_KISS = '/assets/images/flashback/final_kiss_sceneEnd.png';
 const BG_FINAL_REST = '/assets/images/flashback/final_kiss_resting.jpg';
+const ON_TOP_FIRST = '/assets/images/flashback/ON_TOP_FIRST.jpg';
+const BG_POV_DESK_3 = '/assets/images/flashback/BG_POV_DESK_3.jpg';
+const BG_UNBUTTONING_HER = '/assets/images/flashback/BG_unbuttoningher.jpg';
+const BG_LIFTS_HER_UP_HEAVY = '/assets/images/flashback/BG_liftsherup_heavy.jpg';
+const BG_HIP_KISS1 = '/assets/images/flashback/hip_kiss1.jpg';
 
 export const flashbackScenes = {
   flashback_title: {
@@ -55,7 +68,7 @@ export const flashbackScenes = {
       'The suite was quiet except for the city humming below.',
       'Ayesha had poured the night her way — slow, amused, certain he would wait for her.',
     ],
-    image: BG_PLAYFUL,
+    image: ON_TOP_FIRST,
     next: 'flashback_ayesha_tease',
   },
 
@@ -65,7 +78,7 @@ export const flashbackScenes = {
     speaker: 'Ayesha',
     text: "Relax, Richard. I'm not going anywhere. Neither are you.",
     location: 'Hotel Suite - Flashback',
-    image: BG_PLAYFUL,
+    image: ON_TOP_FIRST,
     next: 'flashback_richard_reach',
   },
 
@@ -76,6 +89,39 @@ export const flashbackScenes = {
     text: 'You always make a man work for it.',
     location: 'Hotel Suite - Flashback',
     image: BG_POV_DESK_1,
+    next: 'flashback_sitting_on_him',
+  },
+
+  flashback_sitting_on_him: {
+    page: 'flashback',
+    type: 'narration',
+    text: [
+      'She settled over his lap, soft satin pants resting flush against his crotch.',
+      'Every small shift dragged that silky fabric over him — warm, heavy, deliberate.',
+      "He could feel how hard he was under her. She could feel it too. She didn't move away.",
+    ],
+    image: BG_SITTING_ON_HIM_CLOSE_UP,
+    next: 'flashback_ayesha_gettingClose',
+  },
+
+   flashback_ayesha_gettingClose: {
+    page: 'flashback',
+    type: 'narration',
+    text: [
+      'She leans in close, her lips brushing his , teasingly close to his mouth.',
+    ],
+    image: BG_CLOSE_LIPS,
+    next: 'flashback_ayesha_almostkiss',
+  },
+
+
+  flashback_ayesha_almostkiss: {
+    page: 'flashback',
+    type: 'dialogue',
+    speaker: 'Richard',
+    text: 'Ayesha...',
+    location: 'Hotel Suite - Flashback',
+    image: BG_CLOSE_LIPS,
     next: 'flashback_ayesha_not_yet',
   },
 
@@ -85,19 +131,31 @@ export const flashbackScenes = {
     speaker: 'Ayesha',
     text: 'Shhh… not yet, big boy.',
     location: 'Hotel Suite - Flashback',
-    image: BG_POV_DESK_2,
-    next: 'flashback_richard_unbuttons',
+    image: BG_POV_DESK_3,
+    next: 'flashback_richard_lust',
   },
 
   // —— Act 2: Richard takes over — sensitive Ayesha ——
+  flashback_richard_lust: {
+    page: 'flashback',
+    type: 'narration',
+    text: [
+      "But Richard couldn't control his lust anymore.",
+      'His hands found the lower buttons of her top and tore them open — swift, hungry, done before she could stop him.',
+      'Cool air kissed bare skin. Her breath hitched.',
+    ],
+    image: BG_UNBUTTONING_HER,
+    next: 'flashback_richard_unbuttons',
+  },
+
   flashback_richard_unbuttons: {
     page: 'flashback',
     type: 'narration',
     text: [
-      'He moved before she could tease him again — swift fingers unbuttoning the lower half of her top.',
-      'Skin met air. Her breath hitched before she could hide it.',
+      'Then he lifted her — hard, heavy, no hesitation — and hauled her up into his lap.',
+      'Both hands gripped her ass and pulled her flush against him. The bed shook under the weight of it.',
     ],
-    image: BG_HIP_REVEAL,
+    image: BG_LIFTS_HER_UP_HEAVY,
     next: 'flashback_stomach_kiss',
   },
 
@@ -119,7 +177,7 @@ export const flashbackScenes = {
       'His hands slid to her hips and pulled her closer — greedy, reverent.',
       'The arrogant queen melted under his mouth, one soft sound at a time.',
     ],
-    image: BG_HIP_TOUCH,
+    image: BG_HIP_KISS1,
     next: 'flashback_ayesha_moan',
   },
 
@@ -129,7 +187,7 @@ export const flashbackScenes = {
     speaker: 'Ayesha',
     text: 'Hnngh… h-hey…',
     location: 'Hotel Suite - Flashback',
-    image: BG_HIP_TOUCH,
+    image: BG_HIP_KISS1,
     next: 'flashback_neck_kiss',
   },
 
@@ -141,6 +199,91 @@ export const flashbackScenes = {
       'Her fingers knotted in his hair. She was still in charge on paper. Her body disagreed.',
     ],
     image: BG_NECK_KISS,
+    next: 'flashback_soft_suck',
+  },
+
+  flashback_soft_suck: {
+    page: 'flashback',
+    type: 'narration',
+    text: [
+      'Then he dropped lower again — mouth closing over her breast through the soft satin.',
+      'Heat and wet fabric, a slow pull of his lips. Her nipple stiffened under the cloth.',
+    ],
+    image: BG_SOFT_SUCK,
+    next: 'flashback_swift_unbuttoning',
+  },
+
+  flashback_swift_unbuttoning: {
+    page: 'flashback',
+    type: 'narration',
+    text: [
+      'His fingers found the remaining buttons and tore them open — swift, impatient.',
+      'Satin parted. More skin. More of her.',
+    ],
+    image: BG_SWIFT_UNBUTTONING,
+    next: 'flashback_deep_cleavage',
+  },
+
+  flashback_deep_cleavage: {
+    page: 'flashback',
+    type: 'narration',
+    text: [
+      'The top hung open now — deep cleavage, almost fully exposed, only a slip of fabric left between him and everything.',
+      'He stared. She felt it. She did not close the cloth.',
+    ],
+    image: BG_DEEP_CLEAVAGE,
+    next: 'flashback_boob_suck_hd',
+  },
+
+  flashback_boob_suck_hd: {
+    page: 'flashback',
+    type: 'narration',
+    text: [
+      'Before she could react, he pulled the satin aside and took her soft breast into his mouth.',
+      'Warm. Full. He sucked hard enough that her fingers dug into his shoulder.',
+    ],
+    image: BG_BOOB_SUCK_HD,
+    next: 'flashback_boob_1',
+  },
+
+  flashback_boob_1: {
+    page: 'flashback',
+    type: 'narration',
+    text: [
+      'His tongue circled her nipple — slow, greedy, claiming every inch of bare skin he had just exposed.',
+    ],
+    image: BG_BOOB_1,
+    next: 'flashback_boob_2',
+  },
+
+  flashback_boob_2: {
+    page: 'flashback',
+    type: 'narration',
+    text: [
+      'He switched to the other breast without asking, mouth wet and hungry against her.',
+    ],
+    image: BG_BOOB_2,
+    next: 'flashback_boob_3',
+  },
+
+  flashback_boob_3: {
+    page: 'flashback',
+    type: 'dialogue',
+    speaker: 'Ayesha',
+    text: 'A-ah… Richard…',
+    location: 'Hotel Suite - Flashback',
+    image: BG_BOOB_3,
+    next: 'flashback_boob_4',
+  },
+
+  flashback_boob_4: {
+    page: 'flashback',
+    type: 'narration',
+    text: [
+      'She arched into him despite herself — soft sounds slipping out as he sucked her deeper.',
+      'For a moment the queen forgot how to rule.',
+    ],
+    image: BG_BOOB_4,
     next: 'flashback_ass_grab',
   },
 
