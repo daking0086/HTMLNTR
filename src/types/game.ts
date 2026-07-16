@@ -16,6 +16,13 @@ interface BaseScene {
   page: PageId;
   /** Character sprite ids from characterDisplay.ts (e.g. 'officer-2') */
   characters?: string[];
+  /**
+   * Optional looping CG frames (relative public paths).
+   * When set, the stage cycles these instead of a single still.
+   */
+  imageLoop?: string[];
+  /** Ms per frame when imageLoop is set (default ~110) */
+  imageLoopMs?: number;
 }
 
 export interface NarrationScene extends BaseScene {

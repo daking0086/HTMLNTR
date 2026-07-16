@@ -9,6 +9,8 @@ interface SceneCharacterStageProps extends CharacterLayerConfig {
   sceneLocation?: string;
   dayIndicator?: string;
   className?: string;
+  /** Play motion-blur enter when the background changes (default off; set true to enable) */
+  motionBlur?: boolean;
 }
 
 export default function SceneCharacterStage({
@@ -23,6 +25,7 @@ export default function SceneCharacterStage({
   idleScale,
   backgroundBlurPx = 4,
   className = '',
+  motionBlur = false,
 }: SceneCharacterStageProps) {
   const showCharacters = characters.length > 0;
   const blurStyle = showCharacters
@@ -33,13 +36,18 @@ export default function SceneCharacterStage({
     <div className={`vn-stage relative w-full overflow-hidden bg-zinc-950 ${className}`}>
       <div className={`vn-stage-bg ${showCharacters ? 'vn-stage-bg--dimmed' : ''}`}>
         {backgroundSrc ? (
-          <img
-            src={backgroundSrc}
-            className="vn-stage-bg-image"
-            style={blurStyle}
-            alt=""
-            draggable={false}
-          />
+          <div
+            key={backgroundSrc}
+            className={motionBlur ? 'vn-stage-cg-enter' : 'absolute inset-0'}
+          >
+            <img
+              src={backgroundSrc}
+              className="vn-stage-bg-image"
+              style={blurStyle}
+              alt=""
+              draggable={false}
+            />
+          </div>
         ) : (
           <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-b from-zinc-900 via-zinc-950 to-black">
             <div className="text-center px-6">

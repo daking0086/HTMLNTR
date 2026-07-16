@@ -17,6 +17,10 @@ export function getScenePicture(scene: Scene | undefined): string | null {
   if (!isImagesEnabled()) return null;
   if (!scene) return null;
 
+  if (scene.imageLoop?.length) {
+    return resolveSceneImage(scene.image ?? scene.imageLoop[0]);
+  }
+
   if (scene.characters?.length) {
     return resolveSceneImage(scene.image);
   }
@@ -26,4 +30,14 @@ export function getScenePicture(scene: Scene | undefined): string | null {
   }
 
   return resolveSceneImage(scene.image);
+}
+
+/** Resolved absolute URLs for a looping CG sequence, or null. */
+export function getSceneImageLoop(scene: Scene | undefined): string[] | null {
+  if (!isImagesEnabled() || !scene?.imageLoop?.length) return null;
+  return scene.imageLoop.map((path) => assetUrl(path)).filter(Boolean);
+}
+
+export function getSceneImageLoopMs(scene: Scene | undefined): number {
+  return scene?.imageLoopMs ?? 110;
 }

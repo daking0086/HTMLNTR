@@ -16,12 +16,17 @@ const BG_NECK_KISS = '/assets/images/flashback/neck_kiss.jpg';
 const BG_SOFT_SUCK = '/assets/images/flashback/soft_suck.png';
 const BG_SWIFT_UNBUTTONING = '/assets/images/flashback/swift_unbuttoning.jpg';
 const BG_DEEP_CLEAVAGE = '/assets/images/flashback/deep_cleavage1.png';
-const BG_BOOB_SUCK_HD = '/assets/images/flashback/boob_suck_HD.png';
-const BG_BOOB_1 = '/assets/images/flashback/boob1.png';
-const BG_BOOB_2 = '/assets/images/flashback/boob2.png';
-const BG_BOOB_3 = '/assets/images/flashback/boob3.png';
-const BG_BOOB_4 = '/assets/images/flashback/boob4.png';
+/** Suck beats — one image per beat (from suck/) */
+const BG_SUCK_1 = '/assets/images/flashback/suck/ezgif-frame-001.jpg';
+const BG_SUCK_2 = '/assets/images/flashback/suck/ezgif-frame-003.jpg';
+const BG_SUCK_3 = '/assets/images/flashback/suck/ezgif-frame-005.jpg';
+const BG_SUCK_4 = '/assets/images/flashback/suck/ezgif-frame-007.jpg';
+const BG_SUCK_5 = '/assets/images/flashback/suck/ezgif-frame-010.jpg';
 const BG_ASS_GRAB = '/assets/images/flashback/ass_grab.jpg';
+/** Grind beats: up → down → up (from grinding/) */
+const BG_GRIND_UP = '/assets/images/flashback/grinding/ezgif-frame-005.jpg';
+const BG_GRIND_DOWN = '/assets/images/flashback/grinding/ezgif-frame-014.jpg';
+const BG_GRIND_UP_2 = '/assets/images/flashback/grinding/ezgif-frame-018.jpg';
 const BG_CLOSE_LIPS = '/assets/images/flashback/close_lips.jpg';
 const BG_PIN_DOWN =
   '/assets/images/flashback/Gemini_Generated_Image_pingxxpingxxping-clean (1).png';
@@ -232,58 +237,56 @@ export const flashbackScenes = {
       'He stared. She felt it. She did not close the cloth.',
     ],
     image: BG_DEEP_CLEAVAGE,
-    next: 'flashback_boob_suck_hd',
+    next: 'flashback_suck_1',
   },
 
-  flashback_boob_suck_hd: {
+  flashback_suck_1: {
     page: 'flashback',
     type: 'narration',
     text: [
       'Before she could react, he pulled the satin aside and took her soft breast into his mouth.',
-      'Warm. Full. He sucked hard enough that her fingers dug into his shoulder.',
     ],
-    image: BG_BOOB_SUCK_HD,
-    next: 'flashback_boob_1',
+    image: BG_SUCK_1,
+    next: 'flashback_suck_2',
   },
 
-  flashback_boob_1: {
+  flashback_suck_2: {
     page: 'flashback',
     type: 'narration',
     text: [
-      'His tongue circled her nipple — slow, greedy, claiming every inch of bare skin he had just exposed.',
+      'She arched — head tipped back — as he sucked her in, slow and greedy.',
     ],
-    image: BG_BOOB_1,
-    next: 'flashback_boob_2',
+    image: BG_SUCK_2,
+    next: 'flashback_suck_3',
   },
 
-  flashback_boob_2: {
+  flashback_suck_3: {
     page: 'flashback',
     type: 'narration',
     text: [
-      'He switched to the other breast without asking, mouth wet and hungry against her.',
+      'He pulled her down into him — mouth wet against her, hands locked on her hips.',
     ],
-    image: BG_BOOB_2,
-    next: 'flashback_boob_3',
+    image: BG_SUCK_3,
+    next: 'flashback_suck_4',
   },
 
-  flashback_boob_3: {
+  flashback_suck_4: {
     page: 'flashback',
     type: 'dialogue',
     speaker: 'Ayesha',
     text: 'A-ah… Richard…',
     location: 'Hotel Suite - Flashback',
-    image: BG_BOOB_3,
-    next: 'flashback_boob_4',
+    image: BG_SUCK_4,
+    next: 'flashback_suck_5',
   },
 
-  flashback_boob_4: {
+  flashback_suck_5: {
     page: 'flashback',
     type: 'narration',
     text: [
-      'She arched into him despite herself — soft sounds slipping out as he sucked her deeper.',
-      'For a moment the queen forgot how to rule.',
+      'He did not stop. Another pull of his mouth — deeper — and for a moment the queen forgot how to rule.',
     ],
-    image: BG_BOOB_4,
+    image: BG_SUCK_5,
     next: 'flashback_ass_grab',
   },
 
@@ -318,17 +321,36 @@ export const flashbackScenes = {
       'Richard was on his back before he understood what happened, wrists pinned where she wanted them.',
     ],
     image: BG_PIN_DOWN,
-    next: 'flashback_grinding',
+    next: 'flashback_grind_up',
   },
 
-  flashback_grinding: {
+  flashback_grind_up: {
     page: 'flashback',
     type: 'narration',
     text: [
-      'She settled over his lap and rolled her hips slow against the shape of him.',
-      'Close enough to ruin him. Slow enough to make him beg.',
+      'She lifted her hips — soft satin dragging up the length of him.',
     ],
-    image: BG_PLAYFUL,
+    image: BG_GRIND_UP,
+    next: 'flashback_grind_down',
+  },
+
+  flashback_grind_down: {
+    page: 'flashback',
+    type: 'narration',
+    text: [
+      'Then she dropped — heavy, slow — grinding down until she was flush in his lap.',
+    ],
+    image: BG_GRIND_DOWN,
+    next: 'flashback_grind_up_2',
+  },
+
+  flashback_grind_up_2: {
+    page: 'flashback',
+    type: 'narration',
+    text: [
+      'Up again. Same cruel pace. Close enough to ruin him. Slow enough to make him beg.',
+    ],
+    image: BG_GRIND_UP_2,
     next: 'flashback_close_tease_narr',
   },
 
