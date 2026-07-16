@@ -63,6 +63,45 @@
     transition: filter 0.4s ease;
   }
 
+  /* Motion blur when a new CG loads — enable via motionBlur={true} on SceneStage / SceneCharacterStage */
+  .vn-stage-cg-enter {
+    @apply absolute inset-0 overflow-hidden;
+    animation: vn-cg-motion-enter 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+    will-change: filter, transform;
+  }
+
+  .vn-stage-cg-image {
+    @apply absolute inset-0 h-full w-full object-cover object-center;
+  }
+
+  @keyframes vn-cg-motion-enter {
+    0% {
+      filter: blur(16px) brightness(1.1) saturate(1.2);
+      transform: scale(1.1) translateX(-1.2%);
+      opacity: 0.75;
+    }
+    35% {
+      filter: blur(8px) brightness(1.04) saturate(1.1);
+      transform: scale(1.05) translateX(0.4%);
+      opacity: 0.92;
+    }
+    70% {
+      filter: blur(2px);
+      transform: scale(1.015) translateX(0);
+    }
+    100% {
+      filter: blur(0) brightness(1) saturate(1);
+      transform: scale(1) translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vn-stage-cg-enter {
+      animation: none;
+    }
+  }
+
   .vn-character-layer {
     @apply absolute inset-0 pointer-events-none;
     z-index: 5;

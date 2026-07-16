@@ -5,7 +5,12 @@ import EndScreen from './EndScreen';
 import SceneStage from './game/SceneStage';
 import SceneCharacterStage from './game/SceneCharacterStage';
 import { getActiveSpeakerId, getSceneStageCharacters } from '../logic/sceneCharacters';
-import { getScenePicture, isImagesEnabled } from '../logic/sceneVisual';
+import {
+  getSceneImageLoop,
+  getSceneImageLoopMs,
+  getScenePicture,
+  isImagesEnabled,
+} from '../logic/sceneVisual';
 import type { Choice, DialogueScene, Release, Scene } from '../types/game';
 import type { TextSpeed } from '../types/app';
 import { TEXT_SPEED_MS } from '../types/app';
@@ -57,6 +62,8 @@ export default function GameContainer({
     (currentScene.choices?.length ?? 0) > 0;
 
   const pictureSrc = getScenePicture(currentScene);
+  const pictureLoop = getSceneImageLoop(currentScene);
+  const pictureLoopMs = getSceneImageLoopMs(currentScene);
   const stageCharacters = getSceneStageCharacters(currentScene);
   const activeSpeakerId = getActiveSpeakerId(currentScene);
 
@@ -93,6 +100,8 @@ export default function GameContainer({
           ) : (
             <SceneStage
               imageSrc={pictureSrc}
+              loopFrames={pictureLoop}
+              loopIntervalMs={pictureLoopMs}
               sceneLocation={sceneLocation}
               dayIndicator={dayIndicator}
             />
