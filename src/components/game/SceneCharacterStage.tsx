@@ -1,5 +1,7 @@
+import { useEffect, useState } from 'react';
 import CharacterLayer from './CharacterLayer';
 import type { CharacterLayerConfig, StageCharacter } from '../../types/characterLayer';
+import { preloadImages } from '../../utils/preloadImages';
 
 interface SceneCharacterStageProps extends CharacterLayerConfig {
   backgroundSrc: string | null;
@@ -32,16 +34,47 @@ export default function SceneCharacterStage({
     ? { filter: `blur(${backgroundBlurPx}px) brightness(0.88) saturate(0.92)` }
     : undefined;
 
+  const [shownSrc, setShownSrc] = useState<string | null>(backgroundSrc);
+
+  useEffect(() => {
+    if (characters.length) {
+      preloadImages(characters.map((c) => c.imageSrc));
+    }
+  }, [characters]);
+
+  useEffect(() => {
+    if (!backgroundSrc) {
+      setShownSrc(null);
+      return;
+    }
+    if (backgroundSrc === shownSrc) return;
+
+    let cancelled = false;
+    const img = new Image();
+    img.decoding = 'async';
+    const commit = () => {
+      if (!cancelled) setShownSrc(backgroundSrc);
+    };
+    img.onload = commit;
+    img.onerror = commit;
+    img.src = backgroundSrc;
+    if (img.complete) commit();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [backgroundSrc, shownSrc]);
+
   return (
     <div className={`vn-stage relative w-full overflow-hidden bg-zinc-950 ${className}`}>
       <div className={`vn-stage-bg ${showCharacters ? 'vn-stage-bg--dimmed' : ''}`}>
-        {backgroundSrc ? (
+        {shownSrc ? (
           <div
-            key={backgroundSrc}
+            key={motionBlur ? shownSrc : 'stable'}
             className={motionBlur ? 'vn-stage-cg-enter' : 'absolute inset-0'}
           >
             <img
-              src={backgroundSrc}
+              src={shownSrc}
               className="vn-stage-bg-image"
               style={blurStyle}
               alt=""
