@@ -1,4 +1,5 @@
 import MenuButton from './MenuButton';
+import { toAppHref } from '../../utils/appPath';
 
 interface MainMenuProps {
   hasSave: boolean;
@@ -19,6 +20,10 @@ export default function MainMenu({
   onGallery,
   onExit,
 }: MainMenuProps) {
+  const openComponentLab = () => {
+    window.location.href = toAppHref('/test');
+  };
+
   return (
     <div className="vn-container bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden shadow-2xl">
       <div className="px-8 py-10 text-center border-b border-zinc-800 bg-zinc-950">
@@ -40,8 +45,15 @@ export default function MainMenu({
         <MenuButton icon="fa-folder-open" label="Load" onClick={onLoad} />
         <MenuButton icon="fa-sliders" label="Options" onClick={onOptions} />
         <MenuButton icon="fa-images" label="Gallery" onClick={onGallery} />
+        {import.meta.env.DEV && (
+          <MenuButton
+            icon="fa-flask"
+            label="Component Lab"
+            onClick={openComponentLab}
+          />
+        )}
         <MenuButton icon="fa-door-open" label="Exit" onClick={onExit} />
       </div>
     </div>
   );
-}
+}
