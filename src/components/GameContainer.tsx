@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import DialogueArea from './DialogueArea';
 import Choices from './Choices';
 import NarrationContinue from './NarrationContinue';
@@ -5,19 +6,21 @@ import EndScreen from './EndScreen';
 import SceneStage from './game/SceneStage';
 import SceneCharacterStage from './game/SceneCharacterStage';
 import { getActiveSpeakerId, getSceneStageCharacters } from '../logic/sceneCharacters';
+import { prefetchSceneImages } from '../logic/sceneImagePrefetch';
 import {
   getSceneImageLoop,
   getSceneImageLoopMs,
   getScenePicture,
   isImagesEnabled,
 } from '../logic/sceneVisual';
-import type { Choice, DialogueScene, Release, Scene } from '../types/game';
+import type { Choice, DialogueScene, Release, Scene, SceneKey } from '../types/game';
 import type { TextSpeed } from '../types/app';
 import { TEXT_SPEED_MS } from '../types/app';
 
 interface GameContainerProps {
   release: Release;
   currentScene: Scene | undefined;
+  currentSceneKey: SceneKey;
   sceneLocation: string;
   dayIndicator: string;
   isEnded: boolean;
@@ -37,6 +40,7 @@ function isDialogueScene(scene: Scene): scene is DialogueScene {
 export default function GameContainer({
   release,
   currentScene,
+  currentSceneKey,
   sceneLocation,
   dayIndicator,
   isEnded,
@@ -48,6 +52,11 @@ export default function GameContainer({
   autoPlay = false,
   skipMode = false,
 }: GameContainerProps) {
+  // Prefetch this page + next ~28 beats so suck/grind chains never hit black load gaps
+  useEffect(() => {
+    prefetchSceneImages(release, currentSceneKey, currentScene);
+  }, [release, currentSceneKey, currentScene]);
+
   const showNarrationContinue =
     !isEnded &&
     (currentScene?.type === 'narration' ||

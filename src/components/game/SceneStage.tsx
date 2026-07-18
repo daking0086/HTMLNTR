@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { preloadImages } from '../../utils/preloadImages';
 
 interface SceneStageProps {
   imageSrc: string | null;
@@ -12,6 +13,10 @@ interface SceneStageProps {
   motionBlur?: boolean;
 }
 
+/**
+ * Holds the previous CG on screen until the next one finishes loading
+ * so beat transitions never flash black on first playthrough.
+ */
 export default function SceneStage({
   imageSrc,
   loopFrames = null,
@@ -22,6 +27,43 @@ export default function SceneStage({
 }: SceneStageProps) {
   const frames = loopFrames && loopFrames.length > 1 ? loopFrames : null;
   const [frameIndex, setFrameIndex] = useState(0);
+  /** Actually painted CG — only advances when the new src is ready */
+  const [shownSrc, setShownSrc] = useState<string | null>(imageSrc);
+
+  // Warm loop frames immediately
+  useEffect(() => {
+    if (frames) preloadImages(frames);
+  }, [frames]);
+
+  // When target still changes, keep old image until new one is fully loaded
+  useEffect(() => {
+    const target = frames ? frames[frameIndex] ?? imageSrc : imageSrc;
+
+    if (!target) {
+      setShownSrc(null);
+      return;
+    }
+
+    if (target === shownSrc) return;
+
+    let cancelled = false;
+    const img = new Image();
+    img.decoding = 'async';
+
+    const commit = () => {
+      if (!cancelled) setShownSrc(target);
+    };
+
+    img.onload = commit;
+    img.onerror = commit;
+    img.src = target;
+
+    if (img.complete) commit();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [imageSrc, frames, frameIndex, shownSrc]);
 
   useEffect(() => {
     setFrameIndex(0);
@@ -49,24 +91,19 @@ export default function SceneStage({
     return () => window.clearInterval(id);
   }, [frames, loopIntervalMs]);
 
-  const displaySrc = frames ? frames[frameIndex] ?? imageSrc : imageSrc;
-
   return (
     <div className="vn-stage relative w-full overflow-hidden bg-zinc-950">
-      {displaySrc ? (
+      {shownSrc ? (
         <div
-          key={frames ? 'loop' : displaySrc}
+          key={motionBlur && !frames ? shownSrc : 'stable'}
           className={motionBlur && !frames ? 'vn-stage-cg-enter' : 'absolute inset-0'}
         >
           <img
-            src={displaySrc}
+            src={shownSrc}
             className="vn-stage-cg-image"
             alt=""
             draggable={false}
           />
-          {frames?.map((src) => (
-            <img key={src} src={src} alt="" className="hidden" aria-hidden />
-          ))}
         </div>
       ) : (
         <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-b from-zinc-900 via-zinc-950 to-black">

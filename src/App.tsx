@@ -265,6 +265,7 @@ export default function App() {
           <GameContainer
             release={game.release}
             currentScene={game.currentScene}
+            currentSceneKey={game.gameState.currentScene}
             sceneLocation={game.sceneLocation}
             dayIndicator={game.dayIndicator}
             isEnded={game.gameState.isEnded}
