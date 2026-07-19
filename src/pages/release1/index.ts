@@ -2,6 +2,7 @@ import { release1Meta } from './meta';
 import { introScenes } from './intro';
 import { flashbackScenes } from './flashback';
 import { airportScenes } from './airport';
+import { interrogationScenes } from './interrogation';
 import { endingScenes } from './ending';
 import type { Release } from '../../types/game';
 
@@ -15,6 +16,7 @@ export const release1: Release = {
     ...introScenes,
     ...flashbackScenes,
     ...airportScenes,
+    ...interrogationScenes,
     ...endingScenes,
     // ...taxiScenes,
     // ...hotelScenes,

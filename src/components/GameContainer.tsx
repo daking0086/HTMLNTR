@@ -5,6 +5,7 @@ import NarrationContinue from './NarrationContinue';
 import EndScreen from './EndScreen';
 import SceneStage from './game/SceneStage';
 import SceneCharacterStage from './game/SceneCharacterStage';
+import Looper from './game/Looper';
 import { getActiveSpeakerId, getSceneStageCharacters } from '../logic/sceneCharacters';
 import { prefetchSceneImages } from '../logic/sceneImagePrefetch';
 import {
@@ -13,7 +14,8 @@ import {
   getScenePicture,
   isImagesEnabled,
 } from '../logic/sceneVisual';
-import type { Choice, DialogueScene, Release, Scene, SceneKey } from '../types/game';
+import { assetUrl } from '../utils/assetUrl';
+import type { Choice, DialogueScene, LooperScene, Release, Scene, SceneKey } from '../types/game';
 import type { TextSpeed } from '../types/app';
 import { TEXT_SPEED_MS } from '../types/app';
 
@@ -37,6 +39,10 @@ function isDialogueScene(scene: Scene): scene is DialogueScene {
   return scene.type === 'dialogue';
 }
 
+function isLooperScene(scene: Scene | undefined): scene is LooperScene {
+  return scene?.type === 'looper';
+}
+
 export default function GameContainer({
   release,
   currentScene,
@@ -52,13 +58,13 @@ export default function GameContainer({
   autoPlay = false,
   skipMode = false,
 }: GameContainerProps) {
-  // Prefetch this page + next ~28 beats so suck/grind chains never hit black load gaps
   useEffect(() => {
     prefetchSceneImages(release, currentSceneKey, currentScene);
   }, [release, currentSceneKey, currentScene]);
 
   const showNarrationContinue =
     !isEnded &&
+    !isLooperScene(currentScene) &&
     (currentScene?.type === 'narration' ||
       (currentScene?.type === 'dialogue' &&
         !!currentScene.next &&
@@ -96,6 +102,18 @@ export default function GameContainer({
             <EndScreen release={release} onRestart={onRestart} compact />
           </div>
         </>
+      ) : isLooperScene(currentScene) ? (
+        <Looper
+          key={currentSceneKey}
+          backgroundSrc={
+            isImagesEnabled() ? assetUrl(currentScene.background) : ''
+          }
+          lines={currentScene.lines}
+          sceneLocation={currentScene.location ?? sceneLocation}
+          dayIndicator={dayIndicator}
+          textSizeClass={textSizeClass}
+          onComplete={onContinue}
+        />
       ) : (
         <>
           {stageCharacters.length > 0 ? (

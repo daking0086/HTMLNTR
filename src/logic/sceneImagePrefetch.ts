@@ -6,6 +6,11 @@ import { isImagesEnabled } from './sceneVisual';
 function pushSceneUrls(scene: Scene | undefined, out: string[]): void {
   if (!scene) return;
 
+  if (scene.type === 'looper') {
+    out.push(assetUrl(scene.background));
+    return;
+  }
+
   if (scene.image) out.push(assetUrl(scene.image));
   if (scene.imageLoop?.length) {
     for (const path of scene.imageLoop) out.push(assetUrl(path));
@@ -40,19 +45,19 @@ export function collectUpcomingSceneImages(
 
   while (key && depth < maxDepth && !seen.has(key)) {
     seen.add(key);
-    const scene = scenes[key];
-    if (!scene) break;
+    const current: Scene | undefined = scenes[key];
+    if (!current) break;
 
-    pushSceneUrls(scene, out);
+    pushSceneUrls(current, out);
 
-    if (scene.type === 'dialogue' && scene.choices?.length) {
-      for (const choice of scene.choices) {
-        const branch = scenes[choice.next];
+    if (current.type === 'dialogue' && current.choices?.length) {
+      for (const choice of current.choices) {
+        const branch: Scene | undefined = scenes[choice.next];
         pushSceneUrls(branch, out);
       }
     }
 
-    key = scene.next;
+    key = current.next;
     depth += 1;
   }
 

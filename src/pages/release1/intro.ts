@@ -194,18 +194,18 @@ export const introScenes = {
       "Ayesha slipped away to the ladies' toilet to freshen up before the wait grew worse.",
     ],
     image: BG_AIRPORT,
-    next: "intro_toilet_enter",
+    next: "intro_toilet_thought",
   },
 
-  // Toilet — short scene
+  // Toilet — already inside (peeker only in BG art, never named)
 
-  intro_toilet_enter: {
+  intro_toilet_thought: {
     page: "intro",
-    type: "narration",
-    text: [
-      "The toilet was cramped, fluorescent, and stale.",
-      "She stood at the mirror adjusting her hijab. Her phone lit up.",
-    ],
+    type: "dialogue",
+    speaker: "Ayesha",
+    portrait: AYESHA,
+    text: "Of course. Even their toilets feel like a downgrade.",
+    location: "Airport Toilet",
     ...(BG_TOILET ? { image: BG_TOILET } : {}),
     next: "intro_toilet_text_one",
   },
@@ -214,7 +214,7 @@ export const introScenes = {
     page: "intro",
     type: "dialogue",
     speaker: "Richard (Text)",
-    text: "They pulled me aside for some extra checks. Wait for me outside. Shouldn't take long.",
+    text: "Extra checks. Wait outside. Won't be long.",
     location: "Airport Toilet",
     ...(BG_TOILET ? { image: BG_TOILET } : {}),
     next: "intro_toilet_texting",
@@ -224,7 +224,7 @@ export const introScenes = {
     page: "intro",
     type: "narration",
     text: [
-      "She typed back with one hand, eyes fixed on the screen — annoyed, impatient, completely absorbed.",
+      "She answered with one hand still on her hijab — thumbs sharp, eyes locked on the only voice she trusted in this building.",
     ],
     ...(BG_TOILET ? { image: BG_TOILET } : {}),
     next: "intro_toilet_peeker",
@@ -232,11 +232,11 @@ export const introScenes = {
 
   intro_toilet_peeker: {
     page: "intro",
-    type: "narration",
-    text: [
-      "Behind her, in the gap of the stall door, a shadow shifted.",
-      "A man was peeking — just a sliver of face and filthy grin in the mirror's edge.",
-    ],
+    type: "dialogue",
+    speaker: "Ayesha (Text)",
+    portrait: AYESHA,
+    text: "Hurry. I'm not wasting my night in this place.",
+    location: "Airport Toilet",
     ...(BG_TOILET ? { image: BG_TOILET } : {}),
     next: "intro_toilet_glance",
   },
@@ -244,7 +244,7 @@ export const introScenes = {
   intro_toilet_glance: {
     page: "intro",
     type: "narration",
-    text: ["Ayesha's eyes snapped up from the phone."],
+    text: ["Her eyes lifted from the screen — a reflex, gone as soon as it came."],
     ...(BG_TOILET ? { image: BG_TOILET } : {}),
     next: "intro_toilet_gone",
   },
@@ -253,8 +253,7 @@ export const introScenes = {
     page: "intro",
     type: "narration",
     text: [
-      "Nothing.",
-      "The gap was empty — only cracked tile and the buzz of a dead fluorescent light.",
+      "Cracked tile. A sick fluorescent buzz. Her reflection, flawless and unimpressed.",
     ],
     ...(BG_TOILET ? { image: BG_TOILET } : {}),
     next: "intro_toilet_continue",
@@ -264,7 +263,7 @@ export const introScenes = {
     page: "intro",
     type: "narration",
     text: [
-      "She told herself she imagined it. Chin lifted, she went back to the screen and kept typing.",
+      "Chin high. Phone first. Richard was the delay — everything else was noise.",
     ],
     ...(BG_TOILET ? { image: BG_TOILET } : {}),
     next: "intro_toilet_exit",
@@ -274,19 +273,48 @@ export const introScenes = {
     page: "intro",
     type: "narration",
     text: [
-      "She washed her hands, straightened her hijab, and stepped back out to wait near the exit.",
+      "She left the sink like it had insulted her, fixed her hijab once, and walked back out to the exit.",
     ],
     image: BG_AIRPORT,
     next: "intro_twenty_min",
   },
 
+  // Waiting outside — isolation + this country
+
   intro_twenty_min: {
     page: "intro",
     type: "narration",
     text: [
-      "Twenty minutes passed. Then thirty.",
-      "The airport grew quieter.",
-      "Another message came in.",
+      "Twenty minutes. Then thirty.",
+      "The crowd thinned. The foreign lights kept humming, indifferent.",
+    ],
+    image: BG_AIRPORT,
+    next: "intro_wait_thought_one",
+  },
+
+  intro_wait_thought_one: {
+    page: "intro",
+    type: "dialogue",
+    speaker: "Ayesha",
+    portrait: AYESHA,
+    text: "This country is already testing me. Stares. Queues. Rules that only bend one way.",
+    location: "Outside the Airport - Present",
+    image: BG_AIRPORT,
+    next: "intro_phone_notif",
+  },
+
+  /**
+   * ART — generate: ayeshaPhoneNotif.png
+   * Outside airport exit, night. Ayesha reaching for phone; screen glow on face/hand;
+   * notif banner (Richard/message icon). Emptier terminal, optional distant stares.
+   * public/assets/images/backgrounds/airport/ayeshaPhoneNotif.png
+   */
+  intro_phone_notif: {
+    page: "intro",
+    type: "narration",
+    text: [
+      "A buzz cut through the quiet — sharp against her palm.",
+      "She reached for the phone before pride could pretend she wasn't waiting for it.",
     ],
     image: BG_AIRPORT,
     next: "intro_text_two",
@@ -296,7 +324,7 @@ export const introScenes = {
     page: "intro",
     type: "dialogue",
     speaker: "Richard (Text)",
-    text: "Baby, this is taking longer than expected. They're asking a lot of questions. Just stay near the exit. I'll sort this out soon.",
+    text: "Taking longer than I thought. Lots of questions. Stay by the exit. I'll handle it.",
     location: "Outside the Airport - Present",
     image: BG_AIRPORT,
     next: "intro_ayesha_text_one",
@@ -307,7 +335,7 @@ export const introScenes = {
     type: "dialogue",
     speaker: "Ayesha (Text)",
     portrait: AYESHA,
-    text: "How much longer? I'm already tired and these people keep staring at me.",
+    text: "How long? I'm tired and these men won't stop staring.",
     location: "Outside the Airport - Present",
     image: BG_AIRPORT,
     next: "intro_text_three",
@@ -317,8 +345,20 @@ export const introScenes = {
     page: "intro",
     type: "dialogue",
     speaker: "Richard (Text)",
-    text: "I don't know. Just wait for me. Don't go anywhere alone.",
+    text: "I don't know. Wait for me. Don't go anywhere alone.",
     location: "Outside the Airport - Present",
+    image: BG_AIRPORT,
+    next: "intro_wait_thought_two",
+  },
+
+  intro_wait_thought_two: {
+    page: "intro",
+    type: "narration",
+    text: [
+      "Don't go anywhere alone.",
+      "Easy words from the other side of glass and uniforms.",
+      "Out here the night air was thick — jet fuel, heat, and eyes that never quite looked away.",
+    ],
     image: BG_AIRPORT,
     next: "intro_two_hours",
   },
@@ -326,7 +366,21 @@ export const introScenes = {
   intro_two_hours: {
     page: "intro",
     type: "narration",
-    text: ["Two hours passed."],
+    text: [
+      "Two hours.",
+      "The airport emptied. The stares got quieter — and worse.",
+    ],
+    image: BG_AIRPORT,
+    next: "intro_wait_thought_three",
+  },
+
+  intro_wait_thought_three: {
+    page: "intro",
+    type: "dialogue",
+    speaker: "Ayesha",
+    portrait: AYESHA,
+    text: "I hate this place. Without Richard in front of me, it feels like it could swallow me whole.",
+    location: "Outside the Airport - Present",
     image: BG_AIRPORT,
     next: "intro_text_four",
   },
@@ -335,20 +389,46 @@ export const introScenes = {
     page: "intro",
     type: "dialogue",
     speaker: "Richard (Text)",
-    text: "Something's wrong. They're not letting me go. Stay right there, Ayesha. I'm handling it. Don't move.",
+    text: "Something's wrong. They're not letting me go. Stay put, Ayesha. Don't move.",
     location: "Outside the Airport - Present",
     image: BG_AIRPORT,
-    next: "intro_end",
+    next: "intro_end_reading",
   },
 
-  intro_end: {
+  /**
+   * ART — intro_end_reading / ayeshaReadMessageTop.png
+   * Close-up TOP-DOWN shot of Ayesha reading Richard's last message.
+   * Phone screen bright on her face/hands; hijab and shoulders in frame;
+   * night airport exit floor beneath. She's focused on the text, alone.
+   * public/assets/images/backgrounds/airport/ayeshaReadMessageTop.png
+   */
+  intro_end_reading: {
     page: "intro",
     type: "narration",
     text: [
-      "Night had settled over the airport. Somewhere inside, they still had her husband.",
-      "Airport Scene.",
+      "She read it twice.",
+      "Don't move. Stay put. As if the phone could hold her the way he did.",
     ],
     image: BG_AIRPORT,
-    next: "airport_richard_office",
+    next: "intro_end_shadows",
+  },
+
+  /**
+   * ART — intro_end_shadows / ayeshaTwoShadows.png
+   * Same top-down (or slightly wider) framing: Ayesha still on her phone.
+   * Two large male shadows stretch across her back/shoulders from behind —
+   * officers closing in, faces not needed yet. Threat without words.
+   * Leads into airport check / body search.
+   * public/assets/images/backgrounds/airport/ayeshaTwoShadows.png
+   */
+  intro_end_shadows: {
+    page: "intro",
+    type: "narration",
+    text: [
+      "Two shadows slid over her — long, heavy, wrong.",
+      "They stretched across her shoulders before she even looked up.",
+    ],
+    image: BG_AIRPORT,
+    next: "airport_officer_greeting",
   },
 } satisfies Scenes;

@@ -6,28 +6,28 @@ const BG_TITLE =
 const BG_HIJAB_FLOOR =
   '/assets/images/flashback/grok-image-c9b2c7b0-8c05-498e-b523-a1b0b6b5cb32.jpg';
 const BG_SITTING_ON_HIM_CLOSE_UP = '/assets/images/flashback/sittingOnHimCloseUp.jpg';
-const BG_PLAYFUL = '/assets/images/flashback/playful.jpg';
 const BG_POV_DESK_1 = '/assets/images/flashback/BG_POV_DESK_1.jpg';
-const BG_POV_DESK_2 = '/assets/images/flashback/BG_POV_DESK_2.jpg';
-const BG_HIP_REVEAL = '/assets/images/flashback/hip_reveal.jpg';
 const BG_HIP_KISS = '/assets/images/flashback/hip_kiss.jpg';
-const BG_HIP_TOUCH = '/assets/images/flashback/hip_touch.jpg';
 const BG_NECK_KISS = '/assets/images/flashback/neck_kiss.jpg';
 const BG_SOFT_SUCK = '/assets/images/flashback/soft_suck.png';
 const BG_SWIFT_UNBUTTONING = '/assets/images/flashback/swift_unbuttoning.jpg';
 const BG_DEEP_CLEAVAGE = '/assets/images/flashback/deep_cleavage1.png';
-/** Suck beats — one image per beat (from suck/) */
-const BG_SUCK_1 = '/assets/images/flashback/suck/ezgif-frame-001.jpg';
-const BG_SUCK_2 = '/assets/images/flashback/suck/ezgif-frame-003.jpg';
-const BG_SUCK_3 = '/assets/images/flashback/suck/ezgif-frame-005.jpg';
-const BG_SUCK_4 = '/assets/images/flashback/suck/ezgif-frame-007.jpg';
-const BG_SUCK_5 = '/assets/images/flashback/suck/ezgif-frame-010.jpg';
+/** Looping suck gif (browser loops; no imageLoop needed) */
+const BG_SUCK_SOFT =
+  '/assets/images/flashback/suck/suck loop 1/sucksoft.gif';
+const BG_SUCK_HARD =
+  '/assets/images/flashback/suck/suck loop 1/suckhard.gif';
+const BG_SUCK_REACTION_1 = '/assets/images/flashback/suck/suck_reaction_1.jpg';
+const BG_SUCK_REACTION_2 = '/assets/images/flashback/suck/suck_reaction_2.jpg';
+const BG_SUCK_REACTION_3 = '/assets/images/flashback/suck/suck_reaction_3.jpg';
+const BG_SUCK_REACTION_4 = '/assets/images/flashback/suck/suck_reaction_4.jpg';
 const BG_ASS_GRAB = '/assets/images/flashback/ass_grab.jpg';
 /** Grind beats: up → down → up (from grinding/) */
 const BG_GRIND_UP = '/assets/images/flashback/grinding/ezgif-frame-005.jpg';
 const BG_GRIND_DOWN = '/assets/images/flashback/grinding/ezgif-frame-014.jpg';
 const BG_GRIND_UP_2 = '/assets/images/flashback/grinding/ezgif-frame-018.jpg';
 const BG_CLOSE_LIPS = '/assets/images/flashback/close_lips.jpg';
+const BG_GOING_FOR_KISS = '/assets/images/flashback/going_for_kiss.jpg';
 const BG_PIN_DOWN =
   '/assets/images/flashback/Gemini_Generated_Image_pingxxpingxxping-clean (1).png';
 const BG_CLOSE_LIPS_TEASE =
@@ -237,56 +237,155 @@ export const flashbackScenes = {
       'He stared. She felt it. She did not close the cloth.',
     ],
     image: BG_DEEP_CLEAVAGE,
-    next: 'flashback_suck_1',
+    next: 'flashback_suck_loop',
   },
 
-  flashback_suck_1: {
+  flashback_suck_loop: {
     page: 'flashback',
     type: 'narration',
     text: [
       'Before she could react, he pulled the satin aside and took her soft breast into his mouth.',
+      'Warm. Full. He sucked in a slow, hungry rhythm she could not ignore.',
     ],
-    image: BG_SUCK_1,
-    next: 'flashback_suck_2',
+    image: BG_SUCK_SOFT,
+    next: 'flashback_suck_loop_ayesha',
   },
 
-  flashback_suck_2: {
-    page: 'flashback',
-    type: 'narration',
-    text: [
-      'She arched — head tipped back — as he sucked her in, slow and greedy.',
-    ],
-    image: BG_SUCK_2,
-    next: 'flashback_suck_3',
-  },
-
-  flashback_suck_3: {
-    page: 'flashback',
-    type: 'narration',
-    text: [
-      'He pulled her down into him — mouth wet against her, hands locked on her hips.',
-    ],
-    image: BG_SUCK_3,
-    next: 'flashback_suck_4',
-  },
-
-  flashback_suck_4: {
+  flashback_suck_loop_ayesha: {
     page: 'flashback',
     type: 'dialogue',
     speaker: 'Ayesha',
     text: 'A-ah… Richard…',
     location: 'Hotel Suite - Flashback',
-    image: BG_SUCK_4,
-    next: 'flashback_suck_5',
+    image: BG_SUCK_SOFT,
+    next: 'flashback_suck_loop_end',
   },
 
-  flashback_suck_5: {
+  flashback_suck_loop_end: {
     page: 'flashback',
     type: 'narration',
     text: [
       'He did not stop. Another pull of his mouth — deeper — and for a moment the queen forgot how to rule.',
     ],
-    image: BG_SUCK_5,
+    image: BG_SUCK_SOFT,
+    next: 'flashback_suck_reaction_1',
+  },
+
+  flashback_suck_reaction_1: {
+    page: 'flashback',
+    type: 'narration',
+    text: [
+      "Her fingers knotted in his hair — not to push him away. To keep him there.",
+      'A soft sound slipped out of her, half protest, half pleasure.',
+    ],
+    image: BG_SUCK_REACTION_1,
+    next: 'flashback_suck_reaction_2',
+  },
+
+  flashback_suck_reaction_2: {
+    page: 'flashback',
+    type: 'dialogue',
+    speaker: 'Ayesha',
+    text: "D-don't… look so smug about it…",
+    location: 'Hotel Suite - Flashback',
+    image: BG_SUCK_REACTION_2,
+    next: 'flashback_suck_hard',
+  },
+
+  /**
+   * She tries to take control — he sucks harder.
+   * Looper: suckhard.gif + multi-line dialogue until Finish.
+   */
+  flashback_suck_hard: {
+    page: 'flashback',
+    type: 'looper',
+    background: BG_SUCK_HARD,
+    location: 'Hotel Suite - Flashback',
+    lines: [
+      {
+        speaker: 'Ayesha',
+        text: 'Enough. I set the pace— not you.',
+      },
+      {
+        text: 'She tried to pull his head back, fingers tight in his hair, chin lifting like a queen reclaiming her throne.',
+      },
+      {
+        text: 'He only answered by sucking harder — wet, insistent, claiming her breast like he meant to ruin her composure.',
+      },
+      {
+        speaker: 'Ayesha',
+        text: 'Nnh—! Richard… you…',
+      },
+    ],
+    next: 'flashback_suck_reaction_3',
+  },
+
+  flashback_suck_reaction_3: {
+    page: 'flashback',
+    type: 'dialogue',
+    speaker: 'Ayesha',
+    text: 'A-ahh… nnh—! Richard… s-slow… I can\'t— mmh—',
+    location: 'Hotel Suite - Flashback',
+    image: BG_SUCK_REACTION_3,
+    next: 'flashback_suck_reaction_3_narr',
+  },
+
+  flashback_suck_reaction_3_narr: {
+    page: 'flashback',
+    type: 'narration',
+    text: [
+      'A moan broke out of her before she could swallow it — raw, helpless, nothing like the queen she pretended to be.',
+      'She struggled to keep her breathing even, fingers trembling in his hair, body jolting with every greedy pull of his mouth.',
+      "Richard's lust gave her no room to recover. She was barely holding on.",
+    ],
+    image: BG_SUCK_REACTION_3,
+    next: 'flashback_suck_hard_2',
+  },
+
+  /** Hard suck continues — more dialogue on suckhard.gif */
+  flashback_suck_hard_2: {
+    page: 'flashback',
+    type: 'looper',
+    background: BG_SUCK_HARD,
+    location: 'Hotel Suite - Flashback',
+    lines: [
+      {
+        text: 'He did not ease off. Each pull was deeper, greedier — like he was drinking the fight straight out of her.',
+      },
+      {
+        speaker: 'Ayesha',
+        text: 'S-slow down… I said— ah—',
+      },
+      {
+        text: 'Her order broke in half. Heat flooded her chest; her free hand fisted the sheets as if that could keep her royal.',
+      },
+      {
+        speaker: 'Ayesha',
+        text: "You're not… allowed to make me sound like that…",
+      },
+    ],
+    next: 'flashback_suck_reaction_3b',
+  },
+
+  /** Same reaction beat continues — she claws back a little control */
+  flashback_suck_reaction_3b: {
+    page: 'flashback',
+    type: 'dialogue',
+    speaker: 'Ayesha',
+    text: 'Look at me when you do that. I still own this…',
+    location: 'Hotel Suite - Flashback',
+    image: BG_SUCK_REACTION_3,
+    next: 'flashback_suck_reaction_4',
+  },
+
+  flashback_suck_reaction_4: {
+    page: 'flashback',
+    type: 'narration',
+    text: [
+      'She forced her chin up — some of that arrogance returning — but her eyes were glassy, breath still ragged.',
+      'Control, yes. Thin as silk. Underneath it she was burning, and they both knew it.',
+    ],
+    image: BG_SUCK_REACTION_4,
     next: 'flashback_ass_grab',
   },
 
@@ -308,7 +407,7 @@ export const flashbackScenes = {
       'He rose to meet her mouth — so close she felt his breath.',
       'For one heartbeat, the dominant woman looked like she might let him have the kiss.',
     ],
-    image: BG_CLOSE_LIPS,
+    image: BG_GOING_FOR_KISS,
     next: 'flashback_pins_him',
   },
 
@@ -416,6 +515,8 @@ export const flashbackScenes = {
     image: BG_UNDRESS,
     next: 'flashback_shadows',
   },
+
+  //kiss scene in the middle
 
   flashback_shadows: {
     page: 'flashback',

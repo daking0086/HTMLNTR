@@ -36,6 +36,26 @@ const TESTS: Array<{
       'Pass backgroundSrc + lines[] when wiring into the game.',
     ],
   },
+  {
+    path: '/test/frame-looper',
+    title: 'Frame looper',
+    description: 'STS-style stills cycle + dialogue (race1–6 pngs).',
+    howTo: [
+      'Stills auto-cycle (ping-pong or forward).',
+      'Continue advances text only; Finish → onComplete().',
+      'Use when you have keyframes, not a gif.',
+    ],
+  },
+  {
+    path: '/test/video-looper',
+    title: 'Video looper',
+    description: 'Looping video + dialogue (race.mp4).',
+    howTo: [
+      'Video loops under the text panel.',
+      'Continue advances lines; Finish → onComplete().',
+      'Use mp4/webm when you have real footage.',
+    ],
+  },
 ];
 
 /**

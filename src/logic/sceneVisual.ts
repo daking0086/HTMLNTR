@@ -17,6 +17,10 @@ export function getScenePicture(scene: Scene | undefined): string | null {
   if (!isImagesEnabled()) return null;
   if (!scene) return null;
 
+  if (scene.type === 'looper') {
+    return resolveSceneImage(scene.background);
+  }
+
   if (scene.imageLoop?.length) {
     return resolveSceneImage(scene.image ?? scene.imageLoop[0]);
   }
