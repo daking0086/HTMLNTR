@@ -5,6 +5,8 @@ import ComponentLab from './pages/test/ComponentLab';
 import CharacterLayerTest from './pages/test/CharacterLayerTest';
 import SceneStageTest from './pages/test/SceneStageTest';
 import LooperTest from './pages/test/LooperTest';
+import FrameLooperTest from './pages/test/FrameLooperTest';
+import VideoLooperTest from './pages/test/VideoLooperTest';
 import { getAppPath } from './utils/appPath';
 import './index.css';
 
@@ -14,6 +16,8 @@ const TEST_ROUTES: Record<string, ComponentType> = {
   '/test/character-layer': CharacterLayerTest,
   '/test/scene-stage': SceneStageTest,
   '/test/looper': LooperTest,
+  '/test/frame-looper': FrameLooperTest,
+  '/test/video-looper': VideoLooperTest,
 };
 
 const path = getAppPath();

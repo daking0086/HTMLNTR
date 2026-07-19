@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { preloadImages } from '../../utils/preloadImages';
 
 interface SceneStageProps {
@@ -16,6 +16,7 @@ interface SceneStageProps {
 /**
  * Holds the previous CG on screen until the next one finishes loading
  * so beat transitions never flash black on first playthrough.
+ * Supports FrameLooper-style still loops via loopFrames.
  */
 export default function SceneStage({
   imageSrc,
@@ -25,15 +26,36 @@ export default function SceneStage({
   dayIndicator,
   motionBlur = false,
 }: SceneStageProps) {
-  const frames = loopFrames && loopFrames.length > 1 ? loopFrames : null;
+  // Stabilize array identity so parent re-renders (typewriter) don't reset the loop
+  const framesKey = loopFrames && loopFrames.length > 1 ? loopFrames.join('\0') : '';
+  const frames = useMemo(() => {
+    if (!framesKey) return null;
+    return framesKey.split('\0');
+  }, [framesKey]);
+
   const [frameIndex, setFrameIndex] = useState(0);
   /** Actually painted CG — only advances when the new src is ready */
   const [shownSrc, setShownSrc] = useState<string | null>(imageSrc);
 
-  // Warm loop frames immediately
+  // Warm loop frames once per unique set
   useEffect(() => {
     if (frames) preloadImages(frames);
-  }, [frames]);
+  }, [framesKey]);
+
+  // Auto-cycle frames forward only: 1 → 2 → 3 → 1 → …
+  useEffect(() => {
+    if (!frames || frames.length < 2) return;
+
+    let index = 0;
+    setFrameIndex(0);
+
+    const id = window.setInterval(() => {
+      index = (index + 1) % frames.length;
+      setFrameIndex(index);
+    }, loopIntervalMs);
+
+    return () => window.clearInterval(id);
+  }, [framesKey, loopIntervalMs]);
 
   // When target still changes, keep old image until new one is fully loaded
   useEffect(() => {
@@ -64,32 +86,6 @@ export default function SceneStage({
       cancelled = true;
     };
   }, [imageSrc, frames, frameIndex, shownSrc]);
-
-  useEffect(() => {
-    setFrameIndex(0);
-  }, [frames?.[0], frames?.length]);
-
-  useEffect(() => {
-    if (!frames) return;
-
-    let dir = 1;
-    let index = 0;
-
-    const id = window.setInterval(() => {
-      const last = frames.length - 1;
-      index += dir;
-      if (index >= last) {
-        index = last;
-        dir = -1;
-      } else if (index <= 0) {
-        index = 0;
-        dir = 1;
-      }
-      setFrameIndex(index);
-    }, loopIntervalMs);
-
-    return () => window.clearInterval(id);
-  }, [frames, loopIntervalMs]);
 
   return (
     <div className="vn-stage relative w-full overflow-hidden bg-zinc-950">

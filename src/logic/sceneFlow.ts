@@ -11,5 +11,10 @@ export function sceneSupportsAutoAdvance(scene: Scene | undefined): boolean {
     return Boolean(scene.next && !scene.choices?.length);
   }
 
+  // Looper handles its own Continue / Finish UI
+  if (scene.type === 'looper') {
+    return false;
+  }
+
   return false;
 }

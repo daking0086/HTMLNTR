@@ -45,6 +45,20 @@ export function sceneToLogEntry(scene: Scene | undefined, sceneKey: SceneKey): S
     };
   }
 
+  if (scene.type === 'looper') {
+    const text = scene.lines
+      .map((line) => (typeof line === 'string' ? line : line.text))
+      .join('\n\n');
+    return {
+      sceneKey,
+      pageId,
+      pageTitle,
+      speaker: 'Scene',
+      text,
+      isNarration: true,
+    };
+  }
+
   return {
     sceneKey,
     pageId,

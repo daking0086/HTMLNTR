@@ -1,4 +1,5 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import { LOOPER_CONTINUE_EVENT } from '../../logic/looperControl';
 
 export interface LooperLine {
   /** Dialogue or thought text */
@@ -57,6 +58,13 @@ export default function Looper({
     setFinished(true);
     onComplete?.();
   }, [finished, isLast, onComplete, script.length]);
+
+  // Enter / global Continue advances lines inside the looper (not the whole scene)
+  useEffect(() => {
+    const onGlobalContinue = () => handleContinue();
+    window.addEventListener(LOOPER_CONTINUE_EVENT, onGlobalContinue);
+    return () => window.removeEventListener(LOOPER_CONTINUE_EVENT, onGlobalContinue);
+  }, [handleContinue]);
 
   if (script.length === 0) {
     return (

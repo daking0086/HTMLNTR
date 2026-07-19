@@ -1,6 +1,6 @@
 /**
  * Vite base without trailing slash, e.g. `/HTMLNTR`.
- * Empty string only if base is `/`.
+ * Empty string if base is `/`.
  */
 export function getBasePath(): string {
   const base = import.meta.env.BASE_URL || '/';

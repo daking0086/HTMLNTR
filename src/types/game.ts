@@ -1,4 +1,11 @@
-export type PageId = 'intro' | 'flashback' | 'airport' | 'taxi' | 'hotel' | 'ending';
+export type PageId =
+  | 'intro'
+  | 'flashback'
+  | 'airport'
+  | 'interrogation'
+  | 'taxi'
+  | 'hotel'
+  | 'ending';
 
 export interface StoryPage {
   id: PageId;
@@ -44,7 +51,17 @@ export interface DialogueScene extends BaseScene {
   choices?: Choice[];
 }
 
-export type Scene = NarrationScene | DialogueScene;
+/** Looping gif background + multi-line dialogue (Looper component). */
+export interface LooperScene extends BaseScene {
+  type: 'looper';
+  /** Gif / looping image path (public/) */
+  background: string;
+  lines: Array<{ text: string; speaker?: string } | string>;
+  location?: string;
+  next?: string;
+}
+
+export type Scene = NarrationScene | DialogueScene | LooperScene;
 
 export type SceneKey = string;
 

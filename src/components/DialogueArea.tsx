@@ -20,7 +20,11 @@ export default function DialogueArea({
 }: DialogueAreaProps) {
   const isNarration = scene?.type === 'narration';
   const fullText =
-    scene && isNarration ? scene.text.join('\n\n') : scene?.type === 'dialogue' ? scene.text : '';
+    scene && isNarration
+      ? scene.text.join('\n\n')
+      : scene?.type === 'dialogue'
+        ? scene.text
+        : '';
 
   const { displayedText, isComplete } = useTypewriter({
     text: fullText,
@@ -29,12 +33,12 @@ export default function DialogueArea({
     enabled: !isEnded && Boolean(scene),
   });
 
-  if (isEnded || !scene) return null;
+  if (isEnded || !scene || scene.type === 'looper') return null;
 
   return (
     <div className={`flex-1 min-h-0 flex flex-col ${compact ? 'px-4 py-3' : 'vn-padding vn-content-area'}`}>
       <div className="flex-1 min-h-0 overflow-y-auto">
-        {!isNarration && (
+        {scene.type === 'dialogue' && (
           <div className="character-name font-semibold text-blue-300 text-sm tracking-[0.5px] mb-1">
             {scene.speaker}
           </div>

@@ -14,9 +14,34 @@ import { isImagesEnabled } from '../logic/sceneVisual';
  * slot          — preset when left is omitted: 'left' | 'center' | 'right'
  */
 
+/** Ayesha — left stage (opposite officers) */
+export const AYESHA_SPRITE: StageCharacter = {
+  id: 'ayesha',
+  name: 'Ayesha',
+  imageSrc: '/assets/images/ayesha/ayesha_profile.png',
+  slot: 'left',
+  heightPercent: 100,
+  maxWidth: '70%',
+  left: '28%',
+  bottom: '-40%',
+  scale: 1.25,
+};
+
 export const OFFICER_1_SPRITE: StageCharacter = {
   id: 'officer-1',
   name: 'Officer 1',
+  imageSrc: '/assets/images/test/test.png',
+  slot: 'right',
+  heightPercent: 100,
+  maxWidth: '75%',
+  left: '72%',
+  bottom: '-45%',
+  scale: 1.3,
+};
+
+export const OFFICER_2_SPRITE: StageCharacter = {
+  id: 'officer-2',
+  name: 'Officer 2',
   imageSrc: '/assets/images/test/test.png',
   slot: 'right',
   heightPercent: 100,
@@ -26,19 +51,8 @@ export const OFFICER_1_SPRITE: StageCharacter = {
   scale: 1.3,
 };
 
-export const OFFICER_2_SPRITE: StageCharacter = {
-  id: 'officer-2',
-  name: 'Officer 2',
-  imageSrc: '/assets/images/test/test.png',
-  slot: 'left',
-  heightPercent: 100,
-  maxWidth: '75%',
-  left: '28%',
-  bottom: '-45%',
-  scale: 1.3,
-};
-
 export const CHARACTER_SPRITES: Record<string, StageCharacter> = {
+  ayesha: AYESHA_SPRITE,
   'officer-1': OFFICER_1_SPRITE,
   'officer-2': OFFICER_2_SPRITE,
 };

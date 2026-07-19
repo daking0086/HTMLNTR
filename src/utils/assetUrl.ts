@@ -5,5 +5,10 @@ export function assetUrl(path: string): string {
 
   const base = import.meta.env.BASE_URL;
   const normalized = path.startsWith('/') ? path.slice(1) : path;
-  return `${base}${normalized}`;
+  // Encode each segment so folders like "suck loop 1" work in prod
+  const encoded = normalized
+    .split('/')
+    .map((seg) => encodeURIComponent(seg))
+    .join('/');
+  return `${base}${encoded}`;
 }

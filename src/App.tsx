@@ -21,6 +21,7 @@ import {
 } from './logic/storage';
 import { INITIAL_STATE } from './logic/state';
 import { attemptCloseWindow } from './logic/exitGame';
+import { requestLooperContinue } from './logic/looperControl';
 import type { AppView } from './types/app';
 import { TEXT_SIZE_CLASS } from './types/app';
 
@@ -164,9 +165,13 @@ export default function App() {
     if (view === 'game') {
       return {
         onContinue: () => {
-          if (!game.gameState.isEnded) {
-            game.advanceNarration();
+          if (game.gameState.isEnded) return;
+          // Looper scenes own multi-line Continue — do not jump to scene.next
+          if (game.currentScene?.type === 'looper') {
+            requestLooperContinue();
+            return;
           }
+          game.advanceNarration();
         },
         onSkipHoldStart: () => setSkipHeld(true),
         onSkipHoldEnd: () => setSkipHeld(false),

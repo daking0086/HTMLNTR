@@ -12,6 +12,7 @@ export const release1Meta: ReleaseMeta = {
     { id: 'intro', title: 'Prologue' },
     { id: 'flashback', title: 'Hotel Suite — Flashback' },
     { id: 'airport', title: 'Airport Scene' },
+    { id: 'interrogation', title: 'Security Inspection' },
     { id: 'ending', title: 'End of Release 1' },
   ],
 };
