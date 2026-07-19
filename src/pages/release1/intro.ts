@@ -284,10 +284,20 @@ export const introScenes = {
     page: "intro",
     type: "narration",
     text: [
-      "Twenty minutes passed. Then thirty.",
-      "The airport grew quieter.",
-      "Another message came in.",
+      "Twenty minutes. Then thirty.",
+      "The terminal thinned. The foreign lights kept buzzing like they had all the time in the world.",
     ],
+    image: BG_AIRPORT,
+    next: "intro_wait_thought_one",
+  },
+
+  intro_wait_thought_one: {
+    page: "intro",
+    type: "dialogue",
+    speaker: "Ayesha",
+    portrait: AYESHA,
+    text: "This country already feels like it's testing me. Stares. Delays. Filth dressed up as procedure.",
+    location: "Outside the Airport - Present",
     image: BG_AIRPORT,
     next: "intro_text_two",
   },
