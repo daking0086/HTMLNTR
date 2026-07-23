@@ -1,7 +1,9 @@
 import type { Scenes } from '../../types/game';
 
 const AYESHA = '/assets/images/ayesha/ayesha_profile.png';
-const BG_EMPTY_OFFICE = '/assets/images/backgrounds/airport/emptyOffice.png';
+/** Security / private meeting room (night, airport office). */
+const BG_EMPTY_OFFICE =
+  '/assets/images/backgrounds/airport/Gemini_Generated_Image_4danq24danq24dan-clean.png';
 
 export const interrogationScenes = {
   interrogation_enter: {

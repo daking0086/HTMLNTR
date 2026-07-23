@@ -7,18 +7,24 @@ import { assetUrl } from '../../utils/assetUrl';
 const STILLS = [
   {
     id: 'office',
-    label: 'Empty office',
-    src: assetUrl('/assets/images/backgrounds/airport/emptyOffice.png'),
+    label: 'Security room',
+    src: assetUrl(
+      '/assets/images/backgrounds/airport/Gemini_Generated_Image_4danq24danq24dan-clean.png',
+    ),
   },
   {
     id: 'airport',
-    label: 'Airport outside',
-    src: assetUrl('/assets/images/backgrounds/airport/airport.png'),
+    label: 'Empty terminal night',
+    src: assetUrl(
+      '/assets/images/backgrounds/airport/1784762897390_edit_2365791017690.png',
+    ),
   },
   {
     id: 'crowd',
     label: 'Airport crowd',
-    src: assetUrl('/assets/images/backgrounds/airport/airportPeople.png'),
+    src: assetUrl(
+      '/assets/images/backgrounds/airport/1784761053432_edit_1881080589802.png',
+    ),
   },
 ];
 
@@ -168,7 +174,7 @@ import { assetUrl } from './utils/assetUrl';
 
 // Still
 <SceneStage
-  imageSrc={assetUrl('/assets/images/backgrounds/airport/airport.png')}
+  imageSrc={assetUrl('/assets/images/backgrounds/airport/IMG_20260723_053255.jpg')}
   sceneLocation="Airport"
   dayIndicator="Night"
 />

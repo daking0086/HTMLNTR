@@ -5,7 +5,9 @@ import SceneCharacterStage from '../../components/game/SceneCharacterStage';
 import { OFFICER_1_SPRITE, OFFICER_2_SPRITE } from '../../data/characterDisplay';
 import { assetUrl } from '../../utils/assetUrl';
 
-const TEST_BG = assetUrl('/assets/images/backgrounds/airport/emptyOffice.png');
+const TEST_BG = assetUrl(
+  '/assets/images/backgrounds/airport/Gemini_Generated_Image_4danq24danq24dan-clean.png',
+);
 
 export default function CharacterLayerTest() {
   const [mode, setMode] = useState<'single' | 'dual'>('single');
@@ -117,7 +119,9 @@ import { OFFICER_1_SPRITE } from './data/characterDisplay';
 import { assetUrl } from './utils/assetUrl';
 
 <SceneCharacterStage
-  backgroundSrc={assetUrl('/assets/images/backgrounds/airport/emptyOffice.png')}
+  backgroundSrc={assetUrl(
+    '/assets/images/backgrounds/airport/Gemini_Generated_Image_4danq24danq24dan-clean.png',
+  )}
   characters={[OFFICER_1_SPRITE]}
   activeSpeakerId="officer-1"
   sceneLocation="Security"
