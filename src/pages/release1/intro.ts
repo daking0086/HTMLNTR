@@ -1,6 +1,7 @@
 import type { Scenes } from '../../types/game';
 
-const AYESHA = '/assets/images/ayesha/ayesha_profile.png';
+/** Dialogue portrait (ayesha_profile.png is missing — use Intro face asset). */
+const AYESHA = '/assets/images/Intro/grok-image-4dce748b-6565-4020-be65-95cb727a957b.jpg';
 
 /**
  * Intro CGs — files live under public/assets/images/
@@ -23,18 +24,24 @@ const CG_STAIRS_SHOES =
 const CG_RICHARD_WALK_NIGHT = '/assets/images/Intro/image-13.jpg';
 const CG_RICHARD_WALK_EMPTY = '/assets/images/Intro/image-53.jpg';
 
-// ── Couple + stares ──
+// ── Couple ──
 const CG_COUPLE_ARM_IN_ARM =
   '/assets/images/Intro/grok-image-036bcd68-a103-464c-bb87-089f5b480f6c.jpg';
 const CG_COUPLE_CLOSE =
   '/assets/images/Intro/grok-image-63192cd7-7525-430e-b449-e7e52bdf3413.jpg';
+const CG_COUPLE_WALK_CONCERN = '/assets/images/Intro/vJaY1.jpg';
+/** Wide: couple + men looking back (secondary stare beat). */
 const CG_COUPLE_MEN_STARE =
   '/assets/images/Intro/grok-image-b37f237d-be18-4ef0-8286-fddd1a1bf424.jpg';
-const CG_COUPLE_MEN_STARE_B =
-  '/assets/images/Intro/grok-image-9e29ef4a-346b-4e45-889c-49e15fd03ad6.jpg';
-const CG_COUPLE_WALK_CONCERN = '/assets/images/Intro/vJaY1.jpg';
 
-// ── Ayesha focus ──
+// ── Strangers staring (close-up leers — bigshot build) ──
+const CG_STRANGERS_STARING = '/assets/images/Intro/strangersStaring.png';
+const CG_STRANGERS_STARING_1 = '/assets/images/Intro/strangersStaring1.png';
+const CG_STRANGERS_STARING_2 = '/assets/images/Intro/strangersStaring2.png';
+
+// ── Ayesha focus / bigshot ──
+/** Luxury collage — yacht, red carpet, penthouse, closet + main pose. */
+const CG_AYESHA_BIGSHOT = '/assets/images/Intro/AYESHA.png';
 const CG_AYESHA_BACKSHOT =
   '/assets/images/Intro/grok-image-5917a9c8-3e64-4cd3-88f3-07f0b508e5c0.jpg';
 const CG_AYESHA_PROFILE =
@@ -80,6 +87,24 @@ const CG_TOILET_STALL_PHONE =
 /** Stall POV alone */
 const CG_TOILET_STALL_EMPTY =
   '/assets/images/toilet scene/IMG_20260723_062642.jpg';
+
+// ── Intro videos (public/assets/images/Intro/vids/) ──
+const VID_TERMINAL_WALK =
+  '/assets/images/Intro/vids/download.mp4';
+const VID_COUPLE_WALK_A =
+  '/assets/images/Intro/vids/grok-video-019f8ba2-0f60-79d3-9249-cf1b7d8340ff.mp4';
+const VID_COUPLE_WALK_B =
+  '/assets/images/Intro/vids/grok-video-019f8ba2-0f60-79d3-9249-cf1b7d8340ff (1).mp4';
+const VID_COUPLE_WALK_C =
+  '/assets/images/Intro/vids/grok-video-019f8ba2-0f60-79d3-9249-cf1b7d8340ff (2).mp4';
+const VID_COUPLE_WALK_D =
+  '/assets/images/Intro/vids/grok-video-019f8ba2-0f60-79d3-9249-cf1b7d8340ff (3).mp4';
+const VID_COUPLE_WALK_E =
+  '/assets/images/Intro/vids/grok-video-019f8ba2-0f60-79d3-9249-cf1b7d8340ff (4).mp4';
+const VID_COUPLE_CLOSE_A =
+  '/assets/images/Intro/vids/grok-video-cb934393-b07b-4aef-97ff-87b0ba55b178.mp4';
+const VID_COUPLE_CLOSE_B =
+  '/assets/images/Intro/vids/grok-video-cb934393-b07b-4aef-97ff-87b0ba55b178 (1).mp4';
 
 export const introScenes = {
   intro: {
@@ -132,19 +157,23 @@ export const introScenes = {
 
   walking_through_airport: {
     page: 'intro',
-    type: 'narration',
-    text: [
+    type: 'video',
+    video: VID_TERMINAL_WALK,
+    poster: CG_RICHARD_WALK_NIGHT,
+    location: 'Foreign Airport - Terminal',
+    lines: [
       'Terminal lights reflected off the polished floor as he walked through the airport.',
     ],
-    image: CG_RICHARD_WALK_NIGHT,
     next: 'intro_terminal',
   },
 
   intro_terminal: {
     page: 'intro',
-    type: 'narration',
-    text: ['The terminal was crowded and heads turned.'],
-    image: BG_TERMINAL_CROWD,
+    type: 'video',
+    video: VID_COUPLE_WALK_A,
+    poster: BG_TERMINAL_CROWD,
+    location: 'Foreign Airport - Terminal',
+    lines: ['The terminal was crowded and heads turned.'],
     next: 'intro_richard_ignored',
   },
 
@@ -161,12 +190,14 @@ export const introScenes = {
 
   intro_backshot: {
     page: 'intro',
-    type: 'narration',
-    text: [
+    type: 'video',
+    video: VID_COUPLE_WALK_B,
+    poster: CG_AYESHA_BACKSHOT,
+    location: 'Foreign Airport - Terminal',
+    lines: [
       'A curvy woman in a dark blue hijab and fitted modest clothes walked confidently through the crowd.',
       'The leering followed her with every step.',
     ],
-    image: CG_AYESHA_BACKSHOT,
     next: 'intro_men_stare',
   },
 
@@ -176,7 +207,15 @@ export const introScenes = {
     text: [
       'Every stare slid lower and settled on the woman at his side — hungry, shameless, openly perverted.',
     ],
-    image: CG_COUPLE_MEN_STARE,
+    image: CG_STRANGERS_STARING,
+    next: 'intro_men_stare_1',
+  },
+
+  intro_men_stare_1: {
+    page: 'intro',
+    type: 'narration',
+    text: ['Eyes locked. Sweat. No shame. No looking away.'],
+    image: CG_STRANGERS_STARING_1,
     next: 'intro_men_stare_2',
   },
 
@@ -186,18 +225,32 @@ export const introScenes = {
     text: [
       'They looked at her the way men look at something they believe they have a right to consume.',
     ],
-    image: CG_COUPLE_MEN_STARE_B,
+    image: CG_STRANGERS_STARING_2,
+    next: 'intro_men_stare_wide',
+  },
+
+  intro_men_stare_wide: {
+    page: 'intro',
+    type: 'video',
+    video: VID_COUPLE_WALK_C,
+    poster: CG_COUPLE_MEN_STARE,
+    location: 'Foreign Airport - Terminal',
+    lines: [
+      'Behind them, more heads turned. The whole terminal seemed to lean her way.',
+    ],
     next: 'intro_reveal',
   },
 
   intro_reveal: {
     page: 'intro',
-    type: 'narration',
-    text: [
+    type: 'video',
+    video: VID_COUPLE_WALK_D,
+    poster: CG_COUPLE_ARM_IN_ARM,
+    location: 'Foreign Airport - Terminal',
+    lines: [
       'The woman at his side was not just any woman.',
       'She is his one and only.',
     ],
-    image: CG_COUPLE_ARM_IN_ARM,
     next: 'intro_reveal_2',
   },
 
@@ -205,7 +258,7 @@ export const introScenes = {
     page: 'intro',
     type: 'narration',
     text: ['Ayesha Khan.'],
-    image: CG_AYESHA_PROFILE,
+    image: CG_AYESHA_BIGSHOT,
     next: 'intro_ayesha_proud',
   },
 
@@ -216,61 +269,67 @@ export const introScenes = {
       'Raised in American luxury, she was proud and arrogant.',
       'She looked down on most people — especially here.',
     ],
-    image: CG_AYESHA_FACE_CLOSE,
+    image: CG_AYESHA_BIGSHOT,
     next: 'intro_ayesha_clings',
   },
 
   intro_ayesha_clings: {
     page: 'intro',
-    type: 'narration',
-    text: [
+    type: 'video',
+    video: VID_COUPLE_CLOSE_A,
+    poster: CG_COUPLE_CLOSE,
+    location: 'Foreign Airport - Terminal',
+    lines: [
       "Ayesha hooked her arm through Richard's and drew herself closer — chin high, spine straight.",
       'Her face stayed pure arrogance, as if the stares were beneath her notice.',
       'Only the tight grip on his arm betrayed how much she needed him between her and them.',
     ],
-    image: CG_COUPLE_CLOSE,
     next: 'intro_ayesha_whisper',
   },
 
   intro_ayesha_whisper: {
     page: 'intro',
-    type: 'dialogue',
-    speaker: 'Ayesha',
-    portrait: AYESHA,
-    text: "Everyone is staring at me like I'm some kind of exhibit. These low-class people have no shame.",
+    type: 'video',
+    video: VID_COUPLE_WALK_E,
+    poster: CG_AYESHA_PROFILE_SIDE,
     location: 'Foreign Airport - Terminal',
-    image: CG_AYESHA_PROFILE_SIDE,
+    lines: [
+      {
+        speaker: 'Ayesha',
+        text: "Everyone is staring at me like I'm some kind of exhibit. These low-class people have no shame.",
+      },
+    ],
     next: 'intro_richard_stay',
   },
 
   intro_richard_stay: {
     page: 'intro',
-    type: 'dialogue',
-    speaker: 'Richard',
-    text: "I told you to stay back home, Ayesha. This isn't a vacation.",
+    type: 'video',
+    video: VID_COUPLE_CLOSE_B,
+    poster: CG_COUPLE_WALK_CONCERN,
     location: 'Foreign Airport - Terminal',
-    image: CG_COUPLE_WALK_CONCERN,
-    next: 'intro_ayesha_secretary',
-  },
-
-  intro_ayesha_secretary: {
-    page: 'intro',
-    type: 'dialogue',
-    speaker: 'Ayesha',
-    portrait: AYESHA,
-    text: 'And allowing that hoe secretary to go with you? Not a chance. Besides… I can make your nights here extra special.',
-    location: 'Foreign Airport - Terminal',
-    image: CG_COUPLE_CLOSE,
+    lines: [
+      {
+        speaker: 'Richard',
+        text: "I told you to stay back home, Ayesha. This isn't a vacation.",
+      },
+      {
+        speaker: 'Ayesha',
+        text: 'And allowing that hoe secretary to go with you? Not a chance. Besides… I can make your nights here extra special.',
+      },
+    ],
     next: 'flashback_title',
   },
 
   intro_snap_back: {
     page: 'intro',
-    type: 'narration',
-    text: [
+    type: 'video',
+    video: VID_COUPLE_WALK_A,
+    poster: CG_COUPLE_ARM_IN_ARM,
+    location: 'Foreign Airport - Terminal',
+    lines: [
       'Present again — the terminal hum, the exit signs, Richard at her side.',
     ],
-    image: CG_COUPLE_ARM_IN_ARM,
     next: 'intro_checking',
   },
 

@@ -1,6 +1,7 @@
 import type { Scenes } from '../../types/game';
 
-const AYESHA = '/assets/images/ayesha/ayesha_profile.png';
+const AYESHA =
+  '/assets/images/Intro/grok-image-4dce748b-6565-4020-be65-95cb727a957b.jpg';
 /** Security / private meeting room (night, airport office). */
 const BG_EMPTY_OFFICE =
   '/assets/images/backgrounds/airport/Gemini_Generated_Image_4danq24danq24dan-clean.png';

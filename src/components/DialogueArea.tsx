@@ -33,7 +33,8 @@ export default function DialogueArea({
     enabled: !isEnded && Boolean(scene),
   });
 
-  if (isEnded || !scene || scene.type === 'looper') return null;
+  if (isEnded || !scene || scene.type === 'looper' || scene.type === 'video')
+    return null;
 
   return (
     <div className={`flex-1 min-h-0 flex flex-col ${compact ? 'px-4 py-3' : 'vn-padding vn-content-area'}`}>

@@ -46,6 +46,21 @@ const BG_UNBUTTONING_HER = '/assets/images/flashback/BG_unbuttoningher.jpg';
 const BG_LIFTS_HER_UP_HEAVY = '/assets/images/flashback/BG_liftsherup_heavy.jpg';
 const BG_HIP_KISS1 = '/assets/images/flashback/hip_kiss1.jpg';
 
+// ── Flashback videos ──
+const VID_ASS_GRIND = '/assets/images/flashback/video/ass grinding.mp4';
+const VID_KISS_BEST = '/assets/images/flashback/video/kissBest.mp4';
+const VID_KISS_TEST = '/assets/images/flashback/video/kisstest.mp4';
+const VID_FB_A =
+  '/assets/images/flashback/video/grok-video-0a8a6d79-52b1-4f3f-82c1-1b76d68ae724.mp4';
+const VID_FB_B =
+  '/assets/images/flashback/video/grok-video-5ee6690b-9e42-453d-8ca0-5134dadef017.mp4';
+const VID_FB_B2 =
+  '/assets/images/flashback/video/grok-video-5ee6690b-9e42-453d-8ca0-5134dadef017 (1).mp4';
+const VID_SUCK_SOFT_MP4 =
+  '/assets/images/flashback/suck/suck loop 1/tmpb42ewi5d.mp4';
+const VID_SUCK_HARD_MP4 =
+  '/assets/images/flashback/suck/suck loop 1/tmph80b21q0.mp4';
+
 export const flashbackScenes = {
   flashback_title: {
     page: 'flashback',
@@ -242,32 +257,16 @@ export const flashbackScenes = {
 
   flashback_suck_loop: {
     page: 'flashback',
-    type: 'narration',
-    text: [
+    type: 'video',
+    video: VID_SUCK_SOFT_MP4,
+    poster: BG_SUCK_SOFT,
+    location: 'Hotel Suite - Flashback',
+    lines: [
       'Before she could react, he pulled the satin aside and took her soft breast into his mouth.',
       'Warm. Full. He sucked in a slow, hungry rhythm she could not ignore.',
-    ],
-    image: BG_SUCK_SOFT,
-    next: 'flashback_suck_loop_ayesha',
-  },
-
-  flashback_suck_loop_ayesha: {
-    page: 'flashback',
-    type: 'dialogue',
-    speaker: 'Ayesha',
-    text: 'A-ah… Richard…',
-    location: 'Hotel Suite - Flashback',
-    image: BG_SUCK_SOFT,
-    next: 'flashback_suck_loop_end',
-  },
-
-  flashback_suck_loop_end: {
-    page: 'flashback',
-    type: 'narration',
-    text: [
+      { speaker: 'Ayesha', text: 'A-ah… Richard…' },
       'He did not stop. Another pull of his mouth — deeper — and for a moment the queen forgot how to rule.',
     ],
-    image: BG_SUCK_SOFT,
     next: 'flashback_suck_reaction_1',
   },
 
@@ -294,12 +293,13 @@ export const flashbackScenes = {
 
   /**
    * She tries to take control — he sucks harder.
-   * Looper: suckhard.gif + multi-line dialogue until Finish.
+   * Video loop + multi-line dialogue until Finish.
    */
   flashback_suck_hard: {
     page: 'flashback',
-    type: 'looper',
-    background: BG_SUCK_HARD,
+    type: 'video',
+    video: VID_SUCK_HARD_MP4,
+    poster: BG_SUCK_HARD,
     location: 'Hotel Suite - Flashback',
     lines: [
       {
@@ -342,11 +342,12 @@ export const flashbackScenes = {
     next: 'flashback_suck_hard_2',
   },
 
-  /** Hard suck continues — more dialogue on suckhard.gif */
+  /** Hard suck continues — more dialogue on hard suck video */
   flashback_suck_hard_2: {
     page: 'flashback',
-    type: 'looper',
-    background: BG_SUCK_HARD,
+    type: 'video',
+    video: VID_SUCK_HARD_MP4,
+    poster: BG_SUCK_HARD,
     location: 'Hotel Suite - Flashback',
     lines: [
       {
@@ -402,105 +403,95 @@ export const flashbackScenes = {
 
   flashback_almost_kiss: {
     page: 'flashback',
-    type: 'narration',
-    text: [
+    type: 'video',
+    video: VID_KISS_TEST,
+    poster: BG_GOING_FOR_KISS,
+    location: 'Hotel Suite - Flashback',
+    lines: [
       'He rose to meet her mouth — so close she felt his breath.',
       'For one heartbeat, the dominant woman looked like she might let him have the kiss.',
     ],
-    image: BG_GOING_FOR_KISS,
     next: 'flashback_pins_him',
   },
 
   // —— Act 3: Ayesha regains control (jealousy + grind) ——
   flashback_pins_him: {
     page: 'flashback',
-    type: 'narration',
-    text: [
+    type: 'video',
+    video: VID_FB_A,
+    poster: BG_PIN_DOWN,
+    location: 'Hotel Suite - Flashback',
+    lines: [
       'Then she moved — fast, fluid, merciless.',
       'Richard was on his back before he understood what happened, wrists pinned where she wanted them.',
     ],
-    image: BG_PIN_DOWN,
-    next: 'flashback_grind_up',
+    next: 'flashback_grind',
   },
 
-  flashback_grind_up: {
+  /** Combined grind beats on looping ass-grind video */
+  flashback_grind: {
     page: 'flashback',
-    type: 'narration',
-    text: [
+    type: 'video',
+    video: VID_ASS_GRIND,
+    poster: BG_GRIND_UP,
+    location: 'Hotel Suite - Flashback',
+    lines: [
       'She lifted her hips — soft satin dragging up the length of him.',
-    ],
-    image: BG_GRIND_UP,
-    next: 'flashback_grind_down',
-  },
-
-  flashback_grind_down: {
-    page: 'flashback',
-    type: 'narration',
-    text: [
       'Then she dropped — heavy, slow — grinding down until she was flush in his lap.',
-    ],
-    image: BG_GRIND_DOWN,
-    next: 'flashback_grind_up_2',
-  },
-
-  flashback_grind_up_2: {
-    page: 'flashback',
-    type: 'narration',
-    text: [
       'Up again. Same cruel pace. Close enough to ruin him. Slow enough to make him beg.',
     ],
-    image: BG_GRIND_UP_2,
     next: 'flashback_close_tease_narr',
   },
 
   flashback_close_tease_narr: {
     page: 'flashback',
-    type: 'narration',
-    text: [
+    type: 'video',
+    video: VID_FB_B,
+    poster: BG_CLOSE_LIPS_TEASE,
+    location: 'Hotel Suite - Flashback',
+    lines: [
       'Her lips hovered a breath from his — close enough to ache — then she drew back just enough to watch him want it.',
       'A teasing smile. Cruel. Satisfied.',
     ],
-    image: BG_CLOSE_LIPS_TEASE,
     next: 'flashback_close_tease',
   },
 
   flashback_close_tease: {
     page: 'flashback',
-    type: 'dialogue',
-    speaker: 'Ayesha',
-    text: 'Two weeks without this… or her in your cabin. You tell me which one you chose.',
+    type: 'video',
+    video: VID_FB_B2,
+    poster: BG_CLOSE_LIPS_TEASE,
     location: 'Hotel Suite - Flashback',
-    image: BG_CLOSE_LIPS_TEASE,
-    next: 'flashback_close_tease_richard',
+    lines: [
+      {
+        speaker: 'Ayesha',
+        text: 'Two weeks without this… or her in your cabin. You tell me which one you chose.',
+      },
+      {
+        speaker: 'Richard',
+        text: "She's not—",
+      },
+      {
+        speaker: 'Ayesha',
+        text: "Shhhh...I don't want her name in your mouth tonight.",
+      },
+    ],
+    next: 'flashback_kiss',
   },
 
-  flashback_close_tease_richard: {
+  flashback_kiss: {
     page: 'flashback',
-    type: 'dialogue',
-    speaker: 'Richard',
-    text: "She's not—",
+    type: 'video',
+    video: VID_KISS_BEST,
+    poster: BG_DEEP_KISS,
     location: 'Hotel Suite - Flashback',
-    image: BG_CLOSE_LIPS,
-    next: 'flashback_close_tease_ayesha',
-  },
-
-  flashback_close_tease_ayesha: {
-    page: 'flashback',
-    type: 'dialogue',
-    speaker: 'Ayesha',
-    text: "Shhhh...I don't want her name in your mouth tonight.",
-    location: 'Hotel Suite - Flashback',
-    image: BG_DEEP_KISS,
-    next: 'flashback_close_whisper',
-  },
-
-  flashback_close_whisper: {
-    page: 'flashback',
-    type: 'dialogue',
-    speaker: 'Ayesha',
-    text: "Those people downstairs could never have what I have. I'm the only one who deserves to be here with you.",
-    location: 'Hotel Suite - Flashback',
-    image: BG_CLOSE_KISS,
+    lines: [
+      {
+        speaker: 'Ayesha',
+        text: "Those people downstairs could never have what I have. I'm the only one who deserves to be here with you.",
+      },
+      'Their mouths met — slow at first, then deep, claiming.',
+    ],
     next: 'flashback_undress',
   },
 

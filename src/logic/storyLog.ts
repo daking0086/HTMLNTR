@@ -45,7 +45,7 @@ export function sceneToLogEntry(scene: Scene | undefined, sceneKey: SceneKey): S
     };
   }
 
-  if (scene.type === 'looper') {
+  if (scene.type === 'looper' || scene.type === 'video') {
     const text = scene.lines
       .map((line) => (typeof line === 'string' ? line : line.text))
       .join('\n\n');
