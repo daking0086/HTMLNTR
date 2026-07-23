@@ -1,9 +1,13 @@
 import type { Scenes } from '../../types/game';
 
-const AYESHA = '/assets/images/ayesha/ayesha_profile.png';
+const AYESHA =
+  '/assets/images/Intro/grok-image-4dce748b-6565-4020-be65-95cb727a957b.jpg';
 
-/** Scene backgrounds — paths are relative to the public/ folder. */
-const BG_AIRPORT_OUTSIDE = '/assets/images/backgrounds/airport/airport.png';
+/** Empty night terminal — officers vs Ayesha (character layer on top). */
+const BG_AIRPORT_OUTSIDE =
+  '/assets/images/backgrounds/airport/1784762897390_edit_2365791017690.png';
+/** Long empty skybridge — drag / haul beat. */
+const BG_SKYBRIDGE = '/assets/images/backgrounds/airport/IMG_20260723_053255.jpg';
 
 export const airportScenes = {
   // ── Outside: officers vs Ayesha (character layer) ──
@@ -141,7 +145,7 @@ export const airportScenes = {
       'Before she can take a step of her own, they take her arms.',
       'The terminal is half-dead — empty chairs, shuttered kiosks, no one close enough to help.',
     ],
-    image: BG_AIRPORT_OUTSIDE,
+    image: BG_SKYBRIDGE,
     characters: ['ayesha', 'officer-1', 'officer-2'],
     next: 'airport_drag_ayesha',
   },
@@ -153,7 +157,7 @@ export const airportScenes = {
     portrait: AYESHA,
     text: 'Hey— wait! Let me go! I said I would walk!',
     location: 'Outside the Airport - Night',
-    image: BG_AIRPORT_OUTSIDE,
+    image: BG_SKYBRIDGE,
     characters: ['ayesha', 'officer-1', 'officer-2'],
     next: 'airport_silenced',
   },
@@ -164,17 +168,15 @@ export const airportScenes = {
     speaker: 'Officer 1',
     text: "Woman, I prefer you stay quiet. It's just a quick procedure. Comply — and this will be over soon.",
     location: 'Outside the Airport - Night',
-    image: BG_AIRPORT_OUTSIDE,
+    image: BG_SKYBRIDGE,
     characters: ['ayesha', 'officer-1', 'officer-2'],
     next: 'airport_drag_backshot',
   },
 
   /**
-   * ART — airport_drag_backshot / officersDragAyeshaBack.png
-   * Backshot: two officers dragging Ayesha toward a side door.
-   * She faces forward; they glance at each other over her shoulders and smile —
-   * cunning, shared, predatory. Night terminal almost empty.
-   * public/assets/images/backgrounds/airport/officersDragAyeshaBack.png
+   * ART — dedicated drag backshot still missing:
+   * two officers haul Ayesha away; they smile at each other behind her.
+   * Until then: empty skybridge BG + narration.
    */
   airport_drag_backshot: {
     page: 'airport',
@@ -183,7 +185,7 @@ export const airportScenes = {
       'They haul her toward a side corridor.',
       'Behind her back — where she cannot see — the two officers look at each other and smile.',
     ],
-    image: BG_AIRPORT_OUTSIDE,
+    image: BG_SKYBRIDGE,
     next: 'interrogation_enter',
   },
 } satisfies Scenes;

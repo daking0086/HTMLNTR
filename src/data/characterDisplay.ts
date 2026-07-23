@@ -18,7 +18,8 @@ import { isImagesEnabled } from '../logic/sceneVisual';
 export const AYESHA_SPRITE: StageCharacter = {
   id: 'ayesha',
   name: 'Ayesha',
-  imageSrc: '/assets/images/ayesha/ayesha_profile.png',
+  imageSrc:
+    '/assets/images/Intro/grok-image-527467af-2627-404b-a02b-86deeb8c95ce.jpg',
   slot: 'left',
   heightPercent: 100,
   maxWidth: '70%',

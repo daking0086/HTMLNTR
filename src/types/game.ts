@@ -61,7 +61,19 @@ export interface LooperScene extends BaseScene {
   next?: string;
 }
 
-export type Scene = NarrationScene | DialogueScene | LooperScene;
+/** Looping video background + multi-line dialogue (VideoLooper component). */
+export interface VideoScene extends BaseScene {
+  type: 'video';
+  /** Mp4 / webm path (public/) */
+  video: string;
+  /** Optional poster still while the video loads */
+  poster?: string;
+  lines: Array<{ text: string; speaker?: string } | string>;
+  location?: string;
+  next?: string;
+}
+
+export type Scene = NarrationScene | DialogueScene | LooperScene | VideoScene;
 
 export type SceneKey = string;
 

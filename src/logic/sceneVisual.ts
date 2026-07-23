@@ -21,6 +21,10 @@ export function getScenePicture(scene: Scene | undefined): string | null {
     return resolveSceneImage(scene.background);
   }
 
+  if (scene.type === 'video') {
+    return resolveSceneImage(scene.poster);
+  }
+
   if (scene.imageLoop?.length) {
     return resolveSceneImage(scene.image ?? scene.imageLoop[0]);
   }
