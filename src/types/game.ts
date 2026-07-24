@@ -30,6 +30,8 @@ interface BaseScene {
   imageLoop?: string[];
   /** Ms per frame when imageLoop is set (default ~110) */
   imageLoopMs?: number;
+  /** Play stage enter animation (soft fade/blur) when this CG appears */
+  fadeIn?: boolean;
 }
 
 export interface NarrationScene extends BaseScene {
@@ -61,19 +63,7 @@ export interface LooperScene extends BaseScene {
   next?: string;
 }
 
-/** Looping video background + multi-line dialogue (VideoLooper component). */
-export interface VideoScene extends BaseScene {
-  type: 'video';
-  /** Mp4 / webm path (public/) */
-  video: string;
-  /** Optional poster still while the video loads */
-  poster?: string;
-  lines: Array<{ text: string; speaker?: string } | string>;
-  location?: string;
-  next?: string;
-}
-
-export type Scene = NarrationScene | DialogueScene | LooperScene | VideoScene;
+export type Scene = NarrationScene | DialogueScene | LooperScene;
 
 export type SceneKey = string;
 

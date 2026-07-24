@@ -11,12 +11,6 @@ function pushSceneUrls(scene: Scene | undefined, out: string[]): void {
     return;
   }
 
-  if (scene.type === 'video') {
-    if (scene.poster) out.push(assetUrl(scene.poster));
-    // Video files are streamed; only prefetch poster stills here.
-    return;
-  }
-
   if (scene.image) out.push(assetUrl(scene.image));
   if (scene.imageLoop?.length) {
     for (const path of scene.imageLoop) out.push(assetUrl(path));

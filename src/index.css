@@ -10,8 +10,8 @@
     --border-subtle: #2a2f38;
     --vn-max-width: 1200px;
     --vn-game-height: min(85vh, 960px);
-    --vn-stage-ratio: 7;
-    --vn-script-ratio: 3;
+    --vn-stage-ratio: 7.5;
+    --vn-script-ratio: 2.5;
     --vn-min-height: 504px;
     --vn-story-log-max-height: 10.8rem;
     --vn-story-log-compact-max-height: 4.5rem;

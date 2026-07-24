@@ -6,7 +6,6 @@ import EndScreen from './EndScreen';
 import SceneStage from './game/SceneStage';
 import SceneCharacterStage from './game/SceneCharacterStage';
 import Looper from './game/Looper';
-import VideoLooper from './game/VideoLooper';
 import { getActiveSpeakerId, getSceneStageCharacters } from '../logic/sceneCharacters';
 import { prefetchSceneImages } from '../logic/sceneImagePrefetch';
 import {
@@ -16,15 +15,7 @@ import {
   isImagesEnabled,
 } from '../logic/sceneVisual';
 import { assetUrl } from '../utils/assetUrl';
-import type {
-  Choice,
-  DialogueScene,
-  LooperScene,
-  Release,
-  Scene,
-  SceneKey,
-  VideoScene,
-} from '../types/game';
+import type { Choice, DialogueScene, LooperScene, Release, Scene, SceneKey } from '../types/game';
 import type { TextSpeed } from '../types/app';
 import { TEXT_SPEED_MS } from '../types/app';
 
@@ -52,14 +43,6 @@ function isLooperScene(scene: Scene | undefined): scene is LooperScene {
   return scene?.type === 'looper';
 }
 
-function isVideoScene(scene: Scene | undefined): scene is VideoScene {
-  return scene?.type === 'video';
-}
-
-function isLineAdvanceScene(scene: Scene | undefined): boolean {
-  return isLooperScene(scene) || isVideoScene(scene);
-}
-
 export default function GameContainer({
   release,
   currentScene,
@@ -81,7 +64,7 @@ export default function GameContainer({
 
   const showNarrationContinue =
     !isEnded &&
-    !isLineAdvanceScene(currentScene) &&
+    !isLooperScene(currentScene) &&
     (currentScene?.type === 'narration' ||
       (currentScene?.type === 'dialogue' &&
         !!currentScene.next &&
@@ -131,21 +114,6 @@ export default function GameContainer({
           textSizeClass={textSizeClass}
           onComplete={onContinue}
         />
-      ) : isVideoScene(currentScene) ? (
-        <VideoLooper
-          key={currentSceneKey}
-          videoSrc={isImagesEnabled() ? assetUrl(currentScene.video) : ''}
-          posterSrc={
-            isImagesEnabled() && currentScene.poster
-              ? assetUrl(currentScene.poster)
-              : undefined
-          }
-          lines={currentScene.lines}
-          sceneLocation={currentScene.location ?? sceneLocation}
-          dayIndicator={dayIndicator}
-          textSizeClass={textSizeClass}
-          onComplete={onContinue}
-        />
       ) : (
         <>
           {stageCharacters.length > 0 ? (
@@ -163,6 +131,7 @@ export default function GameContainer({
               loopIntervalMs={pictureLoopMs}
               sceneLocation={sceneLocation}
               dayIndicator={dayIndicator}
+              motionBlur={Boolean(currentScene?.fadeIn)}
             />
           )}
 
