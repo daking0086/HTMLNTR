@@ -167,10 +167,7 @@ export default function App() {
         onContinue: () => {
           if (game.gameState.isEnded) return;
           // Looper scenes own multi-line Continue — do not jump to scene.next
-          if (
-            game.currentScene?.type === 'looper' ||
-            game.currentScene?.type === 'video'
-          ) {
+          if (game.currentScene?.type === 'looper') {
             requestLooperContinue();
             return;
           }
